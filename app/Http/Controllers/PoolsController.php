@@ -13,7 +13,8 @@ class PoolsController extends Controller
      */
     public function assetsAllPools()
     {
-        $response = Http::withOptions(['verify' => false])->get('https://api.covalenthq.com/v1/56/networks/pancakeswap_v2/assets/');
-        return view('pools', ['pools_assets' => $response]);
+        $response_panecake = Http::withOptions(['verify' => false])->get('https://api.covalenthq.com/v1/56/networks/pancakeswap_v2/assets/');
+        $response_uniswap = Http::withOptions(['verify' => false])->get('https://api.covalenthq.com/v1/1/networks/uniswap_v2/assets/');
+        return view('pools', ['pools_assets_panecake' => $response_panecake, 'pools_assets_uniswap' => $response_uniswap]);
     }
 }

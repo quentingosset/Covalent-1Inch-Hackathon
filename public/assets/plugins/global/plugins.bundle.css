@@ -2102,7 +2102,7 @@
 .select2-container--classic.select2-container--open .select2-dropdown {
   border-color: #5897fb; }
 
-/*! nouislider - 14.6.4 - 3/18/2021 */
+/*! nouislider - 14.7.0 - 4/6/2021 */
 /* Functional styling;
  * These styles are required for noUiSlider to function.
  * You don't need to change these rules to apply your design.
@@ -4057,10 +4057,10 @@ button.toast-close-button {
 }
 
 .swal2-popup.swal2-toast {
-  flex-direction: row;
-  align-items: center;
+  flex-direction: column;
+  align-items: stretch;
   width: auto;
-  padding: 0.625em;
+  padding: 1.25em;
   overflow-y: hidden;
   background: #fff;
   box-shadow: 0 0 0.625em #d9d9d9;
@@ -4072,7 +4072,18 @@ button.toast-close-button {
 .swal2-popup.swal2-toast .swal2-title {
   flex-grow: 1;
   justify-content: flex-start;
-  margin: 0 0.6em;
+  margin: 0 0.625em;
+  font-size: 1em;
+}
+.swal2-popup.swal2-toast .swal2-loading {
+  justify-content: center;
+}
+.swal2-popup.swal2-toast .swal2-input {
+  height: 2em;
+  margin: 0.3125em auto;
+  font-size: 1em;
+}
+.swal2-popup.swal2-toast .swal2-validation-message {
   font-size: 1em;
 }
 .swal2-popup.swal2-toast .swal2-footer {
@@ -4088,14 +4099,22 @@ button.toast-close-button {
 }
 .swal2-popup.swal2-toast .swal2-content {
   justify-content: flex-start;
+  margin: 0 0.625em;
   padding: 0;
   font-size: 1em;
+  text-align: initial;
+}
+.swal2-popup.swal2-toast .swal2-html-container {
+  padding: 0.625em 0 0;
+}
+.swal2-popup.swal2-toast .swal2-html-container:empty {
+  padding: 0;
 }
 .swal2-popup.swal2-toast .swal2-icon {
   width: 2em;
   min-width: 2em;
   height: 2em;
-  margin: 0;
+  margin: 0 0.5em 0 0;
 }
 .swal2-popup.swal2-toast .swal2-icon .swal2-icon-content {
   display: flex;
@@ -4123,10 +4142,14 @@ button.toast-close-button {
   right: 0.3125em;
 }
 .swal2-popup.swal2-toast .swal2-actions {
+  flex: 1;
   flex-basis: auto !important;
+  align-self: stretch;
   width: auto;
+  height: 2.2em;
   height: auto;
   margin: 0 0.3125em;
+  margin-top: 0.3125em;
   padding: 0;
 }
 .swal2-popup.swal2-toast .swal2-styled {
@@ -4352,7 +4375,7 @@ button.toast-close-button {
   justify-content: center;
   width: 100%;
   margin: 1.25em auto 0;
-  padding: 0 1.6em;
+  padding: 0;
 }
 .swal2-actions:not(.swal2-loading) .swal2-styled[disabled] {
   opacity: 0.4;
@@ -4394,7 +4417,7 @@ button.toast-close-button {
   background: initial;
   background-color: #2778c4;
   color: #fff;
-  font-size: 1.0625em;
+  font-size: 1em;
 }
 .swal2-styled.swal2-deny {
   border: 0;
@@ -4402,7 +4425,7 @@ button.toast-close-button {
   background: initial;
   background-color: #d14529;
   color: #fff;
-  font-size: 1.0625em;
+  font-size: 1em;
 }
 .swal2-styled.swal2-cancel {
   border: 0;
@@ -4410,7 +4433,7 @@ button.toast-close-button {
   background: initial;
   background-color: #757575;
   color: #fff;
-  font-size: 1.0625em;
+  font-size: 1em;
 }
 .swal2-styled:focus {
   outline: none;
@@ -4607,6 +4630,7 @@ button.toast-close-button {
 }
 .swal2-radio input,
 .swal2-checkbox input {
+  flex-shrink: 0;
   margin: 0 0.4em;
 }
 
@@ -5402,27 +5426,6 @@ body.swal2-toast-shown .swal2-container.swal2-bottom-end, body.swal2-toast-shown
   right: 0;
   bottom: 0;
   left: auto;
-}
-body.swal2-toast-column .swal2-toast {
-  flex-direction: column;
-  align-items: stretch;
-}
-body.swal2-toast-column .swal2-toast .swal2-actions {
-  flex: 1;
-  align-self: stretch;
-  height: 2.2em;
-  margin-top: 0.3125em;
-}
-body.swal2-toast-column .swal2-toast .swal2-loading {
-  justify-content: center;
-}
-body.swal2-toast-column .swal2-toast .swal2-input {
-  height: 2em;
-  margin: 0.3125em auto;
-  font-size: 1em;
-}
-body.swal2-toast-column .swal2-toast .swal2-validation-message {
-  font-size: 1em;
 }
 .la,
 .las,
@@ -13352,6 +13355,51 @@ url(fonts/bootstrap-icons.woff) format("woff");
 .bi-youtube::before { content: "\f62b"; }
 .bi-zoom-in::before { content: "\f62c"; }
 .bi-zoom-out::before { content: "\f62d"; }
+.bi-bank::before { content: "\f62e"; }
+.bi-bank2::before { content: "\f62f"; }
+.bi-bell-slash-fill::before { content: "\f630"; }
+.bi-bell-slash::before { content: "\f631"; }
+.bi-cash-coin::before { content: "\f632"; }
+.bi-check-lg::before { content: "\f633"; }
+.bi-coin::before { content: "\f634"; }
+.bi-currency-bitcoin::before { content: "\f635"; }
+.bi-currency-dollar::before { content: "\f636"; }
+.bi-currency-euro::before { content: "\f637"; }
+.bi-currency-exchange::before { content: "\f638"; }
+.bi-currency-pound::before { content: "\f639"; }
+.bi-currency-yen::before { content: "\f63a"; }
+.bi-dash-lg::before { content: "\f63b"; }
+.bi-exclamation-lg::before { content: "\f63c"; }
+.bi-file-earmark-pdf-fill::before { content: "\f63d"; }
+.bi-file-earmark-pdf::before { content: "\f63e"; }
+.bi-file-pdf-fill::before { content: "\f63f"; }
+.bi-file-pdf::before { content: "\f640"; }
+.bi-gender-ambiguous::before { content: "\f641"; }
+.bi-gender-female::before { content: "\f642"; }
+.bi-gender-male::before { content: "\f643"; }
+.bi-gender-trans::before { content: "\f644"; }
+.bi-headset-vr::before { content: "\f645"; }
+.bi-info-lg::before { content: "\f646"; }
+.bi-mastodon::before { content: "\f647"; }
+.bi-messenger::before { content: "\f648"; }
+.bi-piggy-bank-fill::before { content: "\f649"; }
+.bi-piggy-bank::before { content: "\f64a"; }
+.bi-pin-map-fill::before { content: "\f64b"; }
+.bi-pin-map::before { content: "\f64c"; }
+.bi-plus-lg::before { content: "\f64d"; }
+.bi-question-lg::before { content: "\f64e"; }
+.bi-recycle::before { content: "\f64f"; }
+.bi-reddit::before { content: "\f650"; }
+.bi-safe-fill::before { content: "\f651"; }
+.bi-safe2-fill::before { content: "\f652"; }
+.bi-safe2::before { content: "\f653"; }
+.bi-sd-card-fill::before { content: "\f654"; }
+.bi-sd-card::before { content: "\f655"; }
+.bi-skype::before { content: "\f656"; }
+.bi-slash-lg::before { content: "\f657"; }
+.bi-translate::before { content: "\f658"; }
+.bi-x-lg::before { content: "\f659"; }
+.bi-safe::before { content: "\f65a"; }
 
 /*!
  * Font Awesome Free 5.15.3 by @fontawesome - https://fontawesome.com

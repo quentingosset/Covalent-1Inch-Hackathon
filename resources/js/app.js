@@ -7,9 +7,18 @@
 require('./bootstrap');
 
 window.Vue = require('vue').default;
-import Vue2Filters from 'vue2-filters'
+import Vue2Filters from 'vue2-filters';
+import VueLazyload from 'vue-lazyload';
 
 Vue.use(Vue2Filters)
+const loadimage = './assets/media/logos/empty-token.webp'
+const errorimage = './assets/media/logos/empty-token.webp'
+Vue.use(VueLazyload, {
+    preLoad: 1.3,
+    error: errorimage,
+    loading: loadimage,
+    attempt: 1
+})
 /**
  * The following block of code may be used to automatically register your
  * Vue components. It will recursively scan this directory for the Vue

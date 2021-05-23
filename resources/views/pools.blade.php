@@ -4763,7 +4763,8 @@
                                     </div>
                                     <!--end::Toolbar-->
                                     <!--begin::Row-->
-                                    <pool-list v-bind:pools="{{$pools_assets}}"></pool-list>
+                                    <pool-list v-bind:pools="{{$pools_assets_uniswap}}" :pool_name="'uniswap'"></pool-list>
+                                    <pool-list v-bind:pools="{{$pools_assets_panecake}}" :pool_name="'panecake'"></pool-list>
                                     <div class="row g-6 g-xl-9">
                                         <!--begin::Col-->
                                         <div class="col-md-6 col-xl-4">
