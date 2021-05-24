@@ -4619,7 +4619,7 @@
                                 <!--begin::Container-->
                                 <div id="kt_content_container" class="container">
                                     <!--begin::Stats-->
-                                    <div class="row g-6 g-xl-9">
+                                    <div class="row g-6 g-xl-9 mb-5">
                                         <div class="col-lg-6 col-xxl-4">
                                             <!--begin::Card-->
                                             <div class="card h-100">
@@ -4738,6 +4738,229 @@
                                         </div>
                                     </div>
                                     <!--end::Stats-->
+                                    <!--begin::Form-->
+                                    <form action="#">
+                                        <!--begin::Card-->
+                                        <div class="card mb-7">
+                                            <!--begin::Card body-->
+                                            <div class="card-body">
+                                                <!--begin::Compact form-->
+                                                <div class="d-flex align-items-center">
+                                                    <!--begin::Input group-->
+                                                    <div class="position-relative w-md-400px me-md-2">
+                                                        <!--begin::Svg Icon | path: icons/stockholm/General/Search.svg-->
+                                                        <span class="svg-icon svg-icon-3 svg-icon-gray-500 position-absolute top-50 translate-middle ms-6">
+														<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
+															<g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+																<rect x="0" y="0" width="24" height="24" />
+																<path d="M14.2928932,16.7071068 C13.9023689,16.3165825 13.9023689,15.6834175 14.2928932,15.2928932 C14.6834175,14.9023689 15.3165825,14.9023689 15.7071068,15.2928932 L19.7071068,19.2928932 C20.0976311,19.6834175 20.0976311,20.3165825 19.7071068,20.7071068 C19.3165825,21.0976311 18.6834175,21.0976311 18.2928932,20.7071068 L14.2928932,16.7071068 Z" fill="#000000" fill-rule="nonzero" opacity="0.3" />
+																<path d="M11,16 C13.7614237,16 16,13.7614237 16,11 C16,8.23857625 13.7614237,6 11,6 C8.23857625,6 6,8.23857625 6,11 C6,13.7614237 8.23857625,16 11,16 Z M11,18 C7.13400675,18 4,14.8659932 4,11 C4,7.13400675 7.13400675,4 11,4 C14.8659932,4 18,7.13400675 18,11 C18,14.8659932 14.8659932,18 11,18 Z" fill="#000000" fill-rule="nonzero" />
+															</g>
+														</svg>
+													</span>
+                                                        <!--end::Svg Icon-->
+                                                        <input type="text" class="form-control form-control-solid ps-10" name="search" value="" placeholder="Pool name : ETH-USDT ; WBNB - WUSD" />
+                                                    </div>
+                                                    <!--end::Input group-->
+                                                    <!--begin:Action-->
+                                                    <div class="d-flex align-items-center">
+                                                        <button type="submit" class="btn btn-primary me-5">Search</button>
+                                                        <a id="kt_horizontal_search_advanced_link" class="btn btn-link" data-bs-toggle="collapse" href="#kt_advanced_search_form">Advanced Search</a>
+                                                    </div>
+                                                    <!--end:Action-->
+                                                </div>
+                                                <!--end::Compact form-->
+                                                <!--begin::Advance form-->
+                                                <div class="collapse" id="kt_advanced_search_form">
+                                                    <!--begin::Separator-->
+                                                    <div class="separator separator-dashed mt-9 mb-6"></div>
+                                                    <!--end::Separator-->
+                                                    <!--begin::Row-->
+                                                    <div class="row g-8 mb-8">
+                                                        <!--begin::Col-->
+                                                        <div class="col-xxl-7">
+                                                            <label class="fs-6 form-label fw-bolder text-dark">Tags</label>
+                                                            <input type="text" class="form-control form-control form-control-solid" name="tags" value="products, users, events" />
+                                                        </div>
+                                                        <!--end::Col-->
+                                                        <!--begin::Col-->
+                                                        <div class="col-xxl-5">
+                                                            <!--begin::Row-->
+                                                            <div class="row g-8">
+                                                                <!--begin::Col-->
+                                                                <div class="col-lg-6">
+                                                                    <label class="fs-6 form-label fw-bolder text-dark">Team Type</label>
+                                                                    <!--begin::Select-->
+                                                                    <select class="form-select form-select-solid" data-control="select2" data-placeholder="In Progress" data-hide-search="true">
+                                                                        <option value=""></option>
+                                                                        <option value="1">Not started</option>
+                                                                        <option value="2" selected="selected">In Progress</option>
+                                                                        <option value="3">Done</option>
+                                                                    </select>
+                                                                    <!--end::Select-->
+                                                                </div>
+                                                                <!--end::Col-->
+                                                                <!--begin::Col-->
+                                                                <div class="col-lg-6">
+                                                                    <label class="fs-6 form-label fw-bolder text-dark">Select Group</label>
+                                                                    <!--begin::Radio group-->
+                                                                    <div class="nav-group nav-group-fluid">
+                                                                        <!--begin::Option-->
+                                                                        <label>
+                                                                            <input type="radio" class="btn-check" name="type" value="has" checked="checked" />
+                                                                            <span class="btn btn-sm btn-color-muted btn-active btn-active-primary fw-bolder px-4">All</span>
+                                                                        </label>
+                                                                        <!--end::Option-->
+                                                                        <!--begin::Option-->
+                                                                        <label>
+                                                                            <input type="radio" class="btn-check" name="type" value="users" />
+                                                                            <span class="btn btn-sm btn-color-muted btn-active btn-active-primary fw-bolder px-4">Users</span>
+                                                                        </label>
+                                                                        <!--end::Option-->
+                                                                        <!--begin::Option-->
+                                                                        <label>
+                                                                            <input type="radio" class="btn-check" name="type" value="orders" />
+                                                                            <span class="btn btn-sm btn-color-muted btn-active btn-active-primary fw-bolder px-4">Orders</span>
+                                                                        </label>
+                                                                        <!--end::Option-->
+                                                                    </div>
+                                                                    <!--end::Radio group-->
+                                                                </div>
+                                                                <!--end::Col-->
+                                                            </div>
+                                                            <!--end::Row-->
+                                                        </div>
+                                                        <!--end::Col-->
+                                                    </div>
+                                                    <!--end::Row-->
+                                                    <!--begin::Row-->
+                                                    <div class="row g-8">
+                                                        <!--begin::Col-->
+                                                        <div class="col-xxl-7">
+                                                            <!--begin::Row-->
+                                                            <div class="row g-8">
+                                                                <!--begin::Col-->
+                                                                <div class="col-lg-4">
+                                                                    <label class="fs-6 form-label fw-bolder text-dark">Min. Amount</label>
+                                                                    <!--begin::Dialer-->
+                                                                    <div class="position-relative" data-kt-dialer="true" data-kt-dialer-min="1000" data-kt-dialer-max="50000" data-kt-dialer-step="1000" data-kt-dialer-prefix="$" data-kt-dialer-decimals="2">
+                                                                        <!--begin::Decrease control-->
+                                                                        <button type="button" class="btn btn-icon btn-active-color-gray-700 position-absolute translate-middle-y top-50 start-0" data-kt-dialer-control="decrease">
+                                                                            <!--begin::Svg Icon | path: icons/stockholm/Code/Minus.svg-->
+                                                                            <span class="svg-icon svg-icon-1">
+																			<svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
+																				<circle fill="#000000" opacity="0.3" cx="12" cy="12" r="10" />
+																				<rect fill="#000000" x="6" y="11" width="12" height="2" rx="1" />
+																			</svg>
+																		</span>
+                                                                            <!--end::Svg Icon-->
+                                                                        </button>
+                                                                        <!--end::Decrease control-->
+                                                                        <!--begin::Input control-->
+                                                                        <input type="text" class="form-control form-control-solid border-0 ps-12" data-kt-dialer-control="input" placeholder="Amount" name="manageBudget" readonly="readonly" value="$50" />
+                                                                        <!--end::Input control-->
+                                                                        <!--begin::Increase control-->
+                                                                        <button type="button" class="btn btn-icon btn-active-color-gray-700 position-absolute translate-middle-y top-50 end-0" data-kt-dialer-control="increase">
+                                                                            <!--begin::Svg Icon | path: icons/stockholm/Code/Plus.svg-->
+                                                                            <span class="svg-icon svg-icon-1">
+																			<svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
+																				<circle fill="#000000" opacity="0.3" cx="12" cy="12" r="10" />
+																				<path d="M11,11 L11,7 C11,6.44771525 11.4477153,6 12,6 C12.5522847,6 13,6.44771525 13,7 L13,11 L17,11 C17.5522847,11 18,11.4477153 18,12 C18,12.5522847 17.5522847,13 17,13 L13,13 L13,17 C13,17.5522847 12.5522847,18 12,18 C11.4477153,18 11,17.5522847 11,17 L11,13 L7,13 C6.44771525,13 6,12.5522847 6,12 C6,11.4477153 6.44771525,11 7,11 L11,11 Z" fill="#000000" />
+																			</svg>
+																		</span>
+                                                                            <!--end::Svg Icon-->
+                                                                        </button>
+                                                                        <!--end::Increase control-->
+                                                                    </div>
+                                                                    <!--end::Dialer-->
+                                                                </div>
+                                                                <!--end::Col-->
+                                                                <!--begin::Col-->
+                                                                <div class="col-lg-4">
+                                                                    <label class="fs-6 form-label fw-bolder text-dark">Max. Amount</label>
+                                                                    <!--begin::Dialer-->
+                                                                    <div class="position-relative" data-kt-dialer="true" data-kt-dialer-min="1000" data-kt-dialer-max="50000" data-kt-dialer-step="1000" data-kt-dialer-prefix="$" data-kt-dialer-decimals="2">
+                                                                        <!--begin::Decrease control-->
+                                                                        <button type="button" class="btn btn-icon btn-active-color-gray-700 position-absolute translate-middle-y top-50 start-0" data-kt-dialer-control="decrease">
+                                                                            <!--begin::Svg Icon | path: icons/stockholm/Code/Minus.svg-->
+                                                                            <span class="svg-icon svg-icon-1">
+																			<svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
+																				<circle fill="#000000" opacity="0.3" cx="12" cy="12" r="10" />
+																				<rect fill="#000000" x="6" y="11" width="12" height="2" rx="1" />
+																			</svg>
+																		</span>
+                                                                            <!--end::Svg Icon-->
+                                                                        </button>
+                                                                        <!--end::Decrease control-->
+                                                                        <!--begin::Input control-->
+                                                                        <input type="text" class="form-control form-control-solid border-0 ps-12" data-kt-dialer-control="input" placeholder="Amount" name="manageBudget" readonly="readonly" value="$100" />
+                                                                        <!--end::Input control-->
+                                                                        <!--begin::Increase control-->
+                                                                        <button type="button" class="btn btn-icon btn-active-color-gray-700 position-absolute translate-middle-y top-50 end-0" data-kt-dialer-control="increase">
+                                                                            <!--begin::Svg Icon | path: icons/stockholm/Code/Plus.svg-->
+                                                                            <span class="svg-icon svg-icon-1">
+																			<svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
+																				<circle fill="#000000" opacity="0.3" cx="12" cy="12" r="10" />
+																				<path d="M11,11 L11,7 C11,6.44771525 11.4477153,6 12,6 C12.5522847,6 13,6.44771525 13,7 L13,11 L17,11 C17.5522847,11 18,11.4477153 18,12 C18,12.5522847 17.5522847,13 17,13 L13,13 L13,17 C13,17.5522847 12.5522847,18 12,18 C11.4477153,18 11,17.5522847 11,17 L11,13 L7,13 C6.44771525,13 6,12.5522847 6,12 C6,11.4477153 6.44771525,11 7,11 L11,11 Z" fill="#000000" />
+																			</svg>
+																		</span>
+                                                                            <!--end::Svg Icon-->
+                                                                        </button>
+                                                                        <!--end::Increase control-->
+                                                                    </div>
+                                                                    <!--end::Dialer-->
+                                                                </div>
+                                                                <!--end::Col-->
+                                                                <!--begin::Col-->
+                                                                <div class="col-lg-4">
+                                                                    <label class="fs-6 form-label fw-bolder text-dark">Team Size</label>
+                                                                    <input type="text" class="form-control form-control form-control-solid" name="city" />
+                                                                </div>
+                                                                <!--end::Col-->
+                                                            </div>
+                                                            <!--end::Row-->
+                                                        </div>
+                                                        <!--end::Col-->
+                                                        <!--begin::Col-->
+                                                        <div class="col-xxl-5">
+                                                            <!--begin::Row-->
+                                                            <div class="row g-8">
+                                                                <!--begin::Col-->
+                                                                <div class="col-lg-6">
+                                                                    <label class="fs-6 form-label fw-bolder text-dark">Category</label>
+                                                                    <!--begin::Select-->
+                                                                    <select class="form-select form-select-solid" data-control="select2" data-placeholder="In Progress" data-hide-search="true">
+                                                                        <option value=""></option>
+                                                                        <option value="1">Not started</option>
+                                                                        <option value="2" selected="selected">Select</option>
+                                                                        <option value="3">Done</option>
+                                                                    </select>
+                                                                    <!--end::Select-->
+                                                                </div>
+                                                                <!--end::Col-->
+                                                                <!--begin::Col-->
+                                                                <div class="col-lg-6">
+                                                                    <label class="fs-6 form-label fw-bolder text-dark">Status</label>
+                                                                    <div class="form-check form-switch form-check-custom form-check-solid mt-1">
+                                                                        <input class="form-check-input" type="checkbox" value="" id="flexSwitchChecked" checked="checked" />
+                                                                        <label class="form-check-label" for="flexSwitchChecked">Active</label>
+                                                                    </div>
+                                                                </div>
+                                                                <!--end::Col-->
+                                                            </div>
+                                                            <!--end::Row-->
+                                                        </div>
+                                                        <!--end::Col-->
+                                                    </div>
+                                                    <!--end::Row-->
+                                                </div>
+                                                <!--end::Advance form-->
+                                            </div>
+                                            <!--end::Card body-->
+                                        </div>
+                                        <!--end::Card-->
+                                    </form>
+                                    <!--end::Form-->
                                     <!--begin::Toolbar-->
                                     <div class="d-flex flex-wrap flex-stack my-5">
                                         <!--begin::Heading-->
@@ -4764,7 +4987,7 @@
                                     <!--end::Toolbar-->
                                     <!--begin::Row-->
                                     <pool-list v-bind:pools="{{$pools_assets_uniswap}}" :pool_name="'uniswap'"></pool-list>
-                                    <pool-list v-bind:pools="{{$pools_assets_panecake}}" :pool_name="'panecake'"></pool-list>
+                                    <!--<pool-list v-bind:pools="{{$pools_assets_panecake}}" :pool_name="'panecake'"></pool-list>-->
                                     <div class="row g-6 g-xl-9">
                                         <!--begin::Col-->
                                         <div class="col-md-6 col-xl-4">
@@ -9857,6 +10080,7 @@
 		<script src="assets/js/scripts.bundle.js"></script>
 		<!--end::Global Javascript Bundle-->
 		<!--begin::Page Custom Javascript(used by this page)-->
+        <script src="assets/js/custom/pages/search/horizontal.js"></script>
 		<script src="assets/js/custom/modals/offer-a-deal.bundle.js"></script>
 		<script src="assets/js/custom/pages/projects/list/list.js"></script>
 		<script src="assets/js/custom/modals/users-search.js"></script>

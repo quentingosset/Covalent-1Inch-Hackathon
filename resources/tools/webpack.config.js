@@ -34,8 +34,8 @@ let demo = getDemos(rootPath)[0];
 
 // under demo paths
 const demoPath = rootPath + (demo ? '/' + demo : '');
-//const distPath = demoPath + '/dist';
-const distPath = path.resolve(__dirname, '../../public');
+const distPath = demoPath + '/dist';
+//const distPath = path.resolve(__dirname, '../../public');
 
 const assetDistPath = distPath + '/assets';
 const srcPath = demoPath + '/src';

@@ -14,4 +14,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', [PoolsController::class, 'assetsAllPools']);
+Route::get('/', function (){
+    return view('welcome');
+});
+
+//Route::get('/', [PoolsController::class, 'assetsAllPools']);
+Route::get('/uniswap', [PoolsController::class, 'uniswap_general']);
