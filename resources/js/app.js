@@ -32,6 +32,8 @@ Vue.use(VueLazyload, {
 
 Vue.component('pool-list', require('./components/Pool-list.vue').default);
 Vue.component('pool-list-item', require('./components/Pool-list-item.vue').default);
+Vue.component('tokens-list-symbol-group', require('./components/token/tokens-list-symbol-group.vue').default);
+Vue.component('tokens-list-symbol-group-item', require('./components/token/tokens-list-symbol-group-item.vue').default);
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to

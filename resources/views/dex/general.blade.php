@@ -10,7 +10,8 @@ Like: www.facebook.com/keenthemes
 License: For each use you must have a valid license purchased only from above link in order to legally use the theme for your project.-->
 <html lang="en">
 <!--begin::Head-->
-<head><base href="../../">
+<head>
+    <base href="../../">
     <meta charset="utf-8" />
     <title>Metronic Theme | Keenthemes</title>
     <meta name="description" content="Craft admin dashboard live demo. Check out all the features of the admin panel. A large number of settings, additional services and widgets." />
@@ -190,51 +191,11 @@ License: For each use you must have a valid license purchased only from above li
                                             </a>
                                         </div>
                                         <div class="menu-item">
-                                            <a class="menu-link" href="pages/projects/targets.html">
+                                            <a class="menu-link" href="/pools">
 														<span class="menu-bullet">
 															<span class="bullet bullet-dot"></span>
 														</span>
-                                                <span class="menu-title">Targets</span>
-                                            </a>
-                                        </div>
-                                        <div class="menu-item">
-                                            <a class="menu-link" href="pages/projects/budget.html">
-														<span class="menu-bullet">
-															<span class="bullet bullet-dot"></span>
-														</span>
-                                                <span class="menu-title">Budget</span>
-                                            </a>
-                                        </div>
-                                        <div class="menu-item">
-                                            <a class="menu-link" href="pages/projects/users.html">
-														<span class="menu-bullet">
-															<span class="bullet bullet-dot"></span>
-														</span>
-                                                <span class="menu-title">Users</span>
-                                            </a>
-                                        </div>
-                                        <div class="menu-item">
-                                            <a class="menu-link" href="pages/projects/files.html">
-														<span class="menu-bullet">
-															<span class="bullet bullet-dot"></span>
-														</span>
-                                                <span class="menu-title">Files</span>
-                                            </a>
-                                        </div>
-                                        <div class="menu-item">
-                                            <a class="menu-link" href="pages/projects/activity.html">
-														<span class="menu-bullet">
-															<span class="bullet bullet-dot"></span>
-														</span>
-                                                <span class="menu-title">Activity</span>
-                                            </a>
-                                        </div>
-                                        <div class="menu-item">
-                                            <a class="menu-link" href="pages/projects/settings.html">
-														<span class="menu-bullet">
-															<span class="bullet bullet-dot"></span>
-														</span>
-                                                <span class="menu-title">Settings</span>
+                                                <span class="menu-title">Pools</span>
                                             </a>
                                         </div>
                                     </div>
@@ -1488,7 +1449,7 @@ License: For each use you must have a valid license purchased only from above li
 																			<span class="menu-bullet">
 																				<span class="bullet bullet-dot"></span>
 																			</span>
-                                                                    <span class="menu-title">Targets</span>
+                                                                    <span class="menu-title">Pools</span>
                                                                 </a>
                                                             </div>
                                                             <div class="menu-item">
@@ -4625,9 +4586,23 @@ License: For each use you must have a valid license purchased only from above li
                 </div>
                 <!--end::Toolbar-->
                 <!--begin::Post-->
-                <div class="post d-flex flex-column-fluid" id="kt_post">
+                <div class="post d-flex flex-column-fluid " id="kt_post">
                     <!--begin::Container-->
                     <div id="kt_content_container" class="container">
+                        <!--begin::Notice-->
+                        <div class="notice d-flex bg-light-warning rounded border-warning border border-dashed p-6 mb-6">
+                            <!--begin::Wrapper-->
+                            <div class="d-flex flex-stack flex-grow-1">
+                                <!--begin::Content-->
+                                <div class="fw-bold">
+                                    <div class="fs-6 text-gray-600">
+                                        Some data do not correspond to the statistical value of the pools. This is still under development.</div>
+                                </div>
+                                <!--end::Content-->
+                            </div>
+                            <!--end::Wrapper-->
+                        </div>
+                        <!--end::Notice-->
                         <!--begin::Navbar-->
                         <div class="card mb-6 mb-xl-9">
                             <div class="card-body pt-9 pb-0">
@@ -4647,7 +4622,7 @@ License: For each use you must have a valid license purchased only from above li
                                                 <!--begin::Status-->
                                                 <div class="d-flex align-items-center mb-1">
                                                     <a href="#" class="text-gray-800 text-hover-primary fs-2 fw-bolder me-3">{{$general_data['name']}}</a>
-                                                    <span class="badge badge-light-success me-auto">In Progress</span>
+                                                    <!--<span class="badge badge-light-success me-auto">In Progress</span>-->
                                                 </div>
                                                 <!--end::Status-->
                                                 <!--begin::Description-->
@@ -4656,86 +4631,48 @@ License: For each use you must have a valid license purchased only from above li
                                             </div>
                                             <!--end::Details-->
                                             <!--begin::Actions-->
-                                            <div class="d-flex mb-4">
-                                                <a href="#" class="btn btn-sm btn-bg-light btn-active-color-primary me-3" data-bs-toggle="modal" data-bs-target="#kt_modal_users_search">Add User</a>
-                                                <a href="#" class="btn btn-sm btn-primary me-3" data-bs-toggle="modal" data-bs-target="#kt_modal_new_target">Add Target</a>
+                                            <div class="d-flex my-4">
+                                                <a href="#" class="btn btn-sm btn-light me-2" id="kt_user_follow_button">
+                                                    <span class="svg-icon svg-icon-5">
+                                                        <svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
+                                                            <path d="M10.9,2 C11.4522847,2 11.9,2.44771525 11.9,3 C11.9,3.55228475 11.4522847,4 10.9,4 L6,4 C4.8954305,4 4,4.8954305 4,6 L4,18 C4,19.1045695 4.8954305,20 6,20 L18,20 C19.1045695,20 20,19.1045695 20,18 L20,16 C20,15.4477153 20.4477153,15 21,15 C21.5522847,15 22,15.4477153 22,16 L22,18 C22,20.209139 20.209139,22 18,22 L6,22 C3.790861,22 2,20.209139 2,18 L2,6 C2,3.790861 3.790861,2 6,2 L10.9,2 Z" fill="#000000" fill-rule="nonzero" opacity="0.3"/>
+                                                            <path d="M24.0690576,13.8973499 C24.0690576,13.1346331 24.2324969,10.1246259 21.8580869,7.73659596 C20.2600137,6.12944276 17.8683518,5.85068794 15.0081639,5.72356847 L15.0081639,1.83791555 C15.0081639,1.42370199 14.6723775,1.08791555 14.2581639,1.08791555 C14.0718537,1.08791555 13.892213,1.15726043 13.7542266,1.28244533 L7.24606818,7.18681951 C6.93929045,7.46513642 6.9162184,7.93944934 7.1945353,8.24622707 C7.20914339,8.26232899 7.22444472,8.27778811 7.24039592,8.29256062 L13.7485543,14.3198102 C14.0524605,14.6012598 14.5269852,14.5830551 14.8084348,14.2791489 C14.9368329,14.140506 15.0081639,13.9585047 15.0081639,13.7695393 L15.0081639,9.90761477 C16.8241562,9.95755456 18.1177196,10.0730665 19.2929978,10.4469645 C20.9778605,10.9829796 22.2816185,12.4994368 23.2042718,14.996336 L23.2043032,14.9963244 C23.313119,15.2908036 23.5938372,15.4863432 23.9077781,15.4863432 L24.0735976,15.4863432 C24.0735976,15.0278051 24.0690576,14.3014082 24.0690576,13.8973499 Z" fill="#000000" fill-rule="nonzero" transform="translate(15.536799, 8.287129) scale(-1, 1) translate(-15.536799, -8.287129) "/>
+                                                        </svg>
+                                                    </span>
+                                                    Open #{{$general_data['name']}}
+                                                </a>
                                                 <!--begin::Menu-->
                                                 <div class="me-0">
                                                     <button class="btn btn-sm btn-icon btn-bg-light btn-active-color-primary" data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end" data-kt-menu-flip="top-end">
-                                                        <i class="bi bi-three-dots fs-3"></i>
+                                                        <span class="symbol symbol-20px symbol-md-20px">
+                                                            <img class="symbol symbol-20px" src="https://etherscan.io/images/ethereum-icon.png"/>
+                                                        </span>
                                                     </button>
                                                     <!--begin::Menu 3-->
-                                                    <div class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-800 menu-state-bg-light-primary fw-bold w-200px py-3" data-kt-menu="true">
+                                                    <div class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-800 menu-state-bg-light-primary fw-bold w-250px py-3 m-1" data-kt-menu="true">
                                                         <!--begin::Heading-->
                                                         <div class="menu-item px-3">
-                                                            <div class="menu-content text-muted pb-2 px-3 fs-7 text-uppercase">Payments</div>
+                                                            <div class="menu-content text-muted pb-2 px-3 fs-7 text-uppercase">Network</div>
                                                         </div>
                                                         <!--end::Heading-->
                                                         <!--begin::Menu item-->
                                                         <div class="menu-item px-3">
-                                                            <a href="#" class="menu-link px-3">Create Invoice</a>
+                                                            <a href="{{route('dex', [56,strtolower($general_data['name'])])}}" class="menu-link flex-stack px-3">
+                                                                <span class="symbol symbol-20px symbol-md-20px">
+                                                                    <img class="symbol symbol-20px" src="https://etherscan.io/images/brands/bscscan-logo.png"/>
+                                                                </span>
+                                                                Binance Smart Chain
+                                                                <i class="fas fa-exclamation-circle ms-2 fs-7" data-bs-toggle="tooltip" title="" data-bs-original-title="Specify a target name for future usage and reference" aria-label="Specify a target name for future usage and reference"></i></a>
                                                         </div>
                                                         <!--end::Menu item-->
                                                         <!--begin::Menu item-->
                                                         <div class="menu-item px-3">
-                                                            <a href="#" class="menu-link flex-stack px-3">Create Payment
-                                                                <i class="fas fa-exclamation-circle ms-2 fs-7" data-bs-toggle="tooltip" title="Specify a target name for future usage and reference"></i></a>
-                                                        </div>
-                                                        <!--end::Menu item-->
-                                                        <!--begin::Menu item-->
-                                                        <div class="menu-item px-3">
-                                                            <a href="#" class="menu-link px-3">Generate Bill</a>
-                                                        </div>
-                                                        <!--end::Menu item-->
-                                                        <!--begin::Menu item-->
-                                                        <div class="menu-item px-3" data-kt-menu-trigger="hover" data-kt-menu-placement="left-start" data-kt-menu-flip="center, top">
-                                                            <a href="#" class="menu-link px-3">
-                                                                <span class="menu-title">Subscription</span>
-                                                                <span class="menu-arrow"></span>
-                                                            </a>
-                                                            <!--begin::Menu sub-->
-                                                            <div class="menu-sub menu-sub-dropdown w-175px py-4">
-                                                                <!--begin::Menu item-->
-                                                                <div class="menu-item px-3">
-                                                                    <a href="#" class="menu-link px-3">Plans</a>
-                                                                </div>
-                                                                <!--end::Menu item-->
-                                                                <!--begin::Menu item-->
-                                                                <div class="menu-item px-3">
-                                                                    <a href="#" class="menu-link px-3">Billing</a>
-                                                                </div>
-                                                                <!--end::Menu item-->
-                                                                <!--begin::Menu item-->
-                                                                <div class="menu-item px-3">
-                                                                    <a href="#" class="menu-link px-3">Statements</a>
-                                                                </div>
-                                                                <!--end::Menu item-->
-                                                                <!--begin::Menu separator-->
-                                                                <div class="separator my-2"></div>
-                                                                <!--end::Menu separator-->
-                                                                <!--begin::Menu item-->
-                                                                <div class="menu-item px-3">
-                                                                    <div class="menu-content px-3">
-                                                                        <!--begin::Switch-->
-                                                                        <label class="form-check form-switch form-check-custom form-check-solid">
-                                                                            <!--begin::Input-->
-                                                                            <input class="form-check-input w-30px h-20px" type="checkbox" value="1" checked="checked" name="notifications" />
-                                                                            <!--end::Input-->
-                                                                            <!--end::Label-->
-                                                                            <span class="form-check-label text-muted fs-6">Recuring</span>
-                                                                            <!--end::Label-->
-                                                                        </label>
-                                                                        <!--end::Switch-->
-                                                                    </div>
-                                                                </div>
-                                                                <!--end::Menu item-->
-                                                            </div>
-                                                            <!--end::Menu sub-->
-                                                        </div>
-                                                        <!--end::Menu item-->
-                                                        <!--begin::Menu item-->
-                                                        <div class="menu-item px-3 my-1">
-                                                            <a href="#" class="menu-link px-3">Settings</a>
+                                                            <a href="{{route('dex', [1,strtolower($general_data['name'])])}}" class="menu-link flex-stack px-3">
+                                                                <span class="symbol symbol-20px symbol-md-20px">
+                                                                    <img class="symbol symbol-20px" src="https://etherscan.io/images/ethereum-icon.png"/>
+                                                                </span>
+                                                                Ethereum
+                                                                <i class="fas fa-exclamation-circle ms-2 fs-7" data-bs-toggle="tooltip" title="" data-bs-original-title="Specify a target name for future usage and reference" aria-label="Specify a target name for future usage and reference"></i></a>
                                                         </div>
                                                         <!--end::Menu item-->
                                                     </div>
@@ -4754,20 +4691,8 @@ License: For each use you must have a valid license purchased only from above li
                                                 <div class="border border-gray-300 border-dashed rounded min-w-125px py-3 px-4 me-6 mb-3">
                                                     <!--begin::Number-->
                                                     <div class="d-flex align-items-center">
-                                                        <div class="fs-4 fw-bolder">29 Jan, 2021</div>
-                                                    </div>
-                                                    <!--end::Number-->
-                                                    <!--begin::Label-->
-                                                    <div class="fw-bold fs-6 text-gray-400">Due Date</div>
-                                                    <!--end::Label-->
-                                                </div>
-                                                <!--end::Stat-->
-                                                <!--begin::Stat-->
-                                                <div class="border border-gray-300 border-dashed rounded min-w-125px py-3 px-4 me-6 mb-3">
-                                                    <!--begin::Number-->
-                                                    <div class="d-flex align-items-center">
                                                         <!--begin::Svg Icon | path: icons/stockholm/Navigation/Arrow-down.svg-->
-                                                        <span class="svg-icon svg-icon-3 svg-icon-danger me-2">
+                                                        <!--<span class="svg-icon svg-icon-3 svg-icon-danger me-2">
 																	<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
 																		<g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
 																			<polygon points="0 0 24 0 24 24 0 24" />
@@ -4775,13 +4700,13 @@ License: For each use you must have a valid license purchased only from above li
 																			<path d="M6.70710678,18.7071068 C6.31658249,19.0976311 5.68341751,19.0976311 5.29289322,18.7071068 C4.90236893,18.3165825 4.90236893,17.6834175 5.29289322,17.2928932 L11.2928932,11.2928932 C11.6714722,10.9143143 12.2810586,10.9010687 12.6757246,11.2628459 L18.6757246,16.7628459 C19.0828436,17.1360383 19.1103465,17.7686056 18.7371541,18.1757246 C18.3639617,18.5828436 17.7313944,18.6103465 17.3242754,18.2371541 L12.0300757,13.3841378 L6.70710678,18.7071068 Z" fill="#000000" fill-rule="nonzero" transform="translate(12.000003, 14.999999) scale(1, -1) translate(-12.000003, -14.999999)" />
 																		</g>
 																	</svg>
-																</span>
+																</span>-->
                                                         <!--end::Svg Icon-->
-                                                        <div class="fs-4 fw-bolder" data-kt-countup="true" data-kt-countup-value="{{$general_data['total_liquidity_quote']}}" data-kt-countup-prefix="$">0</div>
+                                                        <div class="fs-4 fw-bolder" data-kt-countup="true" data-kt-countup-decimal-places="2" data-kt-countup-value="{{$general_data['total_liquidity_quote']}}" data-kt-countup-prefix="$">0</div>
                                                     </div>
                                                     <!--end::Number-->
                                                     <!--begin::Label-->
-                                                    <div class="fw-bold fs-6 text-gray-400">Open Tasks</div>
+                                                    <div class="fw-bold fs-6 text-gray-400">Total Liquidity</div>
                                                     <!--end::Label-->
                                                 </div>
                                                 <!--end::Stat-->
@@ -4790,7 +4715,7 @@ License: For each use you must have a valid license purchased only from above li
                                                     <!--begin::Number-->
                                                     <div class="d-flex align-items-center">
                                                         <!--begin::Svg Icon | path: icons/stockholm/Navigation/Arrow-up.svg-->
-                                                        <span class="svg-icon svg-icon-3 svg-icon-success me-2">
+                                                        <!--<span class="svg-icon svg-icon-3 svg-icon-success me-2">
 																	<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
 																		<g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
 																			<polygon points="0 0 24 0 24 24 0 24" />
@@ -4798,67 +4723,43 @@ License: For each use you must have a valid license purchased only from above li
 																			<path d="M6.70710678,12.7071068 C6.31658249,13.0976311 5.68341751,13.0976311 5.29289322,12.7071068 C4.90236893,12.3165825 4.90236893,11.6834175 5.29289322,11.2928932 L11.2928932,5.29289322 C11.6714722,4.91431428 12.2810586,4.90106866 12.6757246,5.26284586 L18.6757246,10.7628459 C19.0828436,11.1360383 19.1103465,11.7686056 18.7371541,12.1757246 C18.3639617,12.5828436 17.7313944,12.6103465 17.3242754,12.2371541 L12.0300757,7.38413782 L6.70710678,12.7071068 Z" fill="#000000" fill-rule="nonzero" />
 																		</g>
 																	</svg>
-																</span>
+																</span>-->
                                                         <!--end::Svg Icon-->
-                                                        <div class="fs-4 fw-bolder" data-kt-countup="true" data-kt-countup-value="{{$general_data['volume_24h_quote']}}" data-kt-countup-prefix="$">0</div>
+                                                        <div class="fs-4 fw-bolder" data-kt-countup="true" data-kt-countup-decimal-places="2" data-kt-countup-value="{{$general_data['volume_24h_quote']}}" data-kt-countup-prefix="$">0</div>
                                                     </div>
                                                     <!--end::Number-->
                                                     <!--begin::Label-->
-                                                    <div class="fw-bold fs-6 text-gray-400">Budget Spent</div>
+                                                    <div class="fw-bold fs-6 text-gray-400">Volume (24h)</div>
+                                                    <!--end::Label-->
+                                                </div>
+                                                <!--end::Stat-->
+                                                <!--begin::Stat-->
+                                                <div class="border border-gray-300 border-dashed rounded min-w-125px py-3 px-4 me-6 mb-3">
+                                                    <!--begin::Number-->
+                                                    <div class="d-flex align-items-center">
+                                                        <div class="fs-4 fw-bolder" data-kt-countup="true" data-kt-countup-decimal-places="2" data-kt-countup-value="{{$general_data['fee_24h_quote']}}" data-kt-countup-prefix="$"data-kt-countup-prefix="$">0</div>
+                                                    </div>
+                                                    <!--end::Number-->
+                                                    <!--begin::Label-->
+                                                    <div class="fw-bold fs-6 text-gray-400">Fee (24h)</div>
+                                                    <!--end::Label-->
+                                                </div>
+                                                <!--end::Stat-->
+                                                <!--begin::Stat-->
+                                                <div class="border border-gray-300 border-dashed rounded min-w-125px py-3 px-4 me-6 mb-3">
+                                                    <!--begin::Number-->
+                                                    <div class="d-flex align-items-center">
+                                                        <div class="fs-4 fw-bolder" data-kt-countup="true" data-kt-countup-value="{{$general_data['swap_count_24h']}}">0</div>
+                                                    </div>
+                                                    <!--end::Number-->
+                                                    <!--begin::Label-->
+                                                    <div class="fw-bold fs-6 text-gray-400">Total Transaction (24h)</div>
                                                     <!--end::Label-->
                                                 </div>
                                                 <!--end::Stat-->
                                             </div>
                                             <!--end::Stats-->
-                                            <!--begin::Users-->
-                                            <div class="symbol-group symbol-hover mb-3">
-                                                <!--begin::User-->
-                                                <div class="symbol symbol-35px symbol-circle" data-bs-toggle="tooltip" title="Alan Warden">
-                                                    <span class="symbol-label bg-warning text-inverse-warning fw-bolder">A</span>
-                                                </div>
-                                                <!--end::User-->
-                                                <!--begin::User-->
-                                                <div class="symbol symbol-35px symbol-circle" data-bs-toggle="tooltip" title="Michael Eberon">
-                                                    <img alt="Pic" src="assets/media/avatars/150-12.jpg" />
-                                                </div>
-                                                <!--end::User-->
-                                                <!--begin::User-->
-                                                <div class="symbol symbol-35px symbol-circle" data-bs-toggle="tooltip" title="Michelle Swanston">
-                                                    <img alt="Pic" src="assets/media/avatars/150-13.jpg" />
-                                                </div>
-                                                <!--end::User-->
-                                                <!--begin::User-->
-                                                <div class="symbol symbol-35px symbol-circle" data-bs-toggle="tooltip" title="Francis Mitcham">
-                                                    <img alt="Pic" src="assets/media/avatars/150-5.jpg" />
-                                                </div>
-                                                <!--end::User-->
-                                                <!--begin::User-->
-                                                <div class="symbol symbol-35px symbol-circle" data-bs-toggle="tooltip" title="Susan Redwood">
-                                                    <span class="symbol-label bg-primary text-inverse-primary fw-bolder">S</span>
-                                                </div>
-                                                <!--end::User-->
-                                                <!--begin::User-->
-                                                <div class="symbol symbol-35px symbol-circle" data-bs-toggle="tooltip" title="Melody Macy">
-                                                    <img alt="Pic" src="assets/media/avatars/150-3.jpg" />
-                                                </div>
-                                                <!--end::User-->
-                                                <!--begin::User-->
-                                                <div class="symbol symbol-35px symbol-circle" data-bs-toggle="tooltip" title="Perry Matthew">
-                                                    <span class="symbol-label bg-info text-inverse-info fw-bolder">P</span>
-                                                </div>
-                                                <!--end::User-->
-                                                <!--begin::User-->
-                                                <div class="symbol symbol-35px symbol-circle" data-bs-toggle="tooltip" title="Barry Walter">
-                                                    <img alt="Pic" src="assets/media/avatars/150-7.jpg" />
-                                                </div>
-                                                <!--end::User-->
-                                                <!--begin::All users-->
-                                                <a href="#" class="symbol symbol-35px symbol-circle" data-bs-toggle="modal" data-bs-target="#kt_modal_view_users">
-                                                    <span class="symbol-label bg-dark text-white fs-8 fw-bolder" data-bs-toggle="tooltip" data-bs-trigger="hover" title="View more users">+42</span>
-                                                </a>
-                                                <!--end::All users-->
-                                            </div>
-                                            <!--end::Users-->
+
                                         </div>
                                         <!--end::Info-->
                                     </div>
@@ -4872,37 +4773,17 @@ License: For each use you must have a valid license purchased only from above li
                                     <ul class="nav nav-stretch nav-line-tabs nav-line-tabs-2x border-transparent fs-5 fw-bolder flex-nowrap">
                                         <!--begin::Nav item-->
                                         <li class="nav-item">
-                                            <a class="nav-link text-active-primary me-6 active" href="pages/projects/project.html">Overview</a>
+                                            <a class="nav-link text-active-primary me-6 active" href="#">Overview</a>
                                         </li>
                                         <!--end::Nav item-->
                                         <!--begin::Nav item-->
                                         <li class="nav-item">
-                                            <a class="nav-link text-active-primary me-6" href="pages/projects/targets.html">Targets</a>
+                                            <a class="nav-link text-active-primary me-6" href="{{route('dex_pools', [strtolower($general_data['name'])])}}">Pools</a>
                                         </li>
                                         <!--end::Nav item-->
                                         <!--begin::Nav item-->
                                         <li class="nav-item">
-                                            <a class="nav-link text-active-primary me-6" href="pages/projects/budget.html">Budget</a>
-                                        </li>
-                                        <!--end::Nav item-->
-                                        <!--begin::Nav item-->
-                                        <li class="nav-item">
-                                            <a class="nav-link text-active-primary me-6" href="pages/projects/users.html">Users</a>
-                                        </li>
-                                        <!--end::Nav item-->
-                                        <!--begin::Nav item-->
-                                        <li class="nav-item">
-                                            <a class="nav-link text-active-primary me-6" href="pages/projects/files.html">Files</a>
-                                        </li>
-                                        <!--end::Nav item-->
-                                        <!--begin::Nav item-->
-                                        <li class="nav-item">
-                                            <a class="nav-link text-active-primary me-6" href="pages/projects/activity.html">Activity</a>
-                                        </li>
-                                        <!--end::Nav item-->
-                                        <!--begin::Nav item-->
-                                        <li class="nav-item">
-                                            <a class="nav-link text-active-primary me-6" href="pages/projects/settings.html">Settings</a>
+                                            <a class="nav-link text-active-primary me-6" href="{{route('dex_stats', [$general_data['network'], strtolower($general_data['name'])])}}">Stats</a>
                                         </li>
                                         <!--end::Nav item-->
                                     </ul>
@@ -6417,7 +6298,7 @@ License: For each use you must have a valid license purchased only from above li
                         <!--end::Modal - New Target-->
                         <!--end::Modals-->
                         <!--begin::Row-->
-                        <div class="row g-6 g-xl-9">
+                        <div id="app" class="row g-6 g-xl-9">
                             <!--begin::Col-->
                             <div class="col-lg-6">
                                 <!--begin::Summary-->
@@ -6426,13 +6307,13 @@ License: For each use you must have a valid license purchased only from above li
                                     <div class="card-header mt-6">
                                         <!--begin::Card title-->
                                         <div class="card-title flex-column">
-                                            <h3 class="fw-bolder mb-1">Tasks Summary</h3>
-                                            <div class="fs-6 fw-bold text-gray-400">24 Overdue Tasks</div>
+                                            <h3 class="fw-bolder mb-1">Pairs stats</h3>
+                                            <div class="fs-6 fw-bold text-gray-400">{{$general_data['total_pair']}} Pool(s) created on {{$general_data['name']}}</div>
                                         </div>
                                         <!--end::Card title-->
                                         <!--begin::Card toolbar-->
                                         <div class="card-toolbar">
-                                            <a href="#" class="btn btn-light btn-sm">View Tasks</a>
+                                            <a href="#" class="btn btn-light btn-sm">View All Pools</a>
                                         </div>
                                         <!--end::Card toolbar-->
                                     </div>
@@ -6444,8 +6325,8 @@ License: For each use you must have a valid license purchased only from above li
                                             <!--begin::Chart-->
                                             <div class="position-relative d-flex flex-center h-175px w-175px me-15 mb-7">
                                                 <div class="position-absolute translate-middle start-50 top-50 d-flex flex-column flex-center">
-                                                    <span class="fs-2qx fw-bolder">237</span>
-                                                    <span class="fs-6 fw-bold text-gray-400">Total Tasks</span>
+                                                    <span class="fs-2qx fw-bolder">{{$general_data['total_pair']}}</span>
+                                                    <span class="fs-6 fw-bold text-gray-400">Total Pools</span>
                                                 </div>
                                                 <canvas id="project_overview_chart"></canvas>
                                             </div>
@@ -6454,30 +6335,16 @@ License: For each use you must have a valid license purchased only from above li
                                             <div class="d-flex flex-column justify-content-center flex-row-fluid pe-11 mb-5">
                                                 <!--begin::Label-->
                                                 <div class="d-flex fs-6 fw-bold align-items-center mb-3">
-                                                    <div class="bullet bg-primary me-3"></div>
-                                                    <div class="text-gray-400">Active</div>
-                                                    <div class="ms-auto fw-bolder text-gray-700">30</div>
-                                                </div>
-                                                <!--end::Label-->
-                                                <!--begin::Label-->
-                                                <div class="d-flex fs-6 fw-bold align-items-center mb-3">
                                                     <div class="bullet bg-success me-3"></div>
-                                                    <div class="text-gray-400">Completed</div>
-                                                    <div class="ms-auto fw-bolder text-gray-700">45</div>
+                                                    <div class="text-gray-400">Active</div>
+                                                    <div class="ms-auto fw-bolder text-gray-700">{{$general_data['totalActivePool']}}</div>
                                                 </div>
                                                 <!--end::Label-->
                                                 <!--begin::Label-->
                                                 <div class="d-flex fs-6 fw-bold align-items-center mb-3">
                                                     <div class="bullet bg-danger me-3"></div>
-                                                    <div class="text-gray-400">Overdue</div>
-                                                    <div class="ms-auto fw-bolder text-gray-700">0</div>
-                                                </div>
-                                                <!--end::Label-->
-                                                <!--begin::Label-->
-                                                <div class="d-flex fs-6 fw-bold align-items-center">
-                                                    <div class="bullet bg-gray-300 me-3"></div>
-                                                    <div class="text-gray-400">Yet to start</div>
-                                                    <div class="ms-auto fw-bolder text-gray-700">25</div>
+                                                    <div class="text-gray-400">Empty</div>
+                                                    <div class="ms-auto fw-bolder text-gray-700">{{$general_data['totalEmptyPool']}}</div>
                                                 </div>
                                                 <!--end::Label-->
                                             </div>
@@ -6491,7 +6358,8 @@ License: For each use you must have a valid license purchased only from above li
                                                 <!--begin::Content-->
                                                 <div class="fw-bold">
                                                     <div class="fs-6 text-gray-600">
-                                                        <a href="#" class="fw-bolder me-1">Invite New .NET Collaborators</a>to create great outstanding business to business .jsp modutr class scripts</div>
+                                                        <a href="#" class="fw-bolder me-1">Empty pools are pools that have a liquidity rate of 0.</a>
+                                                    </div>
                                                 </div>
                                                 <!--end::Content-->
                                             </div>
@@ -6512,20 +6380,20 @@ License: For each use you must have a valid license purchased only from above li
                                     <div class="card-header mt-6">
                                         <!--begin::Card title-->
                                         <div class="card-title flex-column">
-                                            <h3 class="fw-bolder mb-1">Tasks Over Time</h3>
+                                            <h3 class="fw-bolder mb-1">History</h3>
                                             <!--begin::Labels-->
                                             <div class="fs-6 d-flex text-gray-400 fs-6 fw-bold">
                                                 <!--begin::Label-->
                                                 <div class="d-flex align-items-center me-6">
 														<span class="menu-bullet d-flex align-items-center me-2">
-															<span class="bullet bg-success"></span>
-														</span>Complete</div>
+															<span class="bullet bg-primary"></span>
+														</span>Liquidity</div>
                                                 <!--end::Label-->
                                                 <!--begin::Label-->
                                                 <div class="d-flex align-items-center">
 														<span class="menu-bullet d-flex align-items-center me-2">
-															<span class="bullet bg-primary"></span>
-														</span>Incomplete</div>
+															<span class="bullet bg-success"></span>
+														</span>Volume</div>
                                                 <!--end::Label-->
                                             </div>
                                             <!--end::Labels-->
@@ -6556,2138 +6424,6 @@ License: For each use you must have a valid license purchased only from above li
                                 <!--end::Graph-->
                             </div>
                             <!--end::Col-->
-                            <!--begin::Col-->
-                            <div class="col-lg-6">
-                                <!--begin::Card-->
-                                <div class="card card-flush h-lg-100">
-                                    <!--begin::Card header-->
-                                    <div class="card-header mt-6">
-                                        <!--begin::Card title-->
-                                        <div class="card-title flex-column">
-                                            <h3 class="fw-bolder mb-1">What's on the road?</h3>
-                                            <div class="fs-6 text-gray-400">Total 482 participants</div>
-                                        </div>
-                                        <!--end::Card title-->
-                                        <!--begin::Card toolbar-->
-                                        <div class="card-toolbar">
-                                            <!--begin::Select-->
-                                            <select name="status" data-control="select2" data-hide-search="true" class="form-select form-select-solid form-select-sm fw-bolder w-100px">
-                                                <option value="1" selected="selected">Options</option>
-                                                <option value="2">Option 1</option>
-                                                <option value="3">Option 2</option>
-                                                <option value="4">Option 3</option>
-                                            </select>
-                                            <!--end::Select-->
-                                        </div>
-                                        <!--end::Card toolbar-->
-                                    </div>
-                                    <!--end::Card header-->
-                                    <!--begin::Card body-->
-                                    <div class="card-body p-9 pt-4">
-                                        <!--begin::Dates-->
-                                        <ul class="nav nav-pills d-flex flex-nowrap hover-scroll-x py-2">
-                                            <!--begin::Date-->
-                                            <li class="nav-item me-1">
-                                                <a class="nav-link btn d-flex flex-column flex-center rounded-pill min-w-45px me-2 py-4 px-3 btn-active-primary" data-bs-toggle="tab" href="#kt_schedule_day_0">
-                                                    <span class="opacity-50 fs-7 fw-bold">Su</span>
-                                                    <span class="fs-6 fw-bolder">22</span>
-                                                </a>
-                                            </li>
-                                            <!--end::Date-->
-                                            <!--begin::Date-->
-                                            <li class="nav-item me-1">
-                                                <a class="nav-link btn d-flex flex-column flex-center rounded-pill min-w-45px me-2 py-4 px-3 btn-active-primary active" data-bs-toggle="tab" href="#kt_schedule_day_1">
-                                                    <span class="opacity-50 fs-7 fw-bold">Mo</span>
-                                                    <span class="fs-6 fw-bolder">23</span>
-                                                </a>
-                                            </li>
-                                            <!--end::Date-->
-                                            <!--begin::Date-->
-                                            <li class="nav-item me-1">
-                                                <a class="nav-link btn d-flex flex-column flex-center rounded-pill min-w-45px me-2 py-4 px-3 btn-active-primary" data-bs-toggle="tab" href="#kt_schedule_day_2">
-                                                    <span class="opacity-50 fs-7 fw-bold">Tu</span>
-                                                    <span class="fs-6 fw-bolder">24</span>
-                                                </a>
-                                            </li>
-                                            <!--end::Date-->
-                                            <!--begin::Date-->
-                                            <li class="nav-item me-1">
-                                                <a class="nav-link btn d-flex flex-column flex-center rounded-pill min-w-45px me-2 py-4 px-3 btn-active-primary" data-bs-toggle="tab" href="#kt_schedule_day_3">
-                                                    <span class="opacity-50 fs-7 fw-bold">We</span>
-                                                    <span class="fs-6 fw-bolder">25</span>
-                                                </a>
-                                            </li>
-                                            <!--end::Date-->
-                                            <!--begin::Date-->
-                                            <li class="nav-item me-1">
-                                                <a class="nav-link btn d-flex flex-column flex-center rounded-pill min-w-45px me-2 py-4 px-3 btn-active-primary" data-bs-toggle="tab" href="#kt_schedule_day_4">
-                                                    <span class="opacity-50 fs-7 fw-bold">Th</span>
-                                                    <span class="fs-6 fw-bolder">26</span>
-                                                </a>
-                                            </li>
-                                            <!--end::Date-->
-                                            <!--begin::Date-->
-                                            <li class="nav-item me-1">
-                                                <a class="nav-link btn d-flex flex-column flex-center rounded-pill min-w-45px me-2 py-4 px-3 btn-active-primary" data-bs-toggle="tab" href="#kt_schedule_day_5">
-                                                    <span class="opacity-50 fs-7 fw-bold">Fr</span>
-                                                    <span class="fs-6 fw-bolder">27</span>
-                                                </a>
-                                            </li>
-                                            <!--end::Date-->
-                                            <!--begin::Date-->
-                                            <li class="nav-item me-1">
-                                                <a class="nav-link btn d-flex flex-column flex-center rounded-pill min-w-45px me-2 py-4 px-3 btn-active-primary" data-bs-toggle="tab" href="#kt_schedule_day_6">
-                                                    <span class="opacity-50 fs-7 fw-bold">Sa</span>
-                                                    <span class="fs-6 fw-bolder">28</span>
-                                                </a>
-                                            </li>
-                                            <!--end::Date-->
-                                            <!--begin::Date-->
-                                            <li class="nav-item me-1">
-                                                <a class="nav-link btn d-flex flex-column flex-center rounded-pill min-w-45px me-2 py-4 px-3 btn-active-primary" data-bs-toggle="tab" href="#kt_schedule_day_7">
-                                                    <span class="opacity-50 fs-7 fw-bold">Su</span>
-                                                    <span class="fs-6 fw-bolder">29</span>
-                                                </a>
-                                            </li>
-                                            <!--end::Date-->
-                                            <!--begin::Date-->
-                                            <li class="nav-item me-1">
-                                                <a class="nav-link btn d-flex flex-column flex-center rounded-pill min-w-45px me-2 py-4 px-3 btn-active-primary" data-bs-toggle="tab" href="#kt_schedule_day_8">
-                                                    <span class="opacity-50 fs-7 fw-bold">Mo</span>
-                                                    <span class="fs-6 fw-bolder">30</span>
-                                                </a>
-                                            </li>
-                                            <!--end::Date-->
-                                            <!--begin::Date-->
-                                            <li class="nav-item me-1">
-                                                <a class="nav-link btn d-flex flex-column flex-center rounded-pill min-w-45px me-2 py-4 px-3 btn-active-primary" data-bs-toggle="tab" href="#kt_schedule_day_9">
-                                                    <span class="opacity-50 fs-7 fw-bold">Tu</span>
-                                                    <span class="fs-6 fw-bolder">31</span>
-                                                </a>
-                                            </li>
-                                            <!--end::Date-->
-                                        </ul>
-                                        <!--end::Dates-->
-                                        <!--begin::Tab Content-->
-                                        <div class="tab-content">
-                                            <!--begin::Day-->
-                                            <div id="kt_schedule_day_0" class="tab-pane fade show">
-                                                <!--begin::Time-->
-                                                <div class="d-flex flex-stack position-relative mt-8">
-                                                    <!--begin::Bar-->
-                                                    <div class="position-absolute h-100 w-4px bg-secondary rounded top-0 start-0"></div>
-                                                    <!--end::Bar-->
-                                                    <!--begin::Info-->
-                                                    <div class="fw-bold ms-5 text-gray-600">
-                                                        <!--begin::Time-->
-                                                        <div class="fs-5">9:00 - 10:00
-                                                            <span class="fs-7 text-gray-400 text-uppercase">am</span></div>
-                                                        <!--end::Time-->
-                                                        <!--begin::Title-->
-                                                        <a href="#" class="fs-5 fw-bolder text-gray-800 text-hover-primary mb-2">Development Team Capacity Review</a>
-                                                        <!--end::Title-->
-                                                        <!--begin::User-->
-                                                        <div class="text-gray-400">Lead by
-                                                            <a href="#">Karina Clarke</a></div>
-                                                        <!--end::User-->
-                                                    </div>
-                                                    <!--end::Info-->
-                                                    <!--begin::Action-->
-                                                    <a href="#" class="btn btn-bg-light btn-active-color-primary btn-sm">View</a>
-                                                    <!--end::Action-->
-                                                </div>
-                                                <!--end::Time-->
-                                                <!--begin::Time-->
-                                                <div class="d-flex flex-stack position-relative mt-8">
-                                                    <!--begin::Bar-->
-                                                    <div class="position-absolute h-100 w-4px bg-secondary rounded top-0 start-0"></div>
-                                                    <!--end::Bar-->
-                                                    <!--begin::Info-->
-                                                    <div class="fw-bold ms-5 text-gray-600">
-                                                        <!--begin::Time-->
-                                                        <div class="fs-5">12:00 - 13:00
-                                                            <span class="fs-7 text-gray-400 text-uppercase">pm</span></div>
-                                                        <!--end::Time-->
-                                                        <!--begin::Title-->
-                                                        <a href="#" class="fs-5 fw-bolder text-gray-800 text-hover-primary mb-2">Weekly Team Stand-Up</a>
-                                                        <!--end::Title-->
-                                                        <!--begin::User-->
-                                                        <div class="text-gray-400">Lead by
-                                                            <a href="#">Mark Randall</a></div>
-                                                        <!--end::User-->
-                                                    </div>
-                                                    <!--end::Info-->
-                                                    <!--begin::Action-->
-                                                    <a href="#" class="btn btn-bg-light btn-active-color-primary btn-sm">View</a>
-                                                    <!--end::Action-->
-                                                </div>
-                                                <!--end::Time-->
-                                                <!--begin::Time-->
-                                                <div class="d-flex flex-stack position-relative mt-8">
-                                                    <!--begin::Bar-->
-                                                    <div class="position-absolute h-100 w-4px bg-secondary rounded top-0 start-0"></div>
-                                                    <!--end::Bar-->
-                                                    <!--begin::Info-->
-                                                    <div class="fw-bold ms-5 text-gray-600">
-                                                        <!--begin::Time-->
-                                                        <div class="fs-5">14:30 - 15:30
-                                                            <span class="fs-7 text-gray-400 text-uppercase">pm</span></div>
-                                                        <!--end::Time-->
-                                                        <!--begin::Title-->
-                                                        <a href="#" class="fs-5 fw-bolder text-gray-800 text-hover-primary mb-2">Committee Review Approvals</a>
-                                                        <!--end::Title-->
-                                                        <!--begin::User-->
-                                                        <div class="text-gray-400">Lead by
-                                                            <a href="#">Naomi Hayabusa</a></div>
-                                                        <!--end::User-->
-                                                    </div>
-                                                    <!--end::Info-->
-                                                    <!--begin::Action-->
-                                                    <a href="#" class="btn btn-bg-light btn-active-color-primary btn-sm">View</a>
-                                                    <!--end::Action-->
-                                                </div>
-                                                <!--end::Time-->
-                                            </div>
-                                            <!--end::Day-->
-                                            <!--begin::Day-->
-                                            <div id="kt_schedule_day_1" class="tab-pane fade show active">
-                                                <!--begin::Time-->
-                                                <div class="d-flex flex-stack position-relative mt-8">
-                                                    <!--begin::Bar-->
-                                                    <div class="position-absolute h-100 w-4px bg-secondary rounded top-0 start-0"></div>
-                                                    <!--end::Bar-->
-                                                    <!--begin::Info-->
-                                                    <div class="fw-bold ms-5 text-gray-600">
-                                                        <!--begin::Time-->
-                                                        <div class="fs-5">16:30 - 17:30
-                                                            <span class="fs-7 text-gray-400 text-uppercase">pm</span></div>
-                                                        <!--end::Time-->
-                                                        <!--begin::Title-->
-                                                        <a href="#" class="fs-5 fw-bolder text-gray-800 text-hover-primary mb-2">Team Backlog Grooming Session</a>
-                                                        <!--end::Title-->
-                                                        <!--begin::User-->
-                                                        <div class="text-gray-400">Lead by
-                                                            <a href="#">Sean Bean</a></div>
-                                                        <!--end::User-->
-                                                    </div>
-                                                    <!--end::Info-->
-                                                    <!--begin::Action-->
-                                                    <a href="#" class="btn btn-bg-light btn-active-color-primary btn-sm">View</a>
-                                                    <!--end::Action-->
-                                                </div>
-                                                <!--end::Time-->
-                                                <!--begin::Time-->
-                                                <div class="d-flex flex-stack position-relative mt-8">
-                                                    <!--begin::Bar-->
-                                                    <div class="position-absolute h-100 w-4px bg-secondary rounded top-0 start-0"></div>
-                                                    <!--end::Bar-->
-                                                    <!--begin::Info-->
-                                                    <div class="fw-bold ms-5 text-gray-600">
-                                                        <!--begin::Time-->
-                                                        <div class="fs-5">9:00 - 10:00
-                                                            <span class="fs-7 text-gray-400 text-uppercase">am</span></div>
-                                                        <!--end::Time-->
-                                                        <!--begin::Title-->
-                                                        <a href="#" class="fs-5 fw-bolder text-gray-800 text-hover-primary mb-2">Marketing Campaign Discussion</a>
-                                                        <!--end::Title-->
-                                                        <!--begin::User-->
-                                                        <div class="text-gray-400">Lead by
-                                                            <a href="#">Caleb Donaldson</a></div>
-                                                        <!--end::User-->
-                                                    </div>
-                                                    <!--end::Info-->
-                                                    <!--begin::Action-->
-                                                    <a href="#" class="btn btn-bg-light btn-active-color-primary btn-sm">View</a>
-                                                    <!--end::Action-->
-                                                </div>
-                                                <!--end::Time-->
-                                                <!--begin::Time-->
-                                                <div class="d-flex flex-stack position-relative mt-8">
-                                                    <!--begin::Bar-->
-                                                    <div class="position-absolute h-100 w-4px bg-secondary rounded top-0 start-0"></div>
-                                                    <!--end::Bar-->
-                                                    <!--begin::Info-->
-                                                    <div class="fw-bold ms-5 text-gray-600">
-                                                        <!--begin::Time-->
-                                                        <div class="fs-5">13:00 - 14:00
-                                                            <span class="fs-7 text-gray-400 text-uppercase">pm</span></div>
-                                                        <!--end::Time-->
-                                                        <!--begin::Title-->
-                                                        <a href="#" class="fs-5 fw-bolder text-gray-800 text-hover-primary mb-2">Team Backlog Grooming Session</a>
-                                                        <!--end::Title-->
-                                                        <!--begin::User-->
-                                                        <div class="text-gray-400">Lead by
-                                                            <a href="#">Karina Clarke</a></div>
-                                                        <!--end::User-->
-                                                    </div>
-                                                    <!--end::Info-->
-                                                    <!--begin::Action-->
-                                                    <a href="#" class="btn btn-bg-light btn-active-color-primary btn-sm">View</a>
-                                                    <!--end::Action-->
-                                                </div>
-                                                <!--end::Time-->
-                                            </div>
-                                            <!--end::Day-->
-                                            <!--begin::Day-->
-                                            <div id="kt_schedule_day_2" class="tab-pane fade show">
-                                                <!--begin::Time-->
-                                                <div class="d-flex flex-stack position-relative mt-8">
-                                                    <!--begin::Bar-->
-                                                    <div class="position-absolute h-100 w-4px bg-secondary rounded top-0 start-0"></div>
-                                                    <!--end::Bar-->
-                                                    <!--begin::Info-->
-                                                    <div class="fw-bold ms-5 text-gray-600">
-                                                        <!--begin::Time-->
-                                                        <div class="fs-5">9:00 - 10:00
-                                                            <span class="fs-7 text-gray-400 text-uppercase">am</span></div>
-                                                        <!--end::Time-->
-                                                        <!--begin::Title-->
-                                                        <a href="#" class="fs-5 fw-bolder text-gray-800 text-hover-primary mb-2">9 Degree Project Estimation Meeting</a>
-                                                        <!--end::Title-->
-                                                        <!--begin::User-->
-                                                        <div class="text-gray-400">Lead by
-                                                            <a href="#">Caleb Donaldson</a></div>
-                                                        <!--end::User-->
-                                                    </div>
-                                                    <!--end::Info-->
-                                                    <!--begin::Action-->
-                                                    <a href="#" class="btn btn-bg-light btn-active-color-primary btn-sm">View</a>
-                                                    <!--end::Action-->
-                                                </div>
-                                                <!--end::Time-->
-                                                <!--begin::Time-->
-                                                <div class="d-flex flex-stack position-relative mt-8">
-                                                    <!--begin::Bar-->
-                                                    <div class="position-absolute h-100 w-4px bg-secondary rounded top-0 start-0"></div>
-                                                    <!--end::Bar-->
-                                                    <!--begin::Info-->
-                                                    <div class="fw-bold ms-5 text-gray-600">
-                                                        <!--begin::Time-->
-                                                        <div class="fs-5">10:00 - 11:00
-                                                            <span class="fs-7 text-gray-400 text-uppercase">am</span></div>
-                                                        <!--end::Time-->
-                                                        <!--begin::Title-->
-                                                        <a href="#" class="fs-5 fw-bolder text-gray-800 text-hover-primary mb-2">Committee Review Approvals</a>
-                                                        <!--end::Title-->
-                                                        <!--begin::User-->
-                                                        <div class="text-gray-400">Lead by
-                                                            <a href="#">Caleb Donaldson</a></div>
-                                                        <!--end::User-->
-                                                    </div>
-                                                    <!--end::Info-->
-                                                    <!--begin::Action-->
-                                                    <a href="#" class="btn btn-bg-light btn-active-color-primary btn-sm">View</a>
-                                                    <!--end::Action-->
-                                                </div>
-                                                <!--end::Time-->
-                                                <!--begin::Time-->
-                                                <div class="d-flex flex-stack position-relative mt-8">
-                                                    <!--begin::Bar-->
-                                                    <div class="position-absolute h-100 w-4px bg-secondary rounded top-0 start-0"></div>
-                                                    <!--end::Bar-->
-                                                    <!--begin::Info-->
-                                                    <div class="fw-bold ms-5 text-gray-600">
-                                                        <!--begin::Time-->
-                                                        <div class="fs-5">11:00 - 11:45
-                                                            <span class="fs-7 text-gray-400 text-uppercase">am</span></div>
-                                                        <!--end::Time-->
-                                                        <!--begin::Title-->
-                                                        <a href="#" class="fs-5 fw-bolder text-gray-800 text-hover-primary mb-2">Team Backlog Grooming Session</a>
-                                                        <!--end::Title-->
-                                                        <!--begin::User-->
-                                                        <div class="text-gray-400">Lead by
-                                                            <a href="#">Karina Clarke</a></div>
-                                                        <!--end::User-->
-                                                    </div>
-                                                    <!--end::Info-->
-                                                    <!--begin::Action-->
-                                                    <a href="#" class="btn btn-bg-light btn-active-color-primary btn-sm">View</a>
-                                                    <!--end::Action-->
-                                                </div>
-                                                <!--end::Time-->
-                                            </div>
-                                            <!--end::Day-->
-                                            <!--begin::Day-->
-                                            <div id="kt_schedule_day_3" class="tab-pane fade show">
-                                                <!--begin::Time-->
-                                                <div class="d-flex flex-stack position-relative mt-8">
-                                                    <!--begin::Bar-->
-                                                    <div class="position-absolute h-100 w-4px bg-secondary rounded top-0 start-0"></div>
-                                                    <!--end::Bar-->
-                                                    <!--begin::Info-->
-                                                    <div class="fw-bold ms-5 text-gray-600">
-                                                        <!--begin::Time-->
-                                                        <div class="fs-5">12:00 - 13:00
-                                                            <span class="fs-7 text-gray-400 text-uppercase">pm</span></div>
-                                                        <!--end::Time-->
-                                                        <!--begin::Title-->
-                                                        <a href="#" class="fs-5 fw-bolder text-gray-800 text-hover-primary mb-2">Committee Review Approvals</a>
-                                                        <!--end::Title-->
-                                                        <!--begin::User-->
-                                                        <div class="text-gray-400">Lead by
-                                                            <a href="#">Terry Robins</a></div>
-                                                        <!--end::User-->
-                                                    </div>
-                                                    <!--end::Info-->
-                                                    <!--begin::Action-->
-                                                    <a href="#" class="btn btn-bg-light btn-active-color-primary btn-sm">View</a>
-                                                    <!--end::Action-->
-                                                </div>
-                                                <!--end::Time-->
-                                                <!--begin::Time-->
-                                                <div class="d-flex flex-stack position-relative mt-8">
-                                                    <!--begin::Bar-->
-                                                    <div class="position-absolute h-100 w-4px bg-secondary rounded top-0 start-0"></div>
-                                                    <!--end::Bar-->
-                                                    <!--begin::Info-->
-                                                    <div class="fw-bold ms-5 text-gray-600">
-                                                        <!--begin::Time-->
-                                                        <div class="fs-5">12:00 - 13:00
-                                                            <span class="fs-7 text-gray-400 text-uppercase">pm</span></div>
-                                                        <!--end::Time-->
-                                                        <!--begin::Title-->
-                                                        <a href="#" class="fs-5 fw-bolder text-gray-800 text-hover-primary mb-2">Creative Content Initiative</a>
-                                                        <!--end::Title-->
-                                                        <!--begin::User-->
-                                                        <div class="text-gray-400">Lead by
-                                                            <a href="#">Walter White</a></div>
-                                                        <!--end::User-->
-                                                    </div>
-                                                    <!--end::Info-->
-                                                    <!--begin::Action-->
-                                                    <a href="#" class="btn btn-bg-light btn-active-color-primary btn-sm">View</a>
-                                                    <!--end::Action-->
-                                                </div>
-                                                <!--end::Time-->
-                                                <!--begin::Time-->
-                                                <div class="d-flex flex-stack position-relative mt-8">
-                                                    <!--begin::Bar-->
-                                                    <div class="position-absolute h-100 w-4px bg-secondary rounded top-0 start-0"></div>
-                                                    <!--end::Bar-->
-                                                    <!--begin::Info-->
-                                                    <div class="fw-bold ms-5 text-gray-600">
-                                                        <!--begin::Time-->
-                                                        <div class="fs-5">12:00 - 13:00
-                                                            <span class="fs-7 text-gray-400 text-uppercase">pm</span></div>
-                                                        <!--end::Time-->
-                                                        <!--begin::Title-->
-                                                        <a href="#" class="fs-5 fw-bolder text-gray-800 text-hover-primary mb-2">Development Team Capacity Review</a>
-                                                        <!--end::Title-->
-                                                        <!--begin::User-->
-                                                        <div class="text-gray-400">Lead by
-                                                            <a href="#">Yannis Gloverson</a></div>
-                                                        <!--end::User-->
-                                                    </div>
-                                                    <!--end::Info-->
-                                                    <!--begin::Action-->
-                                                    <a href="#" class="btn btn-bg-light btn-active-color-primary btn-sm">View</a>
-                                                    <!--end::Action-->
-                                                </div>
-                                                <!--end::Time-->
-                                            </div>
-                                            <!--end::Day-->
-                                            <!--begin::Day-->
-                                            <div id="kt_schedule_day_4" class="tab-pane fade show">
-                                                <!--begin::Time-->
-                                                <div class="d-flex flex-stack position-relative mt-8">
-                                                    <!--begin::Bar-->
-                                                    <div class="position-absolute h-100 w-4px bg-secondary rounded top-0 start-0"></div>
-                                                    <!--end::Bar-->
-                                                    <!--begin::Info-->
-                                                    <div class="fw-bold ms-5 text-gray-600">
-                                                        <!--begin::Time-->
-                                                        <div class="fs-5">9:00 - 10:00
-                                                            <span class="fs-7 text-gray-400 text-uppercase">am</span></div>
-                                                        <!--end::Time-->
-                                                        <!--begin::Title-->
-                                                        <a href="#" class="fs-5 fw-bolder text-gray-800 text-hover-primary mb-2">Creative Content Initiative</a>
-                                                        <!--end::Title-->
-                                                        <!--begin::User-->
-                                                        <div class="text-gray-400">Lead by
-                                                            <a href="#">Peter Marcus</a></div>
-                                                        <!--end::User-->
-                                                    </div>
-                                                    <!--end::Info-->
-                                                    <!--begin::Action-->
-                                                    <a href="#" class="btn btn-bg-light btn-active-color-primary btn-sm">View</a>
-                                                    <!--end::Action-->
-                                                </div>
-                                                <!--end::Time-->
-                                                <!--begin::Time-->
-                                                <div class="d-flex flex-stack position-relative mt-8">
-                                                    <!--begin::Bar-->
-                                                    <div class="position-absolute h-100 w-4px bg-secondary rounded top-0 start-0"></div>
-                                                    <!--end::Bar-->
-                                                    <!--begin::Info-->
-                                                    <div class="fw-bold ms-5 text-gray-600">
-                                                        <!--begin::Time-->
-                                                        <div class="fs-5">13:00 - 14:00
-                                                            <span class="fs-7 text-gray-400 text-uppercase">pm</span></div>
-                                                        <!--end::Time-->
-                                                        <!--begin::Title-->
-                                                        <a href="#" class="fs-5 fw-bolder text-gray-800 text-hover-primary mb-2">Team Backlog Grooming Session</a>
-                                                        <!--end::Title-->
-                                                        <!--begin::User-->
-                                                        <div class="text-gray-400">Lead by
-                                                            <a href="#">Caleb Donaldson</a></div>
-                                                        <!--end::User-->
-                                                    </div>
-                                                    <!--end::Info-->
-                                                    <!--begin::Action-->
-                                                    <a href="#" class="btn btn-bg-light btn-active-color-primary btn-sm">View</a>
-                                                    <!--end::Action-->
-                                                </div>
-                                                <!--end::Time-->
-                                                <!--begin::Time-->
-                                                <div class="d-flex flex-stack position-relative mt-8">
-                                                    <!--begin::Bar-->
-                                                    <div class="position-absolute h-100 w-4px bg-secondary rounded top-0 start-0"></div>
-                                                    <!--end::Bar-->
-                                                    <!--begin::Info-->
-                                                    <div class="fw-bold ms-5 text-gray-600">
-                                                        <!--begin::Time-->
-                                                        <div class="fs-5">10:00 - 11:00
-                                                            <span class="fs-7 text-gray-400 text-uppercase">am</span></div>
-                                                        <!--end::Time-->
-                                                        <!--begin::Title-->
-                                                        <a href="#" class="fs-5 fw-bolder text-gray-800 text-hover-primary mb-2">Project Review &amp; Testing</a>
-                                                        <!--end::Title-->
-                                                        <!--begin::User-->
-                                                        <div class="text-gray-400">Lead by
-                                                            <a href="#">Kendell Trevor</a></div>
-                                                        <!--end::User-->
-                                                    </div>
-                                                    <!--end::Info-->
-                                                    <!--begin::Action-->
-                                                    <a href="#" class="btn btn-bg-light btn-active-color-primary btn-sm">View</a>
-                                                    <!--end::Action-->
-                                                </div>
-                                                <!--end::Time-->
-                                            </div>
-                                            <!--end::Day-->
-                                            <!--begin::Day-->
-                                            <div id="kt_schedule_day_5" class="tab-pane fade show">
-                                                <!--begin::Time-->
-                                                <div class="d-flex flex-stack position-relative mt-8">
-                                                    <!--begin::Bar-->
-                                                    <div class="position-absolute h-100 w-4px bg-secondary rounded top-0 start-0"></div>
-                                                    <!--end::Bar-->
-                                                    <!--begin::Info-->
-                                                    <div class="fw-bold ms-5 text-gray-600">
-                                                        <!--begin::Time-->
-                                                        <div class="fs-5">10:00 - 11:00
-                                                            <span class="fs-7 text-gray-400 text-uppercase">am</span></div>
-                                                        <!--end::Time-->
-                                                        <!--begin::Title-->
-                                                        <a href="#" class="fs-5 fw-bolder text-gray-800 text-hover-primary mb-2">9 Degree Project Estimation Meeting</a>
-                                                        <!--end::Title-->
-                                                        <!--begin::User-->
-                                                        <div class="text-gray-400">Lead by
-                                                            <a href="#">Caleb Donaldson</a></div>
-                                                        <!--end::User-->
-                                                    </div>
-                                                    <!--end::Info-->
-                                                    <!--begin::Action-->
-                                                    <a href="#" class="btn btn-bg-light btn-active-color-primary btn-sm">View</a>
-                                                    <!--end::Action-->
-                                                </div>
-                                                <!--end::Time-->
-                                                <!--begin::Time-->
-                                                <div class="d-flex flex-stack position-relative mt-8">
-                                                    <!--begin::Bar-->
-                                                    <div class="position-absolute h-100 w-4px bg-secondary rounded top-0 start-0"></div>
-                                                    <!--end::Bar-->
-                                                    <!--begin::Info-->
-                                                    <div class="fw-bold ms-5 text-gray-600">
-                                                        <!--begin::Time-->
-                                                        <div class="fs-5">13:00 - 14:00
-                                                            <span class="fs-7 text-gray-400 text-uppercase">pm</span></div>
-                                                        <!--end::Time-->
-                                                        <!--begin::Title-->
-                                                        <a href="#" class="fs-5 fw-bolder text-gray-800 text-hover-primary mb-2">Weekly Team Stand-Up</a>
-                                                        <!--end::Title-->
-                                                        <!--begin::User-->
-                                                        <div class="text-gray-400">Lead by
-                                                            <a href="#">Karina Clarke</a></div>
-                                                        <!--end::User-->
-                                                    </div>
-                                                    <!--end::Info-->
-                                                    <!--begin::Action-->
-                                                    <a href="#" class="btn btn-bg-light btn-active-color-primary btn-sm">View</a>
-                                                    <!--end::Action-->
-                                                </div>
-                                                <!--end::Time-->
-                                                <!--begin::Time-->
-                                                <div class="d-flex flex-stack position-relative mt-8">
-                                                    <!--begin::Bar-->
-                                                    <div class="position-absolute h-100 w-4px bg-secondary rounded top-0 start-0"></div>
-                                                    <!--end::Bar-->
-                                                    <!--begin::Info-->
-                                                    <div class="fw-bold ms-5 text-gray-600">
-                                                        <!--begin::Time-->
-                                                        <div class="fs-5">16:30 - 17:30
-                                                            <span class="fs-7 text-gray-400 text-uppercase">pm</span></div>
-                                                        <!--end::Time-->
-                                                        <!--begin::Title-->
-                                                        <a href="#" class="fs-5 fw-bolder text-gray-800 text-hover-primary mb-2">Creative Content Initiative</a>
-                                                        <!--end::Title-->
-                                                        <!--begin::User-->
-                                                        <div class="text-gray-400">Lead by
-                                                            <a href="#">Michael Walters</a></div>
-                                                        <!--end::User-->
-                                                    </div>
-                                                    <!--end::Info-->
-                                                    <!--begin::Action-->
-                                                    <a href="#" class="btn btn-bg-light btn-active-color-primary btn-sm">View</a>
-                                                    <!--end::Action-->
-                                                </div>
-                                                <!--end::Time-->
-                                            </div>
-                                            <!--end::Day-->
-                                            <!--begin::Day-->
-                                            <div id="kt_schedule_day_6" class="tab-pane fade show">
-                                                <!--begin::Time-->
-                                                <div class="d-flex flex-stack position-relative mt-8">
-                                                    <!--begin::Bar-->
-                                                    <div class="position-absolute h-100 w-4px bg-secondary rounded top-0 start-0"></div>
-                                                    <!--end::Bar-->
-                                                    <!--begin::Info-->
-                                                    <div class="fw-bold ms-5 text-gray-600">
-                                                        <!--begin::Time-->
-                                                        <div class="fs-5">12:00 - 13:00
-                                                            <span class="fs-7 text-gray-400 text-uppercase">pm</span></div>
-                                                        <!--end::Time-->
-                                                        <!--begin::Title-->
-                                                        <a href="#" class="fs-5 fw-bolder text-gray-800 text-hover-primary mb-2">Lunch &amp; Learn Catch Up</a>
-                                                        <!--end::Title-->
-                                                        <!--begin::User-->
-                                                        <div class="text-gray-400">Lead by
-                                                            <a href="#">Sean Bean</a></div>
-                                                        <!--end::User-->
-                                                    </div>
-                                                    <!--end::Info-->
-                                                    <!--begin::Action-->
-                                                    <a href="#" class="btn btn-bg-light btn-active-color-primary btn-sm">View</a>
-                                                    <!--end::Action-->
-                                                </div>
-                                                <!--end::Time-->
-                                                <!--begin::Time-->
-                                                <div class="d-flex flex-stack position-relative mt-8">
-                                                    <!--begin::Bar-->
-                                                    <div class="position-absolute h-100 w-4px bg-secondary rounded top-0 start-0"></div>
-                                                    <!--end::Bar-->
-                                                    <!--begin::Info-->
-                                                    <div class="fw-bold ms-5 text-gray-600">
-                                                        <!--begin::Time-->
-                                                        <div class="fs-5">12:00 - 13:00
-                                                            <span class="fs-7 text-gray-400 text-uppercase">pm</span></div>
-                                                        <!--end::Time-->
-                                                        <!--begin::Title-->
-                                                        <a href="#" class="fs-5 fw-bolder text-gray-800 text-hover-primary mb-2">Committee Review Approvals</a>
-                                                        <!--end::Title-->
-                                                        <!--begin::User-->
-                                                        <div class="text-gray-400">Lead by
-                                                            <a href="#">Caleb Donaldson</a></div>
-                                                        <!--end::User-->
-                                                    </div>
-                                                    <!--end::Info-->
-                                                    <!--begin::Action-->
-                                                    <a href="#" class="btn btn-bg-light btn-active-color-primary btn-sm">View</a>
-                                                    <!--end::Action-->
-                                                </div>
-                                                <!--end::Time-->
-                                                <!--begin::Time-->
-                                                <div class="d-flex flex-stack position-relative mt-8">
-                                                    <!--begin::Bar-->
-                                                    <div class="position-absolute h-100 w-4px bg-secondary rounded top-0 start-0"></div>
-                                                    <!--end::Bar-->
-                                                    <!--begin::Info-->
-                                                    <div class="fw-bold ms-5 text-gray-600">
-                                                        <!--begin::Time-->
-                                                        <div class="fs-5">13:00 - 14:00
-                                                            <span class="fs-7 text-gray-400 text-uppercase">pm</span></div>
-                                                        <!--end::Time-->
-                                                        <!--begin::Title-->
-                                                        <a href="#" class="fs-5 fw-bolder text-gray-800 text-hover-primary mb-2">Lunch &amp; Learn Catch Up</a>
-                                                        <!--end::Title-->
-                                                        <!--begin::User-->
-                                                        <div class="text-gray-400">Lead by
-                                                            <a href="#">Naomi Hayabusa</a></div>
-                                                        <!--end::User-->
-                                                    </div>
-                                                    <!--end::Info-->
-                                                    <!--begin::Action-->
-                                                    <a href="#" class="btn btn-bg-light btn-active-color-primary btn-sm">View</a>
-                                                    <!--end::Action-->
-                                                </div>
-                                                <!--end::Time-->
-                                            </div>
-                                            <!--end::Day-->
-                                            <!--begin::Day-->
-                                            <div id="kt_schedule_day_7" class="tab-pane fade show">
-                                                <!--begin::Time-->
-                                                <div class="d-flex flex-stack position-relative mt-8">
-                                                    <!--begin::Bar-->
-                                                    <div class="position-absolute h-100 w-4px bg-secondary rounded top-0 start-0"></div>
-                                                    <!--end::Bar-->
-                                                    <!--begin::Info-->
-                                                    <div class="fw-bold ms-5 text-gray-600">
-                                                        <!--begin::Time-->
-                                                        <div class="fs-5">9:00 - 10:00
-                                                            <span class="fs-7 text-gray-400 text-uppercase">am</span></div>
-                                                        <!--end::Time-->
-                                                        <!--begin::Title-->
-                                                        <a href="#" class="fs-5 fw-bolder text-gray-800 text-hover-primary mb-2">Weekly Team Stand-Up</a>
-                                                        <!--end::Title-->
-                                                        <!--begin::User-->
-                                                        <div class="text-gray-400">Lead by
-                                                            <a href="#">Peter Marcus</a></div>
-                                                        <!--end::User-->
-                                                    </div>
-                                                    <!--end::Info-->
-                                                    <!--begin::Action-->
-                                                    <a href="#" class="btn btn-bg-light btn-active-color-primary btn-sm">View</a>
-                                                    <!--end::Action-->
-                                                </div>
-                                                <!--end::Time-->
-                                                <!--begin::Time-->
-                                                <div class="d-flex flex-stack position-relative mt-8">
-                                                    <!--begin::Bar-->
-                                                    <div class="position-absolute h-100 w-4px bg-secondary rounded top-0 start-0"></div>
-                                                    <!--end::Bar-->
-                                                    <!--begin::Info-->
-                                                    <div class="fw-bold ms-5 text-gray-600">
-                                                        <!--begin::Time-->
-                                                        <div class="fs-5">16:30 - 17:30
-                                                            <span class="fs-7 text-gray-400 text-uppercase">pm</span></div>
-                                                        <!--end::Time-->
-                                                        <!--begin::Title-->
-                                                        <a href="#" class="fs-5 fw-bolder text-gray-800 text-hover-primary mb-2">Weekly Team Stand-Up</a>
-                                                        <!--end::Title-->
-                                                        <!--begin::User-->
-                                                        <div class="text-gray-400">Lead by
-                                                            <a href="#">Mark Randall</a></div>
-                                                        <!--end::User-->
-                                                    </div>
-                                                    <!--end::Info-->
-                                                    <!--begin::Action-->
-                                                    <a href="#" class="btn btn-bg-light btn-active-color-primary btn-sm">View</a>
-                                                    <!--end::Action-->
-                                                </div>
-                                                <!--end::Time-->
-                                                <!--begin::Time-->
-                                                <div class="d-flex flex-stack position-relative mt-8">
-                                                    <!--begin::Bar-->
-                                                    <div class="position-absolute h-100 w-4px bg-secondary rounded top-0 start-0"></div>
-                                                    <!--end::Bar-->
-                                                    <!--begin::Info-->
-                                                    <div class="fw-bold ms-5 text-gray-600">
-                                                        <!--begin::Time-->
-                                                        <div class="fs-5">11:00 - 11:45
-                                                            <span class="fs-7 text-gray-400 text-uppercase">am</span></div>
-                                                        <!--end::Time-->
-                                                        <!--begin::Title-->
-                                                        <a href="#" class="fs-5 fw-bolder text-gray-800 text-hover-primary mb-2">Marketing Campaign Discussion</a>
-                                                        <!--end::Title-->
-                                                        <!--begin::User-->
-                                                        <div class="text-gray-400">Lead by
-                                                            <a href="#">Karina Clarke</a></div>
-                                                        <!--end::User-->
-                                                    </div>
-                                                    <!--end::Info-->
-                                                    <!--begin::Action-->
-                                                    <a href="#" class="btn btn-bg-light btn-active-color-primary btn-sm">View</a>
-                                                    <!--end::Action-->
-                                                </div>
-                                                <!--end::Time-->
-                                            </div>
-                                            <!--end::Day-->
-                                            <!--begin::Day-->
-                                            <div id="kt_schedule_day_8" class="tab-pane fade show">
-                                                <!--begin::Time-->
-                                                <div class="d-flex flex-stack position-relative mt-8">
-                                                    <!--begin::Bar-->
-                                                    <div class="position-absolute h-100 w-4px bg-secondary rounded top-0 start-0"></div>
-                                                    <!--end::Bar-->
-                                                    <!--begin::Info-->
-                                                    <div class="fw-bold ms-5 text-gray-600">
-                                                        <!--begin::Time-->
-                                                        <div class="fs-5">10:00 - 11:00
-                                                            <span class="fs-7 text-gray-400 text-uppercase">am</span></div>
-                                                        <!--end::Time-->
-                                                        <!--begin::Title-->
-                                                        <a href="#" class="fs-5 fw-bolder text-gray-800 text-hover-primary mb-2">Team Backlog Grooming Session</a>
-                                                        <!--end::Title-->
-                                                        <!--begin::User-->
-                                                        <div class="text-gray-400">Lead by
-                                                            <a href="#">Yannis Gloverson</a></div>
-                                                        <!--end::User-->
-                                                    </div>
-                                                    <!--end::Info-->
-                                                    <!--begin::Action-->
-                                                    <a href="#" class="btn btn-bg-light btn-active-color-primary btn-sm">View</a>
-                                                    <!--end::Action-->
-                                                </div>
-                                                <!--end::Time-->
-                                                <!--begin::Time-->
-                                                <div class="d-flex flex-stack position-relative mt-8">
-                                                    <!--begin::Bar-->
-                                                    <div class="position-absolute h-100 w-4px bg-secondary rounded top-0 start-0"></div>
-                                                    <!--end::Bar-->
-                                                    <!--begin::Info-->
-                                                    <div class="fw-bold ms-5 text-gray-600">
-                                                        <!--begin::Time-->
-                                                        <div class="fs-5">9:00 - 10:00
-                                                            <span class="fs-7 text-gray-400 text-uppercase">am</span></div>
-                                                        <!--end::Time-->
-                                                        <!--begin::Title-->
-                                                        <a href="#" class="fs-5 fw-bolder text-gray-800 text-hover-primary mb-2">Project Review &amp; Testing</a>
-                                                        <!--end::Title-->
-                                                        <!--begin::User-->
-                                                        <div class="text-gray-400">Lead by
-                                                            <a href="#">David Stevenson</a></div>
-                                                        <!--end::User-->
-                                                    </div>
-                                                    <!--end::Info-->
-                                                    <!--begin::Action-->
-                                                    <a href="#" class="btn btn-bg-light btn-active-color-primary btn-sm">View</a>
-                                                    <!--end::Action-->
-                                                </div>
-                                                <!--end::Time-->
-                                                <!--begin::Time-->
-                                                <div class="d-flex flex-stack position-relative mt-8">
-                                                    <!--begin::Bar-->
-                                                    <div class="position-absolute h-100 w-4px bg-secondary rounded top-0 start-0"></div>
-                                                    <!--end::Bar-->
-                                                    <!--begin::Info-->
-                                                    <div class="fw-bold ms-5 text-gray-600">
-                                                        <!--begin::Time-->
-                                                        <div class="fs-5">10:00 - 11:00
-                                                            <span class="fs-7 text-gray-400 text-uppercase">am</span></div>
-                                                        <!--end::Time-->
-                                                        <!--begin::Title-->
-                                                        <a href="#" class="fs-5 fw-bolder text-gray-800 text-hover-primary mb-2">Project Review &amp; Testing</a>
-                                                        <!--end::Title-->
-                                                        <!--begin::User-->
-                                                        <div class="text-gray-400">Lead by
-                                                            <a href="#">Kendell Trevor</a></div>
-                                                        <!--end::User-->
-                                                    </div>
-                                                    <!--end::Info-->
-                                                    <!--begin::Action-->
-                                                    <a href="#" class="btn btn-bg-light btn-active-color-primary btn-sm">View</a>
-                                                    <!--end::Action-->
-                                                </div>
-                                                <!--end::Time-->
-                                            </div>
-                                            <!--end::Day-->
-                                            <!--begin::Day-->
-                                            <div id="kt_schedule_day_9" class="tab-pane fade show">
-                                                <!--begin::Time-->
-                                                <div class="d-flex flex-stack position-relative mt-8">
-                                                    <!--begin::Bar-->
-                                                    <div class="position-absolute h-100 w-4px bg-secondary rounded top-0 start-0"></div>
-                                                    <!--end::Bar-->
-                                                    <!--begin::Info-->
-                                                    <div class="fw-bold ms-5 text-gray-600">
-                                                        <!--begin::Time-->
-                                                        <div class="fs-5">14:30 - 15:30
-                                                            <span class="fs-7 text-gray-400 text-uppercase">pm</span></div>
-                                                        <!--end::Time-->
-                                                        <!--begin::Title-->
-                                                        <a href="#" class="fs-5 fw-bolder text-gray-800 text-hover-primary mb-2">Dashboard UI/UX Design Review</a>
-                                                        <!--end::Title-->
-                                                        <!--begin::User-->
-                                                        <div class="text-gray-400">Lead by
-                                                            <a href="#">Sean Bean</a></div>
-                                                        <!--end::User-->
-                                                    </div>
-                                                    <!--end::Info-->
-                                                    <!--begin::Action-->
-                                                    <a href="#" class="btn btn-bg-light btn-active-color-primary btn-sm">View</a>
-                                                    <!--end::Action-->
-                                                </div>
-                                                <!--end::Time-->
-                                                <!--begin::Time-->
-                                                <div class="d-flex flex-stack position-relative mt-8">
-                                                    <!--begin::Bar-->
-                                                    <div class="position-absolute h-100 w-4px bg-secondary rounded top-0 start-0"></div>
-                                                    <!--end::Bar-->
-                                                    <!--begin::Info-->
-                                                    <div class="fw-bold ms-5 text-gray-600">
-                                                        <!--begin::Time-->
-                                                        <div class="fs-5">10:00 - 11:00
-                                                            <span class="fs-7 text-gray-400 text-uppercase">am</span></div>
-                                                        <!--end::Time-->
-                                                        <!--begin::Title-->
-                                                        <a href="#" class="fs-5 fw-bolder text-gray-800 text-hover-primary mb-2">Project Review &amp; Testing</a>
-                                                        <!--end::Title-->
-                                                        <!--begin::User-->
-                                                        <div class="text-gray-400">Lead by
-                                                            <a href="#">Michael Walters</a></div>
-                                                        <!--end::User-->
-                                                    </div>
-                                                    <!--end::Info-->
-                                                    <!--begin::Action-->
-                                                    <a href="#" class="btn btn-bg-light btn-active-color-primary btn-sm">View</a>
-                                                    <!--end::Action-->
-                                                </div>
-                                                <!--end::Time-->
-                                                <!--begin::Time-->
-                                                <div class="d-flex flex-stack position-relative mt-8">
-                                                    <!--begin::Bar-->
-                                                    <div class="position-absolute h-100 w-4px bg-secondary rounded top-0 start-0"></div>
-                                                    <!--end::Bar-->
-                                                    <!--begin::Info-->
-                                                    <div class="fw-bold ms-5 text-gray-600">
-                                                        <!--begin::Time-->
-                                                        <div class="fs-5">14:30 - 15:30
-                                                            <span class="fs-7 text-gray-400 text-uppercase">pm</span></div>
-                                                        <!--end::Time-->
-                                                        <!--begin::Title-->
-                                                        <a href="#" class="fs-5 fw-bolder text-gray-800 text-hover-primary mb-2">9 Degree Project Estimation Meeting</a>
-                                                        <!--end::Title-->
-                                                        <!--begin::User-->
-                                                        <div class="text-gray-400">Lead by
-                                                            <a href="#">David Stevenson</a></div>
-                                                        <!--end::User-->
-                                                    </div>
-                                                    <!--end::Info-->
-                                                    <!--begin::Action-->
-                                                    <a href="#" class="btn btn-bg-light btn-active-color-primary btn-sm">View</a>
-                                                    <!--end::Action-->
-                                                </div>
-                                                <!--end::Time-->
-                                            </div>
-                                            <!--end::Day-->
-                                        </div>
-                                        <!--end::Tab Content-->
-                                    </div>
-                                    <!--end::Card body-->
-                                </div>
-                                <!--end::Card-->
-                            </div>
-                            <!--end::Col-->
-                            <!--begin::Col-->
-                            <div class="col-lg-6">
-                                <!--begin::Card-->
-                                <div class="card card-flush h-lg-100">
-                                    <!--begin::Card header-->
-                                    <div class="card-header mt-6">
-                                        <!--begin::Card title-->
-                                        <div class="card-title flex-column">
-                                            <h3 class="fw-bolder mb-1">Latest Files</h3>
-                                            <div class="fs-6 text-gray-400">Total 382 fiels, 2,6GB space usage</div>
-                                        </div>
-                                        <!--end::Card title-->
-                                        <!--begin::Card toolbar-->
-                                        <div class="card-toolbar">
-                                            <a href="#" class="btn btn-bg-light btn-active-color-primary btn-sm">View All</a>
-                                        </div>
-                                        <!--end::Card toolbar-->
-                                    </div>
-                                    <!--end::Card header-->
-                                    <!--begin::Card body-->
-                                    <div class="card-body p-9 pt-3">
-                                        <!--begin::Files-->
-                                        <div class="d-flex flex-column mb-9">
-                                            <!--begin::File-->
-                                            <div class="d-flex align-items-center mb-5">
-                                                <!--begin::Icon-->
-                                                <div class="symbol symbol-30px me-5">
-                                                    <img alt="Icon" src="assets/media/svg/files/pdf.svg" />
-                                                </div>
-                                                <!--end::Icon-->
-                                                <!--begin::Details-->
-                                                <div class="fw-bold">
-                                                    <a class="fs-6 fw-bolder text-dark text-hover-primary" href="#">Project tech requirements</a>
-                                                    <div class="text-gray-400">2 days ago
-                                                        <a href="#">Karina Clark</a></div>
-                                                </div>
-                                                <!--end::Details-->
-                                                <!--begin::Menu-->
-                                                <button type="button" class="btn btn-clean btn-sm btn-icon btn-icon-primary btn-active-light-primary ms-auto" data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end" data-kt-menu-flip="top-end">
-                                                    <!--begin::Svg Icon | path: icons/stockholm/Layout/Layout-4-blocks-2.svg-->
-                                                    <span class="svg-icon svg-icon-3">
-																<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
-																	<g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-																		<rect x="5" y="5" width="5" height="5" rx="1" fill="#000000" />
-																		<rect x="14" y="5" width="5" height="5" rx="1" fill="#000000" opacity="0.3" />
-																		<rect x="5" y="14" width="5" height="5" rx="1" fill="#000000" opacity="0.3" />
-																		<rect x="14" y="14" width="5" height="5" rx="1" fill="#000000" opacity="0.3" />
-																	</g>
-																</svg>
-															</span>
-                                                    <!--end::Svg Icon-->
-                                                </button>
-                                                <!--begin::Menu 1-->
-                                                <div class="menu menu-sub menu-sub-dropdown w-250px w-md-300px" data-kt-menu="true">
-                                                    <!--begin::Header-->
-                                                    <div class="px-7 py-5">
-                                                        <div class="fs-5 text-dark fw-bolder">Filter Options</div>
-                                                    </div>
-                                                    <!--end::Header-->
-                                                    <!--begin::Menu separator-->
-                                                    <div class="separator border-gray-200"></div>
-                                                    <!--end::Menu separator-->
-                                                    <!--begin::Form-->
-                                                    <div class="px-7 py-5">
-                                                        <!--begin::Input group-->
-                                                        <div class="mb-10">
-                                                            <!--begin::Label-->
-                                                            <label class="form-label fw-bold">Status:</label>
-                                                            <!--end::Label-->
-                                                            <!--begin::Input-->
-                                                            <div>
-                                                                <select class="form-select form-select-solid" data-kt-select2="true" data-placeholder="Select option" data-allow-clear="true">
-                                                                    <option></option>
-                                                                    <option value="1">Approved</option>
-                                                                    <option value="2">Pending</option>
-                                                                    <option value="2">In Process</option>
-                                                                    <option value="2">Rejected</option>
-                                                                </select>
-                                                            </div>
-                                                            <!--end::Input-->
-                                                        </div>
-                                                        <!--end::Input group-->
-                                                        <!--begin::Input group-->
-                                                        <div class="mb-10">
-                                                            <!--begin::Label-->
-                                                            <label class="form-label fw-bold">Member Type:</label>
-                                                            <!--end::Label-->
-                                                            <!--begin::Options-->
-                                                            <div class="d-flex">
-                                                                <!--begin::Options-->
-                                                                <label class="form-check form-check-sm form-check-custom form-check-solid me-5">
-                                                                    <input class="form-check-input" type="checkbox" value="1" />
-                                                                    <span class="form-check-label">Author</span>
-                                                                </label>
-                                                                <!--end::Options-->
-                                                                <!--begin::Options-->
-                                                                <label class="form-check form-check-sm form-check-custom form-check-solid">
-                                                                    <input class="form-check-input" type="checkbox" value="2" checked="checked" />
-                                                                    <span class="form-check-label">Customer</span>
-                                                                </label>
-                                                                <!--end::Options-->
-                                                            </div>
-                                                            <!--end::Options-->
-                                                        </div>
-                                                        <!--end::Input group-->
-                                                        <!--begin::Input group-->
-                                                        <div class="mb-10">
-                                                            <!--begin::Label-->
-                                                            <label class="form-label fw-bold">Notifications:</label>
-                                                            <!--end::Label-->
-                                                            <!--begin::Switch-->
-                                                            <div class="form-check form-switch form-switch-sm form-check-custom form-check-solid">
-                                                                <input class="form-check-input" type="checkbox" value="" name="notifications" checked="checked" />
-                                                                <label class="form-check-label">Enabled</label>
-                                                            </div>
-                                                            <!--end::Switch-->
-                                                        </div>
-                                                        <!--end::Input group-->
-                                                        <!--begin::Actions-->
-                                                        <div class="d-flex justify-content-end">
-                                                            <button type="reset" class="btn btn-sm btn-white btn-active-light-primary me-2" data-kt-menu-dismiss="true">Reset</button>
-                                                            <button type="submit" class="btn btn-sm btn-primary" data-kt-menu-dismiss="true">Apply</button>
-                                                        </div>
-                                                        <!--end::Actions-->
-                                                    </div>
-                                                    <!--end::Form-->
-                                                </div>
-                                                <!--end::Menu 1-->
-                                                <!--end::Menu-->
-                                            </div>
-                                            <!--end::File-->
-                                            <!--begin::File-->
-                                            <div class="d-flex align-items-center mb-5">
-                                                <!--begin::Icon-->
-                                                <div class="symbol symbol-30px me-5">
-                                                    <img alt="Icon" src="assets/media/svg/files/doc.svg" />
-                                                </div>
-                                                <!--end::Icon-->
-                                                <!--begin::Details-->
-                                                <div class="fw-bold">
-                                                    <a class="fs-6 fw-bolder text-dark text-hover-primary" href="#">Create FureStibe branding proposal</a>
-                                                    <div class="text-gray-400">Due in 1 day
-                                                        <a href="#">Marcus Blake</a></div>
-                                                </div>
-                                                <!--end::Details-->
-                                                <!--begin::Menu-->
-                                                <button type="button" class="btn btn-clean btn-sm btn-icon btn-icon-primary btn-active-light-primary ms-auto" data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end" data-kt-menu-flip="top-end">
-                                                    <!--begin::Svg Icon | path: icons/stockholm/Layout/Layout-4-blocks-2.svg-->
-                                                    <span class="svg-icon svg-icon-3">
-																<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
-																	<g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-																		<rect x="5" y="5" width="5" height="5" rx="1" fill="#000000" />
-																		<rect x="14" y="5" width="5" height="5" rx="1" fill="#000000" opacity="0.3" />
-																		<rect x="5" y="14" width="5" height="5" rx="1" fill="#000000" opacity="0.3" />
-																		<rect x="14" y="14" width="5" height="5" rx="1" fill="#000000" opacity="0.3" />
-																	</g>
-																</svg>
-															</span>
-                                                    <!--end::Svg Icon-->
-                                                </button>
-                                                <!--begin::Menu 1-->
-                                                <div class="menu menu-sub menu-sub-dropdown w-250px w-md-300px" data-kt-menu="true">
-                                                    <!--begin::Header-->
-                                                    <div class="px-7 py-5">
-                                                        <div class="fs-5 text-dark fw-bolder">Filter Options</div>
-                                                    </div>
-                                                    <!--end::Header-->
-                                                    <!--begin::Menu separator-->
-                                                    <div class="separator border-gray-200"></div>
-                                                    <!--end::Menu separator-->
-                                                    <!--begin::Form-->
-                                                    <div class="px-7 py-5">
-                                                        <!--begin::Input group-->
-                                                        <div class="mb-10">
-                                                            <!--begin::Label-->
-                                                            <label class="form-label fw-bold">Status:</label>
-                                                            <!--end::Label-->
-                                                            <!--begin::Input-->
-                                                            <div>
-                                                                <select class="form-select form-select-solid" data-kt-select2="true" data-placeholder="Select option" data-allow-clear="true">
-                                                                    <option></option>
-                                                                    <option value="1">Approved</option>
-                                                                    <option value="2">Pending</option>
-                                                                    <option value="2">In Process</option>
-                                                                    <option value="2">Rejected</option>
-                                                                </select>
-                                                            </div>
-                                                            <!--end::Input-->
-                                                        </div>
-                                                        <!--end::Input group-->
-                                                        <!--begin::Input group-->
-                                                        <div class="mb-10">
-                                                            <!--begin::Label-->
-                                                            <label class="form-label fw-bold">Member Type:</label>
-                                                            <!--end::Label-->
-                                                            <!--begin::Options-->
-                                                            <div class="d-flex">
-                                                                <!--begin::Options-->
-                                                                <label class="form-check form-check-sm form-check-custom form-check-solid me-5">
-                                                                    <input class="form-check-input" type="checkbox" value="1" />
-                                                                    <span class="form-check-label">Author</span>
-                                                                </label>
-                                                                <!--end::Options-->
-                                                                <!--begin::Options-->
-                                                                <label class="form-check form-check-sm form-check-custom form-check-solid">
-                                                                    <input class="form-check-input" type="checkbox" value="2" checked="checked" />
-                                                                    <span class="form-check-label">Customer</span>
-                                                                </label>
-                                                                <!--end::Options-->
-                                                            </div>
-                                                            <!--end::Options-->
-                                                        </div>
-                                                        <!--end::Input group-->
-                                                        <!--begin::Input group-->
-                                                        <div class="mb-10">
-                                                            <!--begin::Label-->
-                                                            <label class="form-label fw-bold">Notifications:</label>
-                                                            <!--end::Label-->
-                                                            <!--begin::Switch-->
-                                                            <div class="form-check form-switch form-switch-sm form-check-custom form-check-solid">
-                                                                <input class="form-check-input" type="checkbox" value="" name="notifications" checked="checked" />
-                                                                <label class="form-check-label">Enabled</label>
-                                                            </div>
-                                                            <!--end::Switch-->
-                                                        </div>
-                                                        <!--end::Input group-->
-                                                        <!--begin::Actions-->
-                                                        <div class="d-flex justify-content-end">
-                                                            <button type="reset" class="btn btn-sm btn-white btn-active-light-primary me-2" data-kt-menu-dismiss="true">Reset</button>
-                                                            <button type="submit" class="btn btn-sm btn-primary" data-kt-menu-dismiss="true">Apply</button>
-                                                        </div>
-                                                        <!--end::Actions-->
-                                                    </div>
-                                                    <!--end::Form-->
-                                                </div>
-                                                <!--end::Menu 1-->
-                                                <!--end::Menu-->
-                                            </div>
-                                            <!--end::File-->
-                                            <!--begin::File-->
-                                            <div class="d-flex align-items-center mb-5">
-                                                <!--begin::Icon-->
-                                                <div class="symbol symbol-30px me-5">
-                                                    <img alt="Icon" src="assets/media/svg/files/css.svg" />
-                                                </div>
-                                                <!--end::Icon-->
-                                                <!--begin::Details-->
-                                                <div class="fw-bold">
-                                                    <a class="fs-6 fw-bolder text-dark text-hover-primary" href="#">Completed Project Stylings</a>
-                                                    <div class="text-gray-400">Due in 1 day
-                                                        <a href="#">Terry Barry</a></div>
-                                                </div>
-                                                <!--end::Details-->
-                                                <!--begin::Menu-->
-                                                <button type="button" class="btn btn-clean btn-sm btn-icon btn-icon-primary btn-active-light-primary ms-auto" data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end" data-kt-menu-flip="top-end">
-                                                    <!--begin::Svg Icon | path: icons/stockholm/Layout/Layout-4-blocks-2.svg-->
-                                                    <span class="svg-icon svg-icon-3">
-																<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
-																	<g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-																		<rect x="5" y="5" width="5" height="5" rx="1" fill="#000000" />
-																		<rect x="14" y="5" width="5" height="5" rx="1" fill="#000000" opacity="0.3" />
-																		<rect x="5" y="14" width="5" height="5" rx="1" fill="#000000" opacity="0.3" />
-																		<rect x="14" y="14" width="5" height="5" rx="1" fill="#000000" opacity="0.3" />
-																	</g>
-																</svg>
-															</span>
-                                                    <!--end::Svg Icon-->
-                                                </button>
-                                                <!--begin::Menu 1-->
-                                                <div class="menu menu-sub menu-sub-dropdown w-250px w-md-300px" data-kt-menu="true">
-                                                    <!--begin::Header-->
-                                                    <div class="px-7 py-5">
-                                                        <div class="fs-5 text-dark fw-bolder">Filter Options</div>
-                                                    </div>
-                                                    <!--end::Header-->
-                                                    <!--begin::Menu separator-->
-                                                    <div class="separator border-gray-200"></div>
-                                                    <!--end::Menu separator-->
-                                                    <!--begin::Form-->
-                                                    <div class="px-7 py-5">
-                                                        <!--begin::Input group-->
-                                                        <div class="mb-10">
-                                                            <!--begin::Label-->
-                                                            <label class="form-label fw-bold">Status:</label>
-                                                            <!--end::Label-->
-                                                            <!--begin::Input-->
-                                                            <div>
-                                                                <select class="form-select form-select-solid" data-kt-select2="true" data-placeholder="Select option" data-allow-clear="true">
-                                                                    <option></option>
-                                                                    <option value="1">Approved</option>
-                                                                    <option value="2">Pending</option>
-                                                                    <option value="2">In Process</option>
-                                                                    <option value="2">Rejected</option>
-                                                                </select>
-                                                            </div>
-                                                            <!--end::Input-->
-                                                        </div>
-                                                        <!--end::Input group-->
-                                                        <!--begin::Input group-->
-                                                        <div class="mb-10">
-                                                            <!--begin::Label-->
-                                                            <label class="form-label fw-bold">Member Type:</label>
-                                                            <!--end::Label-->
-                                                            <!--begin::Options-->
-                                                            <div class="d-flex">
-                                                                <!--begin::Options-->
-                                                                <label class="form-check form-check-sm form-check-custom form-check-solid me-5">
-                                                                    <input class="form-check-input" type="checkbox" value="1" />
-                                                                    <span class="form-check-label">Author</span>
-                                                                </label>
-                                                                <!--end::Options-->
-                                                                <!--begin::Options-->
-                                                                <label class="form-check form-check-sm form-check-custom form-check-solid">
-                                                                    <input class="form-check-input" type="checkbox" value="2" checked="checked" />
-                                                                    <span class="form-check-label">Customer</span>
-                                                                </label>
-                                                                <!--end::Options-->
-                                                            </div>
-                                                            <!--end::Options-->
-                                                        </div>
-                                                        <!--end::Input group-->
-                                                        <!--begin::Input group-->
-                                                        <div class="mb-10">
-                                                            <!--begin::Label-->
-                                                            <label class="form-label fw-bold">Notifications:</label>
-                                                            <!--end::Label-->
-                                                            <!--begin::Switch-->
-                                                            <div class="form-check form-switch form-switch-sm form-check-custom form-check-solid">
-                                                                <input class="form-check-input" type="checkbox" value="" name="notifications" checked="checked" />
-                                                                <label class="form-check-label">Enabled</label>
-                                                            </div>
-                                                            <!--end::Switch-->
-                                                        </div>
-                                                        <!--end::Input group-->
-                                                        <!--begin::Actions-->
-                                                        <div class="d-flex justify-content-end">
-                                                            <button type="reset" class="btn btn-sm btn-white btn-active-light-primary me-2" data-kt-menu-dismiss="true">Reset</button>
-                                                            <button type="submit" class="btn btn-sm btn-primary" data-kt-menu-dismiss="true">Apply</button>
-                                                        </div>
-                                                        <!--end::Actions-->
-                                                    </div>
-                                                    <!--end::Form-->
-                                                </div>
-                                                <!--end::Menu 1-->
-                                                <!--end::Menu-->
-                                            </div>
-                                            <!--end::File-->
-                                            <!--begin::File-->
-                                            <div class="d-flex align-items-center">
-                                                <!--begin::Icon-->
-                                                <div class="symbol symbol-30px me-5">
-                                                    <img alt="Icon" src="assets/media/svg/files/ai.svg" />
-                                                </div>
-                                                <!--end::Icon-->
-                                                <!--begin::Details-->
-                                                <div class="fw-bold">
-                                                    <a class="fs-6 fw-bolder text-dark text-hover-primary" href="#">Create Project Wireframes</a>
-                                                    <div class="text-gray-400">Due in 3 days
-                                                        <a href="#">Roth Bloom</a></div>
-                                                </div>
-                                                <!--end::Details-->
-                                                <!--begin::Menu-->
-                                                <button type="button" class="btn btn-clean btn-sm btn-icon btn-icon-primary btn-active-light-primary ms-auto" data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end" data-kt-menu-flip="top-end">
-                                                    <!--begin::Svg Icon | path: icons/stockholm/Layout/Layout-4-blocks-2.svg-->
-                                                    <span class="svg-icon svg-icon-3">
-																<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
-																	<g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-																		<rect x="5" y="5" width="5" height="5" rx="1" fill="#000000" />
-																		<rect x="14" y="5" width="5" height="5" rx="1" fill="#000000" opacity="0.3" />
-																		<rect x="5" y="14" width="5" height="5" rx="1" fill="#000000" opacity="0.3" />
-																		<rect x="14" y="14" width="5" height="5" rx="1" fill="#000000" opacity="0.3" />
-																	</g>
-																</svg>
-															</span>
-                                                    <!--end::Svg Icon-->
-                                                </button>
-                                                <!--begin::Menu 1-->
-                                                <div class="menu menu-sub menu-sub-dropdown w-250px w-md-300px" data-kt-menu="true">
-                                                    <!--begin::Header-->
-                                                    <div class="px-7 py-5">
-                                                        <div class="fs-5 text-dark fw-bolder">Filter Options</div>
-                                                    </div>
-                                                    <!--end::Header-->
-                                                    <!--begin::Menu separator-->
-                                                    <div class="separator border-gray-200"></div>
-                                                    <!--end::Menu separator-->
-                                                    <!--begin::Form-->
-                                                    <div class="px-7 py-5">
-                                                        <!--begin::Input group-->
-                                                        <div class="mb-10">
-                                                            <!--begin::Label-->
-                                                            <label class="form-label fw-bold">Status:</label>
-                                                            <!--end::Label-->
-                                                            <!--begin::Input-->
-                                                            <div>
-                                                                <select class="form-select form-select-solid" data-kt-select2="true" data-placeholder="Select option" data-allow-clear="true">
-                                                                    <option></option>
-                                                                    <option value="1">Approved</option>
-                                                                    <option value="2">Pending</option>
-                                                                    <option value="2">In Process</option>
-                                                                    <option value="2">Rejected</option>
-                                                                </select>
-                                                            </div>
-                                                            <!--end::Input-->
-                                                        </div>
-                                                        <!--end::Input group-->
-                                                        <!--begin::Input group-->
-                                                        <div class="mb-10">
-                                                            <!--begin::Label-->
-                                                            <label class="form-label fw-bold">Member Type:</label>
-                                                            <!--end::Label-->
-                                                            <!--begin::Options-->
-                                                            <div class="d-flex">
-                                                                <!--begin::Options-->
-                                                                <label class="form-check form-check-sm form-check-custom form-check-solid me-5">
-                                                                    <input class="form-check-input" type="checkbox" value="1" />
-                                                                    <span class="form-check-label">Author</span>
-                                                                </label>
-                                                                <!--end::Options-->
-                                                                <!--begin::Options-->
-                                                                <label class="form-check form-check-sm form-check-custom form-check-solid">
-                                                                    <input class="form-check-input" type="checkbox" value="2" checked="checked" />
-                                                                    <span class="form-check-label">Customer</span>
-                                                                </label>
-                                                                <!--end::Options-->
-                                                            </div>
-                                                            <!--end::Options-->
-                                                        </div>
-                                                        <!--end::Input group-->
-                                                        <!--begin::Input group-->
-                                                        <div class="mb-10">
-                                                            <!--begin::Label-->
-                                                            <label class="form-label fw-bold">Notifications:</label>
-                                                            <!--end::Label-->
-                                                            <!--begin::Switch-->
-                                                            <div class="form-check form-switch form-switch-sm form-check-custom form-check-solid">
-                                                                <input class="form-check-input" type="checkbox" value="" name="notifications" checked="checked" />
-                                                                <label class="form-check-label">Enabled</label>
-                                                            </div>
-                                                            <!--end::Switch-->
-                                                        </div>
-                                                        <!--end::Input group-->
-                                                        <!--begin::Actions-->
-                                                        <div class="d-flex justify-content-end">
-                                                            <button type="reset" class="btn btn-sm btn-white btn-active-light-primary me-2" data-kt-menu-dismiss="true">Reset</button>
-                                                            <button type="submit" class="btn btn-sm btn-primary" data-kt-menu-dismiss="true">Apply</button>
-                                                        </div>
-                                                        <!--end::Actions-->
-                                                    </div>
-                                                    <!--end::Form-->
-                                                </div>
-                                                <!--end::Menu 1-->
-                                                <!--end::Menu-->
-                                            </div>
-                                            <!--end::File-->
-                                        </div>
-                                        <!--end::Files-->
-                                        <!--begin::Notice-->
-                                        <div class="notice d-flex bg-light-primary rounded border-primary border border-dashed p-6">
-                                            <!--begin::Icon-->
-                                            <!--begin::Svg Icon | path: svg/files/upload.svg-->
-                                            <span class="svg-icon svg-icon-2tx svg-icon-primary me-4">
-														<svg xmlns="http://www.w3.org/2000/svg" width="67" height="67" viewBox="0 0 67 67" fill="none">
-															<path opacity="0.25" d="M8.375 11.167C8.375 6.54161 12.1246 2.79199 16.75 2.79199H43.9893C46.2105 2.79199 48.3407 3.67436 49.9113 5.24497L56.172 11.5057C57.7426 13.0763 58.625 15.2065 58.625 17.4277V55.8337C58.625 60.459 54.8754 64.2087 50.25 64.2087H16.75C12.1246 64.2087 8.375 60.459 8.375 55.8337V11.167Z" fill="#00A3FF" />
-															<path d="M41.875 5.28162C41.875 3.90663 42.9896 2.79199 44.3646 2.79199V2.79199C46.3455 2.79199 48.2452 3.57889 49.6459 4.97957L56.4374 11.7711C57.8381 13.1718 58.625 15.0715 58.625 17.0524V17.0524C58.625 18.4274 57.5104 19.542 56.1354 19.542H44.6667C43.1249 19.542 41.875 18.2921 41.875 16.7503V5.28162Z" fill="#00A3FF" />
-															<path d="M32.4311 25.3368C32.1018 25.4731 31.7933 25.675 31.5257 25.9427L23.1507 34.3177C22.0605 35.4079 22.0605 37.1755 23.1507 38.2657C24.2409 39.3559 26.0085 39.3559 27.0987 38.2657L30.708 34.6563V47.4583C30.708 49.0001 31.9579 50.25 33.4997 50.25C35.0415 50.25 36.2913 49.0001 36.2913 47.4583V34.6563L39.9007 38.2657C40.9909 39.3559 42.7585 39.3559 43.8487 38.2657C44.9389 37.1755 44.9389 35.4079 43.8487 34.3177L35.4737 25.9427C34.6511 25.1201 33.443 24.9182 32.4311 25.3368Z" fill="#00A3FF" />
-														</svg>
-													</span>
-                                            <!--end::Svg Icon-->
-                                            <!--end::Icon-->
-                                            <!--begin::Wrapper-->
-                                            <div class="d-flex flex-stack flex-grow-1">
-                                                <!--begin::Content-->
-                                                <div class="fw-bold">
-                                                    <h4 class="text-gray-800 fw-bolder">Quick file uploader</h4>
-                                                    <div class="fs-6 text-gray-600">Drag &amp; Drop or choose files from computer</div>
-                                                </div>
-                                                <!--end::Content-->
-                                            </div>
-                                            <!--end::Wrapper-->
-                                        </div>
-                                        <!--end::Notice-->
-                                    </div>
-                                    <!--end::Card body -->
-                                </div>
-                                <!--end::Card-->
-                            </div>
-                            <!--end::Col-->
-                            <!--begin::Col-->
-                            <div class="col-lg-6">
-                                <!--begin::Card-->
-                                <div class="card card-flush h-lg-100">
-                                    <!--begin::Card header-->
-                                    <div class="card-header mt-6">
-                                        <!--begin::Card title-->
-                                        <div class="card-title flex-column">
-                                            <h3 class="fw-bolder mb-1">New Contibutors</h3>
-                                            <div class="fs-6 text-gray-400">From total 482 Participants</div>
-                                        </div>
-                                        <!--end::Card title-->
-                                        <!--begin::Card toolbar-->
-                                        <div class="card-toolbar">
-                                            <a href="#" class="btn btn-bg-light btn-active-color-primary btn-sm">View All</a>
-                                        </div>
-                                        <!--end::Card toolbar-->
-                                    </div>
-                                    <!--end::Card toolbar-->
-                                    <!--begin::Card body-->
-                                    <div class="card-body d-flex flex-column p-9 pt-3 mb-9">
-                                        <!--begin::Item-->
-                                        <div class="d-flex align-items-center mb-5">
-                                            <!--begin::Avatar-->
-                                            <div class="me-5 position-relative">
-                                                <!--begin::Image-->
-                                                <div class="symbol symbol-35px symbol-circle">
-                                                    <img alt="Pic" src="assets/media/avatars/150-1.jpg" />
-                                                </div>
-                                                <!--end::Image-->
-                                            </div>
-                                            <!--end::Avatar-->
-                                            <!--begin::Details-->
-                                            <div class="fw-bold">
-                                                <a href="#" class="fs-5 fw-bolder text-gray-900 text-hover-primary">Emma Smith</a>
-                                                <div class="text-gray-400">8 Pending &amp; 97 Completed Tasks</div>
-                                            </div>
-                                            <!--end::Details-->
-                                            <!--begin::Badge-->
-                                            <div class="badge badge-light ms-auto">5</div>
-                                            <!--end::Badge-->
-                                        </div>
-                                        <!--end::Item-->
-                                        <!--begin::Item-->
-                                        <div class="d-flex align-items-center mb-5">
-                                            <!--begin::Avatar-->
-                                            <div class="me-5 position-relative">
-                                                <!--begin::Image-->
-                                                <div class="symbol symbol-35px symbol-circle">
-                                                    <span class="symbol-label bg-light-danger text-danger fw-bold">M</span>
-                                                </div>
-                                                <!--end::Image-->
-                                                <!--begin::Online-->
-                                                <div class="bg-success position-absolute h-8px w-8px rounded-circle translate-middle start-100 top-100 ms-n1 mt-n1"></div>
-                                                <!--end::Online-->
-                                            </div>
-                                            <!--end::Avatar-->
-                                            <!--begin::Details-->
-                                            <div class="fw-bold">
-                                                <a href="#" class="fs-5 fw-bolder text-gray-900 text-hover-primary">Melody Macy</a>
-                                                <div class="text-gray-400">5 Pending &amp; 84 Completed</div>
-                                            </div>
-                                            <!--end::Details-->
-                                            <!--begin::Badge-->
-                                            <div class="badge badge-light ms-auto">8</div>
-                                            <!--end::Badge-->
-                                        </div>
-                                        <!--end::Item-->
-                                        <!--begin::Item-->
-                                        <div class="d-flex align-items-center mb-5">
-                                            <!--begin::Avatar-->
-                                            <div class="me-5 position-relative">
-                                                <!--begin::Image-->
-                                                <div class="symbol symbol-35px symbol-circle">
-                                                    <img alt="Pic" src="assets/media/avatars/150-2.jpg" />
-                                                </div>
-                                                <!--end::Image-->
-                                            </div>
-                                            <!--end::Avatar-->
-                                            <!--begin::Details-->
-                                            <div class="fw-bold">
-                                                <a href="#" class="fs-5 fw-bolder text-gray-900 text-hover-primary">Max Smith</a>
-                                                <div class="text-gray-400">9 Pending &amp; 103 Completed</div>
-                                            </div>
-                                            <!--end::Details-->
-                                            <!--begin::Badge-->
-                                            <div class="badge badge-light ms-auto">9</div>
-                                            <!--end::Badge-->
-                                        </div>
-                                        <!--end::Item-->
-                                        <!--begin::Item-->
-                                        <div class="d-flex align-items-center mb-5">
-                                            <!--begin::Avatar-->
-                                            <div class="me-5 position-relative">
-                                                <!--begin::Image-->
-                                                <div class="symbol symbol-35px symbol-circle">
-                                                    <img alt="Pic" src="assets/media/avatars/150-4.jpg" />
-                                                </div>
-                                                <!--end::Image-->
-                                            </div>
-                                            <!--end::Avatar-->
-                                            <!--begin::Details-->
-                                            <div class="fw-bold">
-                                                <a href="#" class="fs-5 fw-bolder text-gray-900 text-hover-primary">Sean Bean</a>
-                                                <div class="text-gray-400">3 Pending &amp; 55 Completed</div>
-                                            </div>
-                                            <!--end::Details-->
-                                            <!--begin::Badge-->
-                                            <div class="badge badge-light ms-auto">3</div>
-                                            <!--end::Badge-->
-                                        </div>
-                                        <!--end::Item-->
-                                        <!--begin::Item-->
-                                        <div class="d-flex align-items-center">
-                                            <!--begin::Avatar-->
-                                            <div class="me-5 position-relative">
-                                                <!--begin::Image-->
-                                                <div class="symbol symbol-35px symbol-circle">
-                                                    <img alt="Pic" src="assets/media/avatars/150-15.jpg" />
-                                                </div>
-                                                <!--end::Image-->
-                                            </div>
-                                            <!--end::Avatar-->
-                                            <!--begin::Details-->
-                                            <div class="fw-bold">
-                                                <a href="#" class="fs-5 fw-bolder text-gray-900 text-hover-primary">Brian Cox</a>
-                                                <div class="text-gray-400">4 Pending &amp; 115 Completed</div>
-                                            </div>
-                                            <!--end::Details-->
-                                            <!--begin::Badge-->
-                                            <div class="badge badge-light ms-auto">4</div>
-                                            <!--end::Badge-->
-                                        </div>
-                                        <!--end::Item-->
-                                    </div>
-                                    <!--end::Card body-->
-                                </div>
-                                <!--end::Card-->
-                            </div>
-                            <!--end::Col-->
-                            <!--begin::Col-->
-                            <div class="col-lg-6">
-                                <!--begin::Tasks-->
-                                <div class="card card-flush h-lg-100">
-                                    <!--begin::Card header-->
-                                    <div class="card-header mt-6">
-                                        <!--begin::Card title-->
-                                        <div class="card-title flex-column">
-                                            <h3 class="fw-bolder mb-1">My Tasks</h3>
-                                            <div class="fs-6 text-gray-400">Total 25 tasks in backlog</div>
-                                        </div>
-                                        <!--end::Card title-->
-                                        <!--begin::Card toolbar-->
-                                        <div class="card-toolbar">
-                                            <a href="#" class="btn btn-bg-light btn-active-color-primary btn-sm">View All</a>
-                                        </div>
-                                        <!--end::Card toolbar-->
-                                    </div>
-                                    <!--end::Card header-->
-                                    <!--begin::Card body-->
-                                    <div class="card-body d-flex flex-column mb-9 p-9 pt-3">
-                                        <!--begin::Item-->
-                                        <div class="d-flex align-items-center position-relative mb-7">
-                                            <!--begin::Label-->
-                                            <div class="position-absolute top-0 start-0 rounded h-100 bg-secondary w-4px"></div>
-                                            <!--end::Label-->
-                                            <!--begin::Checkbox-->
-                                            <div class="form-check form-check-custom form-check-solid ms-6 me-4">
-                                                <input class="form-check-input" type="checkbox" value="" />
-                                            </div>
-                                            <!--end::Checkbox-->
-                                            <!--begin::Details-->
-                                            <div class="fw-bold">
-                                                <a href="#" class="fs-6 fw-bolder text-gray-900 text-hover-primary">Create FureStibe branding logo</a>
-                                                <!--begin::Info-->
-                                                <div class="text-gray-400">Due in 1 day
-                                                    <a href="#">Karina Clark</a></div>
-                                                <!--end::Info-->
-                                            </div>
-                                            <!--end::Details-->
-                                            <!--begin::Menu-->
-                                            <button type="button" class="btn btn-clean btn-sm btn-icon btn-icon-primary btn-active-light-primary ms-auto" data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end" data-kt-menu-flip="top-end">
-                                                <!--begin::Svg Icon | path: icons/stockholm/Layout/Layout-4-blocks-2.svg-->
-                                                <span class="svg-icon svg-icon-3">
-															<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
-																<g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-																	<rect x="5" y="5" width="5" height="5" rx="1" fill="#000000" />
-																	<rect x="14" y="5" width="5" height="5" rx="1" fill="#000000" opacity="0.3" />
-																	<rect x="5" y="14" width="5" height="5" rx="1" fill="#000000" opacity="0.3" />
-																	<rect x="14" y="14" width="5" height="5" rx="1" fill="#000000" opacity="0.3" />
-																</g>
-															</svg>
-														</span>
-                                                <!--end::Svg Icon-->
-                                            </button>
-                                            <!--begin::Menu 1-->
-                                            <div class="menu menu-sub menu-sub-dropdown w-250px w-md-300px" data-kt-menu="true">
-                                                <!--begin::Header-->
-                                                <div class="px-7 py-5">
-                                                    <div class="fs-5 text-dark fw-bolder">Filter Options</div>
-                                                </div>
-                                                <!--end::Header-->
-                                                <!--begin::Menu separator-->
-                                                <div class="separator border-gray-200"></div>
-                                                <!--end::Menu separator-->
-                                                <!--begin::Form-->
-                                                <div class="px-7 py-5">
-                                                    <!--begin::Input group-->
-                                                    <div class="mb-10">
-                                                        <!--begin::Label-->
-                                                        <label class="form-label fw-bold">Status:</label>
-                                                        <!--end::Label-->
-                                                        <!--begin::Input-->
-                                                        <div>
-                                                            <select class="form-select form-select-solid" data-kt-select2="true" data-placeholder="Select option" data-allow-clear="true">
-                                                                <option></option>
-                                                                <option value="1">Approved</option>
-                                                                <option value="2">Pending</option>
-                                                                <option value="2">In Process</option>
-                                                                <option value="2">Rejected</option>
-                                                            </select>
-                                                        </div>
-                                                        <!--end::Input-->
-                                                    </div>
-                                                    <!--end::Input group-->
-                                                    <!--begin::Input group-->
-                                                    <div class="mb-10">
-                                                        <!--begin::Label-->
-                                                        <label class="form-label fw-bold">Member Type:</label>
-                                                        <!--end::Label-->
-                                                        <!--begin::Options-->
-                                                        <div class="d-flex">
-                                                            <!--begin::Options-->
-                                                            <label class="form-check form-check-sm form-check-custom form-check-solid me-5">
-                                                                <input class="form-check-input" type="checkbox" value="1" />
-                                                                <span class="form-check-label">Author</span>
-                                                            </label>
-                                                            <!--end::Options-->
-                                                            <!--begin::Options-->
-                                                            <label class="form-check form-check-sm form-check-custom form-check-solid">
-                                                                <input class="form-check-input" type="checkbox" value="2" checked="checked" />
-                                                                <span class="form-check-label">Customer</span>
-                                                            </label>
-                                                            <!--end::Options-->
-                                                        </div>
-                                                        <!--end::Options-->
-                                                    </div>
-                                                    <!--end::Input group-->
-                                                    <!--begin::Input group-->
-                                                    <div class="mb-10">
-                                                        <!--begin::Label-->
-                                                        <label class="form-label fw-bold">Notifications:</label>
-                                                        <!--end::Label-->
-                                                        <!--begin::Switch-->
-                                                        <div class="form-check form-switch form-switch-sm form-check-custom form-check-solid">
-                                                            <input class="form-check-input" type="checkbox" value="" name="notifications" checked="checked" />
-                                                            <label class="form-check-label">Enabled</label>
-                                                        </div>
-                                                        <!--end::Switch-->
-                                                    </div>
-                                                    <!--end::Input group-->
-                                                    <!--begin::Actions-->
-                                                    <div class="d-flex justify-content-end">
-                                                        <button type="reset" class="btn btn-sm btn-white btn-active-light-primary me-2" data-kt-menu-dismiss="true">Reset</button>
-                                                        <button type="submit" class="btn btn-sm btn-primary" data-kt-menu-dismiss="true">Apply</button>
-                                                    </div>
-                                                    <!--end::Actions-->
-                                                </div>
-                                                <!--end::Form-->
-                                            </div>
-                                            <!--end::Menu 1-->
-                                            <!--end::Menu-->
-                                        </div>
-                                        <!--end::Item-->
-                                        <!--begin::Item-->
-                                        <div class="d-flex align-items-center position-relative mb-7">
-                                            <!--begin::Label-->
-                                            <div class="position-absolute top-0 start-0 rounded h-100 bg-secondary w-4px"></div>
-                                            <!--end::Label-->
-                                            <!--begin::Checkbox-->
-                                            <div class="form-check form-check-custom form-check-solid ms-6 me-4">
-                                                <input class="form-check-input" type="checkbox" value="" />
-                                            </div>
-                                            <!--end::Checkbox-->
-                                            <!--begin::Details-->
-                                            <div class="fw-bold">
-                                                <a href="#" class="fs-6 fw-bolder text-gray-900 text-hover-primary">Schedule a meeting with FireBear CTO John</a>
-                                                <!--begin::Info-->
-                                                <div class="text-gray-400">Due in 3 days
-                                                    <a href="#">Rober Doe</a></div>
-                                                <!--end::Info-->
-                                            </div>
-                                            <!--end::Details-->
-                                            <!--begin::Menu-->
-                                            <button type="button" class="btn btn-clean btn-sm btn-icon btn-icon-primary btn-active-light-primary ms-auto" data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end" data-kt-menu-flip="top-end">
-                                                <!--begin::Svg Icon | path: icons/stockholm/Layout/Layout-4-blocks-2.svg-->
-                                                <span class="svg-icon svg-icon-3">
-															<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
-																<g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-																	<rect x="5" y="5" width="5" height="5" rx="1" fill="#000000" />
-																	<rect x="14" y="5" width="5" height="5" rx="1" fill="#000000" opacity="0.3" />
-																	<rect x="5" y="14" width="5" height="5" rx="1" fill="#000000" opacity="0.3" />
-																	<rect x="14" y="14" width="5" height="5" rx="1" fill="#000000" opacity="0.3" />
-																</g>
-															</svg>
-														</span>
-                                                <!--end::Svg Icon-->
-                                            </button>
-                                            <!--begin::Menu 1-->
-                                            <div class="menu menu-sub menu-sub-dropdown w-250px w-md-300px" data-kt-menu="true">
-                                                <!--begin::Header-->
-                                                <div class="px-7 py-5">
-                                                    <div class="fs-5 text-dark fw-bolder">Filter Options</div>
-                                                </div>
-                                                <!--end::Header-->
-                                                <!--begin::Menu separator-->
-                                                <div class="separator border-gray-200"></div>
-                                                <!--end::Menu separator-->
-                                                <!--begin::Form-->
-                                                <div class="px-7 py-5">
-                                                    <!--begin::Input group-->
-                                                    <div class="mb-10">
-                                                        <!--begin::Label-->
-                                                        <label class="form-label fw-bold">Status:</label>
-                                                        <!--end::Label-->
-                                                        <!--begin::Input-->
-                                                        <div>
-                                                            <select class="form-select form-select-solid" data-kt-select2="true" data-placeholder="Select option" data-allow-clear="true">
-                                                                <option></option>
-                                                                <option value="1">Approved</option>
-                                                                <option value="2">Pending</option>
-                                                                <option value="2">In Process</option>
-                                                                <option value="2">Rejected</option>
-                                                            </select>
-                                                        </div>
-                                                        <!--end::Input-->
-                                                    </div>
-                                                    <!--end::Input group-->
-                                                    <!--begin::Input group-->
-                                                    <div class="mb-10">
-                                                        <!--begin::Label-->
-                                                        <label class="form-label fw-bold">Member Type:</label>
-                                                        <!--end::Label-->
-                                                        <!--begin::Options-->
-                                                        <div class="d-flex">
-                                                            <!--begin::Options-->
-                                                            <label class="form-check form-check-sm form-check-custom form-check-solid me-5">
-                                                                <input class="form-check-input" type="checkbox" value="1" />
-                                                                <span class="form-check-label">Author</span>
-                                                            </label>
-                                                            <!--end::Options-->
-                                                            <!--begin::Options-->
-                                                            <label class="form-check form-check-sm form-check-custom form-check-solid">
-                                                                <input class="form-check-input" type="checkbox" value="2" checked="checked" />
-                                                                <span class="form-check-label">Customer</span>
-                                                            </label>
-                                                            <!--end::Options-->
-                                                        </div>
-                                                        <!--end::Options-->
-                                                    </div>
-                                                    <!--end::Input group-->
-                                                    <!--begin::Input group-->
-                                                    <div class="mb-10">
-                                                        <!--begin::Label-->
-                                                        <label class="form-label fw-bold">Notifications:</label>
-                                                        <!--end::Label-->
-                                                        <!--begin::Switch-->
-                                                        <div class="form-check form-switch form-switch-sm form-check-custom form-check-solid">
-                                                            <input class="form-check-input" type="checkbox" value="" name="notifications" checked="checked" />
-                                                            <label class="form-check-label">Enabled</label>
-                                                        </div>
-                                                        <!--end::Switch-->
-                                                    </div>
-                                                    <!--end::Input group-->
-                                                    <!--begin::Actions-->
-                                                    <div class="d-flex justify-content-end">
-                                                        <button type="reset" class="btn btn-sm btn-white btn-active-light-primary me-2" data-kt-menu-dismiss="true">Reset</button>
-                                                        <button type="submit" class="btn btn-sm btn-primary" data-kt-menu-dismiss="true">Apply</button>
-                                                    </div>
-                                                    <!--end::Actions-->
-                                                </div>
-                                                <!--end::Form-->
-                                            </div>
-                                            <!--end::Menu 1-->
-                                            <!--end::Menu-->
-                                        </div>
-                                        <!--end::Item-->
-                                        <!--begin::Item-->
-                                        <div class="d-flex align-items-center position-relative mb-7">
-                                            <!--begin::Label-->
-                                            <div class="position-absolute top-0 start-0 rounded h-100 bg-secondary w-4px"></div>
-                                            <!--end::Label-->
-                                            <!--begin::Checkbox-->
-                                            <div class="form-check form-check-custom form-check-solid ms-6 me-4">
-                                                <input class="form-check-input" type="checkbox" value="" />
-                                            </div>
-                                            <!--end::Checkbox-->
-                                            <!--begin::Details-->
-                                            <div class="fw-bold">
-                                                <a href="#" class="fs-6 fw-bolder text-gray-900 text-hover-primary">9 Degree Porject Estimation</a>
-                                                <!--begin::Info-->
-                                                <div class="text-gray-400">Due in 1 week
-                                                    <a href="#">Neil Owen</a></div>
-                                                <!--end::Info-->
-                                            </div>
-                                            <!--end::Details-->
-                                            <!--begin::Menu-->
-                                            <button type="button" class="btn btn-clean btn-sm btn-icon btn-icon-primary btn-active-light-primary ms-auto" data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end" data-kt-menu-flip="top-end">
-                                                <!--begin::Svg Icon | path: icons/stockholm/Layout/Layout-4-blocks-2.svg-->
-                                                <span class="svg-icon svg-icon-3">
-															<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
-																<g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-																	<rect x="5" y="5" width="5" height="5" rx="1" fill="#000000" />
-																	<rect x="14" y="5" width="5" height="5" rx="1" fill="#000000" opacity="0.3" />
-																	<rect x="5" y="14" width="5" height="5" rx="1" fill="#000000" opacity="0.3" />
-																	<rect x="14" y="14" width="5" height="5" rx="1" fill="#000000" opacity="0.3" />
-																</g>
-															</svg>
-														</span>
-                                                <!--end::Svg Icon-->
-                                            </button>
-                                            <!--begin::Menu 1-->
-                                            <div class="menu menu-sub menu-sub-dropdown w-250px w-md-300px" data-kt-menu="true">
-                                                <!--begin::Header-->
-                                                <div class="px-7 py-5">
-                                                    <div class="fs-5 text-dark fw-bolder">Filter Options</div>
-                                                </div>
-                                                <!--end::Header-->
-                                                <!--begin::Menu separator-->
-                                                <div class="separator border-gray-200"></div>
-                                                <!--end::Menu separator-->
-                                                <!--begin::Form-->
-                                                <div class="px-7 py-5">
-                                                    <!--begin::Input group-->
-                                                    <div class="mb-10">
-                                                        <!--begin::Label-->
-                                                        <label class="form-label fw-bold">Status:</label>
-                                                        <!--end::Label-->
-                                                        <!--begin::Input-->
-                                                        <div>
-                                                            <select class="form-select form-select-solid" data-kt-select2="true" data-placeholder="Select option" data-allow-clear="true">
-                                                                <option></option>
-                                                                <option value="1">Approved</option>
-                                                                <option value="2">Pending</option>
-                                                                <option value="2">In Process</option>
-                                                                <option value="2">Rejected</option>
-                                                            </select>
-                                                        </div>
-                                                        <!--end::Input-->
-                                                    </div>
-                                                    <!--end::Input group-->
-                                                    <!--begin::Input group-->
-                                                    <div class="mb-10">
-                                                        <!--begin::Label-->
-                                                        <label class="form-label fw-bold">Member Type:</label>
-                                                        <!--end::Label-->
-                                                        <!--begin::Options-->
-                                                        <div class="d-flex">
-                                                            <!--begin::Options-->
-                                                            <label class="form-check form-check-sm form-check-custom form-check-solid me-5">
-                                                                <input class="form-check-input" type="checkbox" value="1" />
-                                                                <span class="form-check-label">Author</span>
-                                                            </label>
-                                                            <!--end::Options-->
-                                                            <!--begin::Options-->
-                                                            <label class="form-check form-check-sm form-check-custom form-check-solid">
-                                                                <input class="form-check-input" type="checkbox" value="2" checked="checked" />
-                                                                <span class="form-check-label">Customer</span>
-                                                            </label>
-                                                            <!--end::Options-->
-                                                        </div>
-                                                        <!--end::Options-->
-                                                    </div>
-                                                    <!--end::Input group-->
-                                                    <!--begin::Input group-->
-                                                    <div class="mb-10">
-                                                        <!--begin::Label-->
-                                                        <label class="form-label fw-bold">Notifications:</label>
-                                                        <!--end::Label-->
-                                                        <!--begin::Switch-->
-                                                        <div class="form-check form-switch form-switch-sm form-check-custom form-check-solid">
-                                                            <input class="form-check-input" type="checkbox" value="" name="notifications" checked="checked" />
-                                                            <label class="form-check-label">Enabled</label>
-                                                        </div>
-                                                        <!--end::Switch-->
-                                                    </div>
-                                                    <!--end::Input group-->
-                                                    <!--begin::Actions-->
-                                                    <div class="d-flex justify-content-end">
-                                                        <button type="reset" class="btn btn-sm btn-white btn-active-light-primary me-2" data-kt-menu-dismiss="true">Reset</button>
-                                                        <button type="submit" class="btn btn-sm btn-primary" data-kt-menu-dismiss="true">Apply</button>
-                                                    </div>
-                                                    <!--end::Actions-->
-                                                </div>
-                                                <!--end::Form-->
-                                            </div>
-                                            <!--end::Menu 1-->
-                                            <!--end::Menu-->
-                                        </div>
-                                        <!--end::Item-->
-                                        <!--begin::Item-->
-                                        <div class="d-flex align-items-center position-relative mb-7">
-                                            <!--begin::Label-->
-                                            <div class="position-absolute top-0 start-0 rounded h-100 bg-secondary w-4px"></div>
-                                            <!--end::Label-->
-                                            <!--begin::Checkbox-->
-                                            <div class="form-check form-check-custom form-check-solid ms-6 me-4">
-                                                <input class="form-check-input" type="checkbox" value="" />
-                                            </div>
-                                            <!--end::Checkbox-->
-                                            <!--begin::Details-->
-                                            <div class="fw-bold">
-                                                <a href="#" class="fs-6 fw-bolder text-gray-900 text-hover-primary">Dashgboard UI &amp; UX for Leafr CRM</a>
-                                                <!--begin::Info-->
-                                                <div class="text-gray-400">Due in 1 week
-                                                    <a href="#">Olivia Wild</a></div>
-                                                <!--end::Info-->
-                                            </div>
-                                            <!--end::Details-->
-                                            <!--begin::Menu-->
-                                            <button type="button" class="btn btn-clean btn-sm btn-icon btn-icon-primary btn-active-light-primary ms-auto" data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end" data-kt-menu-flip="top-end">
-                                                <!--begin::Svg Icon | path: icons/stockholm/Layout/Layout-4-blocks-2.svg-->
-                                                <span class="svg-icon svg-icon-3">
-															<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
-																<g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-																	<rect x="5" y="5" width="5" height="5" rx="1" fill="#000000" />
-																	<rect x="14" y="5" width="5" height="5" rx="1" fill="#000000" opacity="0.3" />
-																	<rect x="5" y="14" width="5" height="5" rx="1" fill="#000000" opacity="0.3" />
-																	<rect x="14" y="14" width="5" height="5" rx="1" fill="#000000" opacity="0.3" />
-																</g>
-															</svg>
-														</span>
-                                                <!--end::Svg Icon-->
-                                            </button>
-                                            <!--begin::Menu 1-->
-                                            <div class="menu menu-sub menu-sub-dropdown w-250px w-md-300px" data-kt-menu="true">
-                                                <!--begin::Header-->
-                                                <div class="px-7 py-5">
-                                                    <div class="fs-5 text-dark fw-bolder">Filter Options</div>
-                                                </div>
-                                                <!--end::Header-->
-                                                <!--begin::Menu separator-->
-                                                <div class="separator border-gray-200"></div>
-                                                <!--end::Menu separator-->
-                                                <!--begin::Form-->
-                                                <div class="px-7 py-5">
-                                                    <!--begin::Input group-->
-                                                    <div class="mb-10">
-                                                        <!--begin::Label-->
-                                                        <label class="form-label fw-bold">Status:</label>
-                                                        <!--end::Label-->
-                                                        <!--begin::Input-->
-                                                        <div>
-                                                            <select class="form-select form-select-solid" data-kt-select2="true" data-placeholder="Select option" data-allow-clear="true">
-                                                                <option></option>
-                                                                <option value="1">Approved</option>
-                                                                <option value="2">Pending</option>
-                                                                <option value="2">In Process</option>
-                                                                <option value="2">Rejected</option>
-                                                            </select>
-                                                        </div>
-                                                        <!--end::Input-->
-                                                    </div>
-                                                    <!--end::Input group-->
-                                                    <!--begin::Input group-->
-                                                    <div class="mb-10">
-                                                        <!--begin::Label-->
-                                                        <label class="form-label fw-bold">Member Type:</label>
-                                                        <!--end::Label-->
-                                                        <!--begin::Options-->
-                                                        <div class="d-flex">
-                                                            <!--begin::Options-->
-                                                            <label class="form-check form-check-sm form-check-custom form-check-solid me-5">
-                                                                <input class="form-check-input" type="checkbox" value="1" />
-                                                                <span class="form-check-label">Author</span>
-                                                            </label>
-                                                            <!--end::Options-->
-                                                            <!--begin::Options-->
-                                                            <label class="form-check form-check-sm form-check-custom form-check-solid">
-                                                                <input class="form-check-input" type="checkbox" value="2" checked="checked" />
-                                                                <span class="form-check-label">Customer</span>
-                                                            </label>
-                                                            <!--end::Options-->
-                                                        </div>
-                                                        <!--end::Options-->
-                                                    </div>
-                                                    <!--end::Input group-->
-                                                    <!--begin::Input group-->
-                                                    <div class="mb-10">
-                                                        <!--begin::Label-->
-                                                        <label class="form-label fw-bold">Notifications:</label>
-                                                        <!--end::Label-->
-                                                        <!--begin::Switch-->
-                                                        <div class="form-check form-switch form-switch-sm form-check-custom form-check-solid">
-                                                            <input class="form-check-input" type="checkbox" value="" name="notifications" checked="checked" />
-                                                            <label class="form-check-label">Enabled</label>
-                                                        </div>
-                                                        <!--end::Switch-->
-                                                    </div>
-                                                    <!--end::Input group-->
-                                                    <!--begin::Actions-->
-                                                    <div class="d-flex justify-content-end">
-                                                        <button type="reset" class="btn btn-sm btn-white btn-active-light-primary me-2" data-kt-menu-dismiss="true">Reset</button>
-                                                        <button type="submit" class="btn btn-sm btn-primary" data-kt-menu-dismiss="true">Apply</button>
-                                                    </div>
-                                                    <!--end::Actions-->
-                                                </div>
-                                                <!--end::Form-->
-                                            </div>
-                                            <!--end::Menu 1-->
-                                            <!--end::Menu-->
-                                        </div>
-                                        <!--end::Item-->
-                                        <!--begin::Item-->
-                                        <div class="d-flex align-items-center position-relative">
-                                            <!--begin::Label-->
-                                            <div class="position-absolute top-0 start-0 rounded h-100 bg-secondary w-4px"></div>
-                                            <!--end::Label-->
-                                            <!--begin::Checkbox-->
-                                            <div class="form-check form-check-custom form-check-solid ms-6 me-4">
-                                                <input class="form-check-input" type="checkbox" value="" />
-                                            </div>
-                                            <!--end::Checkbox-->
-                                            <!--begin::Details-->
-                                            <div class="fw-bold">
-                                                <a href="#" class="fs-6 fw-bolder text-gray-900 text-hover-primary">Mivy App R&amp;D, Meeting with clients</a>
-                                                <!--begin::Info-->
-                                                <div class="text-gray-400">Due in 2 weeks
-                                                    <a href="#">Sean Bean</a></div>
-                                                <!--end::Info-->
-                                            </div>
-                                            <!--end::Details-->
-                                            <!--begin::Menu-->
-                                            <button type="button" class="btn btn-clean btn-sm btn-icon btn-icon-primary btn-active-light-primary ms-auto" data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end" data-kt-menu-flip="top-end">
-                                                <!--begin::Svg Icon | path: icons/stockholm/Layout/Layout-4-blocks-2.svg-->
-                                                <span class="svg-icon svg-icon-3">
-															<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
-																<g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-																	<rect x="5" y="5" width="5" height="5" rx="1" fill="#000000" />
-																	<rect x="14" y="5" width="5" height="5" rx="1" fill="#000000" opacity="0.3" />
-																	<rect x="5" y="14" width="5" height="5" rx="1" fill="#000000" opacity="0.3" />
-																	<rect x="14" y="14" width="5" height="5" rx="1" fill="#000000" opacity="0.3" />
-																</g>
-															</svg>
-														</span>
-                                                <!--end::Svg Icon-->
-                                            </button>
-                                            <!--begin::Menu 1-->
-                                            <div class="menu menu-sub menu-sub-dropdown w-250px w-md-300px" data-kt-menu="true">
-                                                <!--begin::Header-->
-                                                <div class="px-7 py-5">
-                                                    <div class="fs-5 text-dark fw-bolder">Filter Options</div>
-                                                </div>
-                                                <!--end::Header-->
-                                                <!--begin::Menu separator-->
-                                                <div class="separator border-gray-200"></div>
-                                                <!--end::Menu separator-->
-                                                <!--begin::Form-->
-                                                <div class="px-7 py-5">
-                                                    <!--begin::Input group-->
-                                                    <div class="mb-10">
-                                                        <!--begin::Label-->
-                                                        <label class="form-label fw-bold">Status:</label>
-                                                        <!--end::Label-->
-                                                        <!--begin::Input-->
-                                                        <div>
-                                                            <select class="form-select form-select-solid" data-kt-select2="true" data-placeholder="Select option" data-allow-clear="true">
-                                                                <option></option>
-                                                                <option value="1">Approved</option>
-                                                                <option value="2">Pending</option>
-                                                                <option value="2">In Process</option>
-                                                                <option value="2">Rejected</option>
-                                                            </select>
-                                                        </div>
-                                                        <!--end::Input-->
-                                                    </div>
-                                                    <!--end::Input group-->
-                                                    <!--begin::Input group-->
-                                                    <div class="mb-10">
-                                                        <!--begin::Label-->
-                                                        <label class="form-label fw-bold">Member Type:</label>
-                                                        <!--end::Label-->
-                                                        <!--begin::Options-->
-                                                        <div class="d-flex">
-                                                            <!--begin::Options-->
-                                                            <label class="form-check form-check-sm form-check-custom form-check-solid me-5">
-                                                                <input class="form-check-input" type="checkbox" value="1" />
-                                                                <span class="form-check-label">Author</span>
-                                                            </label>
-                                                            <!--end::Options-->
-                                                            <!--begin::Options-->
-                                                            <label class="form-check form-check-sm form-check-custom form-check-solid">
-                                                                <input class="form-check-input" type="checkbox" value="2" checked="checked" />
-                                                                <span class="form-check-label">Customer</span>
-                                                            </label>
-                                                            <!--end::Options-->
-                                                        </div>
-                                                        <!--end::Options-->
-                                                    </div>
-                                                    <!--end::Input group-->
-                                                    <!--begin::Input group-->
-                                                    <div class="mb-10">
-                                                        <!--begin::Label-->
-                                                        <label class="form-label fw-bold">Notifications:</label>
-                                                        <!--end::Label-->
-                                                        <!--begin::Switch-->
-                                                        <div class="form-check form-switch form-switch-sm form-check-custom form-check-solid">
-                                                            <input class="form-check-input" type="checkbox" value="" name="notifications" checked="checked" />
-                                                            <label class="form-check-label">Enabled</label>
-                                                        </div>
-                                                        <!--end::Switch-->
-                                                    </div>
-                                                    <!--end::Input group-->
-                                                    <!--begin::Actions-->
-                                                    <div class="d-flex justify-content-end">
-                                                        <button type="reset" class="btn btn-sm btn-white btn-active-light-primary me-2" data-kt-menu-dismiss="true">Reset</button>
-                                                        <button type="submit" class="btn btn-sm btn-primary" data-kt-menu-dismiss="true">Apply</button>
-                                                    </div>
-                                                    <!--end::Actions-->
-                                                </div>
-                                                <!--end::Form-->
-                                            </div>
-                                            <!--end::Menu 1-->
-                                            <!--end::Menu-->
-                                        </div>
-                                        <!--end::Item-->
-                                    </div>
-                                    <!--end::Card body-->
-                                </div>
-                                <!--end::Tasks-->
-                            </div>
-                            <!--end::Col-->
                         </div>
                         <!--end::Row-->
                         <!--begin::Table-->
@@ -8696,52 +6432,9 @@ License: For each use you must have a valid license purchased only from above li
                             <div class="card-header mt-5">
                                 <!--begin::Card title-->
                                 <div class="card-title flex-column">
-                                    <h3 class="fw-bolder mb-1">Project Spendings</h3>
-                                    <div class="fs-6 text-gray-400">Total $260,300 sepnt so far</div>
+                                    <h3 class="fw-bolder mb-1">Top 50 Pools</h3>
                                 </div>
                                 <!--begin::Card title-->
-                                <!--begin::Card toolbar-->
-                                <div class="card-toolbar my-1">
-                                    <!--begin::Select-->
-                                    <div class="me-6 my-1">
-                                        <select id="kt_filter_year" name="year" data-control="select2" data-hide-search="true" class="w-125px form-select form-select-solid form-select-sm">
-                                            <option value="All" selected="selected">All time</option>
-                                            <option value="thisyear">This year</option>
-                                            <option value="thismonth">This month</option>
-                                            <option value="lastmonth">Last month</option>
-                                            <option value="last90days">Last 90 days</option>
-                                        </select>
-                                    </div>
-                                    <!--end::Select-->
-                                    <!--begin::Select-->
-                                    <div class="me-4 my-1">
-                                        <select id="kt_filter_orders" name="orders" data-control="select2" data-hide-search="true" class="w-125px form-select form-select-solid form-select-sm">
-                                            <option value="All" selected="selected">All Orders</option>
-                                            <option value="Approved">Approved</option>
-                                            <option value="Declined">Declined</option>
-                                            <option value="In Progress">In Progress</option>
-                                            <option value="In Transit">In Transit</option>
-                                        </select>
-                                    </div>
-                                    <!--end::Select-->
-                                    <!--begin::Search-->
-                                    <div class="d-flex align-items-center position-relative my-1">
-                                        <!--begin::Svg Icon | path: icons/stockholm/General/Search.svg-->
-                                        <span class="svg-icon svg-icon-3 position-absolute ms-3">
-													<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
-														<g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-															<rect x="0" y="0" width="24" height="24" />
-															<path d="M14.2928932,16.7071068 C13.9023689,16.3165825 13.9023689,15.6834175 14.2928932,15.2928932 C14.6834175,14.9023689 15.3165825,14.9023689 15.7071068,15.2928932 L19.7071068,19.2928932 C20.0976311,19.6834175 20.0976311,20.3165825 19.7071068,20.7071068 C19.3165825,21.0976311 18.6834175,21.0976311 18.2928932,20.7071068 L14.2928932,16.7071068 Z" fill="#000000" fill-rule="nonzero" opacity="0.3" />
-															<path d="M11,16 C13.7614237,16 16,13.7614237 16,11 C16,8.23857625 13.7614237,6 11,6 C8.23857625,6 6,8.23857625 6,11 C6,13.7614237 8.23857625,16 11,16 Z M11,18 C7.13400675,18 4,14.8659932 4,11 C4,7.13400675 7.13400675,4 11,4 C14.8659932,4 18,7.13400675 18,11 C18,14.8659932 14.8659932,18 11,18 Z" fill="#000000" fill-rule="nonzero" />
-														</g>
-													</svg>
-												</span>
-                                        <!--end::Svg Icon-->
-                                        <input type="text" id="kt_filter_search" class="form-control form-control-solid form-select-sm w-150px ps-9" placeholder="Search Order" />
-                                    </div>
-                                    <!--end::Search-->
-                                </div>
-                                <!--begin::Card toolbar-->
                             </div>
                             <!--end::Card header-->
                             <!--begin::Card body-->
@@ -8753,991 +6446,56 @@ License: For each use you must have a valid license purchased only from above li
                                         <!--begin::Head-->
                                         <thead class="fs-7 text-gray-400 text-uppercase">
                                         <tr>
-                                            <th class="min-w-250px">Manager</th>
-                                            <th class="min-w-150px">Date</th>
-                                            <th class="min-w-90px">Amount</th>
-                                            <th class="min-w-90px">Status</th>
-                                            <th class="min-w-50px text-end">Details</th>
+                                            <th class="min-w-250px">Name</th>
+                                            <th class="min-w-150px">Liquidity</th>
+                                            <th class="min-w-90px">Volume (24h)</th>
+                                            <th class="min-w-90px">Fee (24h)</th>
+                                            <th class="min-w-50px text-end">Swap (24h)</th>
+                                            <th class="min-w-50px text-end">More</th>
                                         </tr>
                                         </thead>
                                         <!--end::Head-->
                                         <!--begin::Body-->
                                         <tbody class="fs-6">
-                                        <tr>
-                                            <td>
-                                                <!--begin::User-->
-                                                <div class="d-flex align-items-center">
-                                                    <!--begin::Wrapper-->
-                                                    <div class="me-5 position-relative">
-                                                        <!--begin::Avatar-->
-                                                        <div class="symbol symbol-35px symbol-circle">
-                                                            <img alt="Pic" src="assets/media/avatars/150-1.jpg" />
+                                        @foreach ($general_data['topPools'] as $topPool)
+                                            <tr>
+                                                <td>
+                                                    <!--begin::User-->
+                                                    <div class="d-flex align-items-center">
+                                                        <!--begin::Wrapper-->
+                                                        <div class="me-5 position-relative">
+                                                            <div class="symbol-group symbol-hover">
+                                                                <!--begin::User-->
+                                                                <div class="symbol symbol-35px symbol-circle" data-bs-toggle="tooltip" title="" :data-bs-original-title="{{$topPool['token_0']['contract_ticker_symbol']}}">
+                                                                    <img alt="Pic" src="{{$topPool['token_0']['logo_url']}}">
+                                                                </div>
+                                                                <!--begin::User-->
+                                                                <!--begin::User-->
+                                                                <div class="symbol symbol-35px symbol-circle" data-bs-toggle="tooltip" title="" :data-bs-original-title="{{$topPool['token_1']['contract_ticker_symbol']}}">
+                                                                    <img alt="Pic" src="{{$topPool['token_1']['logo_url']}}">
+                                                                </div>
+                                                                <!--begin::User-->
+                                                            </div>
                                                         </div>
-                                                        <!--end::Avatar-->
-                                                    </div>
-                                                    <!--end::Wrapper-->
-                                                    <!--begin::Info-->
-                                                    <div class="d-flex flex-column justify-content-center">
-                                                        <a href="" class="fs-6 text-gray-800 text-hover-primary">Emma Smith</a>
-                                                        <div class="fw-bold text-gray-400">e.smith@kpmg.com.au</div>
-                                                    </div>
-                                                    <!--end::Info-->
-                                                </div>
-                                                <!--end::User-->
-                                            </td>
-                                            <td>Sep 22, 2021</td>
-                                            <td>$777.00</td>
-                                            <td>
-                                                <span class="badge badge-light-success fw-bolder px-4 py-3">Approved</span>
-                                            </td>
-                                            <td class="text-end">
-                                                <a href="#" class="btn btn-light btn-sm">View</a>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <!--begin::User-->
-                                                <div class="d-flex align-items-center">
-                                                    <!--begin::Wrapper-->
-                                                    <div class="me-5 position-relative">
-                                                        <!--begin::Avatar-->
-                                                        <div class="symbol symbol-35px symbol-circle">
-                                                            <span class="symbol-label bg-light-danger text-danger fw-bold">M</span>
+                                                        <!--end::Wrapper-->
+                                                        <!--begin::Info-->
+                                                        <div class="d-flex flex-column justify-content-center">
+                                                            <a href="" class="fs-6 text-gray-800 text-hover-primary">{{$topPool['token_0']['contract_ticker_symbol']}} - {{$topPool['token_1']['contract_ticker_symbol']}}</a>
+                                                            <div class="fw-bold text-gray-400">{{$topPool['token_0']['contract_name']}} - {{$topPool['token_1']['contract_name']}}</div>
                                                         </div>
-                                                        <!--end::Avatar-->
-                                                        <!--begin::Online-->
-                                                        <div class="bg-success position-absolute h-8px w-8px rounded-circle translate-middle start-100 top-100 ms-n1 mt-n1"></div>
-                                                        <!--end::Online-->
+                                                        <!--end::Info-->
                                                     </div>
-                                                    <!--end::Wrapper-->
-                                                    <!--begin::Info-->
-                                                    <div class="d-flex flex-column justify-content-center">
-                                                        <a href="" class="fs-6 text-gray-800 text-hover-primary">Melody Macy</a>
-                                                        <div class="fw-bold text-gray-400">melody@altbox.com</div>
-                                                    </div>
-                                                    <!--end::Info-->
-                                                </div>
-                                                <!--end::User-->
-                                            </td>
-                                            <td>Mar 10, 2021</td>
-                                            <td>$588.00</td>
-                                            <td>
-                                                <span class="badge badge-light-danger fw-bolder px-4 py-3">Rejected</span>
-                                            </td>
-                                            <td class="text-end">
-                                                <a href="#" class="btn btn-light btn-sm">View</a>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <!--begin::User-->
-                                                <div class="d-flex align-items-center">
-                                                    <!--begin::Wrapper-->
-                                                    <div class="me-5 position-relative">
-                                                        <!--begin::Avatar-->
-                                                        <div class="symbol symbol-35px symbol-circle">
-                                                            <img alt="Pic" src="assets/media/avatars/150-2.jpg" />
-                                                        </div>
-                                                        <!--end::Avatar-->
-                                                    </div>
-                                                    <!--end::Wrapper-->
-                                                    <!--begin::Info-->
-                                                    <div class="d-flex flex-column justify-content-center">
-                                                        <a href="" class="fs-6 text-gray-800 text-hover-primary">Max Smith</a>
-                                                        <div class="fw-bold text-gray-400">max@kt.com</div>
-                                                    </div>
-                                                    <!--end::Info-->
-                                                </div>
-                                                <!--end::User-->
-                                            </td>
-                                            <td>Jun 24, 2021</td>
-                                            <td>$992.00</td>
-                                            <td>
-                                                <span class="badge badge-light-danger fw-bolder px-4 py-3">Rejected</span>
-                                            </td>
-                                            <td class="text-end">
-                                                <a href="#" class="btn btn-light btn-sm">View</a>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <!--begin::User-->
-                                                <div class="d-flex align-items-center">
-                                                    <!--begin::Wrapper-->
-                                                    <div class="me-5 position-relative">
-                                                        <!--begin::Avatar-->
-                                                        <div class="symbol symbol-35px symbol-circle">
-                                                            <img alt="Pic" src="assets/media/avatars/150-4.jpg" />
-                                                        </div>
-                                                        <!--end::Avatar-->
-                                                    </div>
-                                                    <!--end::Wrapper-->
-                                                    <!--begin::Info-->
-                                                    <div class="d-flex flex-column justify-content-center">
-                                                        <a href="" class="fs-6 text-gray-800 text-hover-primary">Sean Bean</a>
-                                                        <div class="fw-bold text-gray-400">sean@dellito.com</div>
-                                                    </div>
-                                                    <!--end::Info-->
-                                                </div>
-                                                <!--end::User-->
-                                            </td>
-                                            <td>May 05, 2021</td>
-                                            <td>$811.00</td>
-                                            <td>
-                                                <span class="badge badge-light-warning fw-bolder px-4 py-3">Pending</span>
-                                            </td>
-                                            <td class="text-end">
-                                                <a href="#" class="btn btn-light btn-sm">View</a>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <!--begin::User-->
-                                                <div class="d-flex align-items-center">
-                                                    <!--begin::Wrapper-->
-                                                    <div class="me-5 position-relative">
-                                                        <!--begin::Avatar-->
-                                                        <div class="symbol symbol-35px symbol-circle">
-                                                            <img alt="Pic" src="assets/media/avatars/150-15.jpg" />
-                                                        </div>
-                                                        <!--end::Avatar-->
-                                                    </div>
-                                                    <!--end::Wrapper-->
-                                                    <!--begin::Info-->
-                                                    <div class="d-flex flex-column justify-content-center">
-                                                        <a href="" class="fs-6 text-gray-800 text-hover-primary">Brian Cox</a>
-                                                        <div class="fw-bold text-gray-400">brian@exchange.com</div>
-                                                    </div>
-                                                    <!--end::Info-->
-                                                </div>
-                                                <!--end::User-->
-                                            </td>
-                                            <td>Aug 19, 2021</td>
-                                            <td>$678.00</td>
-                                            <td>
-                                                <span class="badge badge-light-warning fw-bolder px-4 py-3">Pending</span>
-                                            </td>
-                                            <td class="text-end">
-                                                <a href="#" class="btn btn-light btn-sm">View</a>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <!--begin::User-->
-                                                <div class="d-flex align-items-center">
-                                                    <!--begin::Wrapper-->
-                                                    <div class="me-5 position-relative">
-                                                        <!--begin::Avatar-->
-                                                        <div class="symbol symbol-35px symbol-circle">
-                                                            <span class="symbol-label bg-light-warning text-warning fw-bold">M</span>
-                                                        </div>
-                                                        <!--end::Avatar-->
-                                                        <!--begin::Online-->
-                                                        <div class="bg-success position-absolute h-8px w-8px rounded-circle translate-middle start-100 top-100 ms-n1 mt-n1"></div>
-                                                        <!--end::Online-->
-                                                    </div>
-                                                    <!--end::Wrapper-->
-                                                    <!--begin::Info-->
-                                                    <div class="d-flex flex-column justify-content-center">
-                                                        <a href="" class="fs-6 text-gray-800 text-hover-primary">Mikaela Collins</a>
-                                                        <div class="fw-bold text-gray-400">mikaela@pexcom.com</div>
-                                                    </div>
-                                                    <!--end::Info-->
-                                                </div>
-                                                <!--end::User-->
-                                            </td>
-                                            <td>Jun 20, 2021</td>
-                                            <td>$708.00</td>
-                                            <td>
-                                                <span class="badge badge-light-info fw-bolder px-4 py-3">In progress</span>
-                                            </td>
-                                            <td class="text-end">
-                                                <a href="#" class="btn btn-light btn-sm">View</a>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <!--begin::User-->
-                                                <div class="d-flex align-items-center">
-                                                    <!--begin::Wrapper-->
-                                                    <div class="me-5 position-relative">
-                                                        <!--begin::Avatar-->
-                                                        <div class="symbol symbol-35px symbol-circle">
-                                                            <img alt="Pic" src="assets/media/avatars/150-8.jpg" />
-                                                        </div>
-                                                        <!--end::Avatar-->
-                                                    </div>
-                                                    <!--end::Wrapper-->
-                                                    <!--begin::Info-->
-                                                    <div class="d-flex flex-column justify-content-center">
-                                                        <a href="" class="fs-6 text-gray-800 text-hover-primary">Francis Mitcham</a>
-                                                        <div class="fw-bold text-gray-400">f.mitcham@kpmg.com.au</div>
-                                                    </div>
-                                                    <!--end::Info-->
-                                                </div>
-                                                <!--end::User-->
-                                            </td>
-                                            <td>Oct 25, 2021</td>
-                                            <td>$402.00</td>
-                                            <td>
-                                                <span class="badge badge-light-warning fw-bolder px-4 py-3">Pending</span>
-                                            </td>
-                                            <td class="text-end">
-                                                <a href="#" class="btn btn-light btn-sm">View</a>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <!--begin::User-->
-                                                <div class="d-flex align-items-center">
-                                                    <!--begin::Wrapper-->
-                                                    <div class="me-5 position-relative">
-                                                        <!--begin::Avatar-->
-                                                        <div class="symbol symbol-35px symbol-circle">
-                                                            <span class="symbol-label bg-light-danger text-danger fw-bold">O</span>
-                                                        </div>
-                                                        <!--end::Avatar-->
-                                                        <!--begin::Online-->
-                                                        <div class="bg-success position-absolute h-8px w-8px rounded-circle translate-middle start-100 top-100 ms-n1 mt-n1"></div>
-                                                        <!--end::Online-->
-                                                    </div>
-                                                    <!--end::Wrapper-->
-                                                    <!--begin::Info-->
-                                                    <div class="d-flex flex-column justify-content-center">
-                                                        <a href="" class="fs-6 text-gray-800 text-hover-primary">Olivia Wild</a>
-                                                        <div class="fw-bold text-gray-400">olivia@corpmail.com</div>
-                                                    </div>
-                                                    <!--end::Info-->
-                                                </div>
-                                                <!--end::User-->
-                                            </td>
-                                            <td>Jul 25, 2021</td>
-                                            <td>$995.00</td>
-                                            <td>
-                                                <span class="badge badge-light-warning fw-bolder px-4 py-3">Pending</span>
-                                            </td>
-                                            <td class="text-end">
-                                                <a href="#" class="btn btn-light btn-sm">View</a>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <!--begin::User-->
-                                                <div class="d-flex align-items-center">
-                                                    <!--begin::Wrapper-->
-                                                    <div class="me-5 position-relative">
-                                                        <!--begin::Avatar-->
-                                                        <div class="symbol symbol-35px symbol-circle">
-                                                            <span class="symbol-label bg-light-primary text-primary fw-bold">N</span>
-                                                        </div>
-                                                        <!--end::Avatar-->
-                                                        <!--begin::Online-->
-                                                        <div class="bg-success position-absolute h-8px w-8px rounded-circle translate-middle start-100 top-100 ms-n1 mt-n1"></div>
-                                                        <!--end::Online-->
-                                                    </div>
-                                                    <!--end::Wrapper-->
-                                                    <!--begin::Info-->
-                                                    <div class="d-flex flex-column justify-content-center">
-                                                        <a href="" class="fs-6 text-gray-800 text-hover-primary">Neil Owen</a>
-                                                        <div class="fw-bold text-gray-400">owen.neil@gmail.com</div>
-                                                    </div>
-                                                    <!--end::Info-->
-                                                </div>
-                                                <!--end::User-->
-                                            </td>
-                                            <td>Nov 10, 2021</td>
-                                            <td>$462.00</td>
-                                            <td>
-                                                <span class="badge badge-light-success fw-bolder px-4 py-3">Approved</span>
-                                            </td>
-                                            <td class="text-end">
-                                                <a href="#" class="btn btn-light btn-sm">View</a>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <!--begin::User-->
-                                                <div class="d-flex align-items-center">
-                                                    <!--begin::Wrapper-->
-                                                    <div class="me-5 position-relative">
-                                                        <!--begin::Avatar-->
-                                                        <div class="symbol symbol-35px symbol-circle">
-                                                            <img alt="Pic" src="assets/media/avatars/150-6.jpg" />
-                                                        </div>
-                                                        <!--end::Avatar-->
-                                                    </div>
-                                                    <!--end::Wrapper-->
-                                                    <!--begin::Info-->
-                                                    <div class="d-flex flex-column justify-content-center">
-                                                        <a href="" class="fs-6 text-gray-800 text-hover-primary">Dan Wilson</a>
-                                                        <div class="fw-bold text-gray-400">dam@consilting.com</div>
-                                                    </div>
-                                                    <!--end::Info-->
-                                                </div>
-                                                <!--end::User-->
-                                            </td>
-                                            <td>Nov 10, 2021</td>
-                                            <td>$733.00</td>
-                                            <td>
-                                                <span class="badge badge-light-danger fw-bolder px-4 py-3">Rejected</span>
-                                            </td>
-                                            <td class="text-end">
-                                                <a href="#" class="btn btn-light btn-sm">View</a>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <!--begin::User-->
-                                                <div class="d-flex align-items-center">
-                                                    <!--begin::Wrapper-->
-                                                    <div class="me-5 position-relative">
-                                                        <!--begin::Avatar-->
-                                                        <div class="symbol symbol-35px symbol-circle">
-                                                            <span class="symbol-label bg-light-danger text-danger fw-bold">E</span>
-                                                        </div>
-                                                        <!--end::Avatar-->
-                                                        <!--begin::Online-->
-                                                        <div class="bg-success position-absolute h-8px w-8px rounded-circle translate-middle start-100 top-100 ms-n1 mt-n1"></div>
-                                                        <!--end::Online-->
-                                                    </div>
-                                                    <!--end::Wrapper-->
-                                                    <!--begin::Info-->
-                                                    <div class="d-flex flex-column justify-content-center">
-                                                        <a href="" class="fs-6 text-gray-800 text-hover-primary">Emma Bold</a>
-                                                        <div class="fw-bold text-gray-400">emma@intenso.com</div>
-                                                    </div>
-                                                    <!--end::Info-->
-                                                </div>
-                                                <!--end::User-->
-                                            </td>
-                                            <td>Oct 25, 2021</td>
-                                            <td>$971.00</td>
-                                            <td>
-                                                <span class="badge badge-light-warning fw-bolder px-4 py-3">Pending</span>
-                                            </td>
-                                            <td class="text-end">
-                                                <a href="#" class="btn btn-light btn-sm">View</a>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <!--begin::User-->
-                                                <div class="d-flex align-items-center">
-                                                    <!--begin::Wrapper-->
-                                                    <div class="me-5 position-relative">
-                                                        <!--begin::Avatar-->
-                                                        <div class="symbol symbol-35px symbol-circle">
-                                                            <img alt="Pic" src="assets/media/avatars/150-7.jpg" />
-                                                        </div>
-                                                        <!--end::Avatar-->
-                                                    </div>
-                                                    <!--end::Wrapper-->
-                                                    <!--begin::Info-->
-                                                    <div class="d-flex flex-column justify-content-center">
-                                                        <a href="" class="fs-6 text-gray-800 text-hover-primary">Ana Crown</a>
-                                                        <div class="fw-bold text-gray-400">ana.cf@limtel.com</div>
-                                                    </div>
-                                                    <!--end::Info-->
-                                                </div>
-                                                <!--end::User-->
-                                            </td>
-                                            <td>Feb 21, 2021</td>
-                                            <td>$599.00</td>
-                                            <td>
-                                                <span class="badge badge-light-info fw-bolder px-4 py-3">In progress</span>
-                                            </td>
-                                            <td class="text-end">
-                                                <a href="#" class="btn btn-light btn-sm">View</a>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <!--begin::User-->
-                                                <div class="d-flex align-items-center">
-                                                    <!--begin::Wrapper-->
-                                                    <div class="me-5 position-relative">
-                                                        <!--begin::Avatar-->
-                                                        <div class="symbol symbol-35px symbol-circle">
-                                                            <span class="symbol-label bg-light-info text-info fw-bold">A</span>
-                                                        </div>
-                                                        <!--end::Avatar-->
-                                                        <!--begin::Online-->
-                                                        <div class="bg-success position-absolute h-8px w-8px rounded-circle translate-middle start-100 top-100 ms-n1 mt-n1"></div>
-                                                        <!--end::Online-->
-                                                    </div>
-                                                    <!--end::Wrapper-->
-                                                    <!--begin::Info-->
-                                                    <div class="d-flex flex-column justify-content-center">
-                                                        <a href="" class="fs-6 text-gray-800 text-hover-primary">Robert Doe</a>
-                                                        <div class="fw-bold text-gray-400">robert@benko.com</div>
-                                                    </div>
-                                                    <!--end::Info-->
-                                                </div>
-                                                <!--end::User-->
-                                            </td>
-                                            <td>Jun 20, 2021</td>
-                                            <td>$721.00</td>
-                                            <td>
-                                                <span class="badge badge-light-info fw-bolder px-4 py-3">In progress</span>
-                                            </td>
-                                            <td class="text-end">
-                                                <a href="#" class="btn btn-light btn-sm">View</a>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <!--begin::User-->
-                                                <div class="d-flex align-items-center">
-                                                    <!--begin::Wrapper-->
-                                                    <div class="me-5 position-relative">
-                                                        <!--begin::Avatar-->
-                                                        <div class="symbol symbol-35px symbol-circle">
-                                                            <img alt="Pic" src="assets/media/avatars/150-17.jpg" />
-                                                        </div>
-                                                        <!--end::Avatar-->
-                                                    </div>
-                                                    <!--end::Wrapper-->
-                                                    <!--begin::Info-->
-                                                    <div class="d-flex flex-column justify-content-center">
-                                                        <a href="" class="fs-6 text-gray-800 text-hover-primary">John Miller</a>
-                                                        <div class="fw-bold text-gray-400">miller@mapple.com</div>
-                                                    </div>
-                                                    <!--end::Info-->
-                                                </div>
-                                                <!--end::User-->
-                                            </td>
-                                            <td>Sep 22, 2021</td>
-                                            <td>$959.00</td>
-                                            <td>
-                                                <span class="badge badge-light-warning fw-bolder px-4 py-3">Pending</span>
-                                            </td>
-                                            <td class="text-end">
-                                                <a href="#" class="btn btn-light btn-sm">View</a>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <!--begin::User-->
-                                                <div class="d-flex align-items-center">
-                                                    <!--begin::Wrapper-->
-                                                    <div class="me-5 position-relative">
-                                                        <!--begin::Avatar-->
-                                                        <div class="symbol symbol-35px symbol-circle">
-                                                            <span class="symbol-label bg-light-success text-success fw-bold">L</span>
-                                                        </div>
-                                                        <!--end::Avatar-->
-                                                        <!--begin::Online-->
-                                                        <div class="bg-success position-absolute h-8px w-8px rounded-circle translate-middle start-100 top-100 ms-n1 mt-n1"></div>
-                                                        <!--end::Online-->
-                                                    </div>
-                                                    <!--end::Wrapper-->
-                                                    <!--begin::Info-->
-                                                    <div class="d-flex flex-column justify-content-center">
-                                                        <a href="" class="fs-6 text-gray-800 text-hover-primary">Lucy Kunic</a>
-                                                        <div class="fw-bold text-gray-400">lucy.m@fentech.com</div>
-                                                    </div>
-                                                    <!--end::Info-->
-                                                </div>
-                                                <!--end::User-->
-                                            </td>
-                                            <td>May 05, 2021</td>
-                                            <td>$484.00</td>
-                                            <td>
-                                                <span class="badge badge-light-info fw-bolder px-4 py-3">In progress</span>
-                                            </td>
-                                            <td class="text-end">
-                                                <a href="#" class="btn btn-light btn-sm">View</a>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <!--begin::User-->
-                                                <div class="d-flex align-items-center">
-                                                    <!--begin::Wrapper-->
-                                                    <div class="me-5 position-relative">
-                                                        <!--begin::Avatar-->
-                                                        <div class="symbol symbol-35px symbol-circle">
-                                                            <img alt="Pic" src="assets/media/avatars/150-10.jpg" />
-                                                        </div>
-                                                        <!--end::Avatar-->
-                                                        <!--begin::Online-->
-                                                        <div class="bg-success position-absolute h-8px w-8px rounded-circle translate-middle start-100 top-100 ms-n1 mt-n1"></div>
-                                                        <!--end::Online-->
-                                                    </div>
-                                                    <!--end::Wrapper-->
-                                                    <!--begin::Info-->
-                                                    <div class="d-flex flex-column justify-content-center">
-                                                        <a href="" class="fs-6 text-gray-800 text-hover-primary">Ethan Wilder</a>
-                                                        <div class="fw-bold text-gray-400">ethan@loop.com.au</div>
-                                                    </div>
-                                                    <!--end::Info-->
-                                                </div>
-                                                <!--end::User-->
-                                            </td>
-                                            <td>May 05, 2021</td>
-                                            <td>$523.00</td>
-                                            <td>
-                                                <span class="badge badge-light-success fw-bolder px-4 py-3">Approved</span>
-                                            </td>
-                                            <td class="text-end">
-                                                <a href="#" class="btn btn-light btn-sm">View</a>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <!--begin::User-->
-                                                <div class="d-flex align-items-center">
-                                                    <!--begin::Wrapper-->
-                                                    <div class="me-5 position-relative">
-                                                        <!--begin::Avatar-->
-                                                        <div class="symbol symbol-35px symbol-circle">
-                                                            <img alt="Pic" src="assets/media/avatars/150-2.jpg" />
-                                                        </div>
-                                                        <!--end::Avatar-->
-                                                    </div>
-                                                    <!--end::Wrapper-->
-                                                    <!--begin::Info-->
-                                                    <div class="d-flex flex-column justify-content-center">
-                                                        <a href="" class="fs-6 text-gray-800 text-hover-primary">Max Smith</a>
-                                                        <div class="fw-bold text-gray-400">max@kt.com</div>
-                                                    </div>
-                                                    <!--end::Info-->
-                                                </div>
-                                                <!--end::User-->
-                                            </td>
-                                            <td>Nov 10, 2021</td>
-                                            <td>$708.00</td>
-                                            <td>
-                                                <span class="badge badge-light-info fw-bolder px-4 py-3">In progress</span>
-                                            </td>
-                                            <td class="text-end">
-                                                <a href="#" class="btn btn-light btn-sm">View</a>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <!--begin::User-->
-                                                <div class="d-flex align-items-center">
-                                                    <!--begin::Wrapper-->
-                                                    <div class="me-5 position-relative">
-                                                        <!--begin::Avatar-->
-                                                        <div class="symbol symbol-35px symbol-circle">
-                                                            <img alt="Pic" src="assets/media/avatars/150-8.jpg" />
-                                                        </div>
-                                                        <!--end::Avatar-->
-                                                    </div>
-                                                    <!--end::Wrapper-->
-                                                    <!--begin::Info-->
-                                                    <div class="d-flex flex-column justify-content-center">
-                                                        <a href="" class="fs-6 text-gray-800 text-hover-primary">Francis Mitcham</a>
-                                                        <div class="fw-bold text-gray-400">f.mitcham@kpmg.com.au</div>
-                                                    </div>
-                                                    <!--end::Info-->
-                                                </div>
-                                                <!--end::User-->
-                                            </td>
-                                            <td>Nov 10, 2021</td>
-                                            <td>$613.00</td>
-                                            <td>
-                                                <span class="badge badge-light-danger fw-bolder px-4 py-3">Rejected</span>
-                                            </td>
-                                            <td class="text-end">
-                                                <a href="#" class="btn btn-light btn-sm">View</a>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <!--begin::User-->
-                                                <div class="d-flex align-items-center">
-                                                    <!--begin::Wrapper-->
-                                                    <div class="me-5 position-relative">
-                                                        <!--begin::Avatar-->
-                                                        <div class="symbol symbol-35px symbol-circle">
-                                                            <span class="symbol-label bg-light-primary text-primary fw-bold">N</span>
-                                                        </div>
-                                                        <!--end::Avatar-->
-                                                        <!--begin::Online-->
-                                                        <div class="bg-success position-absolute h-8px w-8px rounded-circle translate-middle start-100 top-100 ms-n1 mt-n1"></div>
-                                                        <!--end::Online-->
-                                                    </div>
-                                                    <!--end::Wrapper-->
-                                                    <!--begin::Info-->
-                                                    <div class="d-flex flex-column justify-content-center">
-                                                        <a href="" class="fs-6 text-gray-800 text-hover-primary">Neil Owen</a>
-                                                        <div class="fw-bold text-gray-400">owen.neil@gmail.com</div>
-                                                    </div>
-                                                    <!--end::Info-->
-                                                </div>
-                                                <!--end::User-->
-                                            </td>
-                                            <td>Dec 20, 2021</td>
-                                            <td>$548.00</td>
-                                            <td>
-                                                <span class="badge badge-light-info fw-bolder px-4 py-3">In progress</span>
-                                            </td>
-                                            <td class="text-end">
-                                                <a href="#" class="btn btn-light btn-sm">View</a>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <!--begin::User-->
-                                                <div class="d-flex align-items-center">
-                                                    <!--begin::Wrapper-->
-                                                    <div class="me-5 position-relative">
-                                                        <!--begin::Avatar-->
-                                                        <div class="symbol symbol-35px symbol-circle">
-                                                            <img alt="Pic" src="assets/media/avatars/150-8.jpg" />
-                                                        </div>
-                                                        <!--end::Avatar-->
-                                                    </div>
-                                                    <!--end::Wrapper-->
-                                                    <!--begin::Info-->
-                                                    <div class="d-flex flex-column justify-content-center">
-                                                        <a href="" class="fs-6 text-gray-800 text-hover-primary">Francis Mitcham</a>
-                                                        <div class="fw-bold text-gray-400">f.mitcham@kpmg.com.au</div>
-                                                    </div>
-                                                    <!--end::Info-->
-                                                </div>
-                                                <!--end::User-->
-                                            </td>
-                                            <td>Apr 15, 2021</td>
-                                            <td>$737.00</td>
-                                            <td>
-                                                <span class="badge badge-light-success fw-bolder px-4 py-3">Approved</span>
-                                            </td>
-                                            <td class="text-end">
-                                                <a href="#" class="btn btn-light btn-sm">View</a>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <!--begin::User-->
-                                                <div class="d-flex align-items-center">
-                                                    <!--begin::Wrapper-->
-                                                    <div class="me-5 position-relative">
-                                                        <!--begin::Avatar-->
-                                                        <div class="symbol symbol-35px symbol-circle">
-                                                            <span class="symbol-label bg-light-success text-success fw-bold">L</span>
-                                                        </div>
-                                                        <!--end::Avatar-->
-                                                        <!--begin::Online-->
-                                                        <div class="bg-success position-absolute h-8px w-8px rounded-circle translate-middle start-100 top-100 ms-n1 mt-n1"></div>
-                                                        <!--end::Online-->
-                                                    </div>
-                                                    <!--end::Wrapper-->
-                                                    <!--begin::Info-->
-                                                    <div class="d-flex flex-column justify-content-center">
-                                                        <a href="" class="fs-6 text-gray-800 text-hover-primary">Lucy Kunic</a>
-                                                        <div class="fw-bold text-gray-400">lucy.m@fentech.com</div>
-                                                    </div>
-                                                    <!--end::Info-->
-                                                </div>
-                                                <!--end::User-->
-                                            </td>
-                                            <td>Jul 25, 2021</td>
-                                            <td>$501.00</td>
-                                            <td>
-                                                <span class="badge badge-light-success fw-bolder px-4 py-3">Approved</span>
-                                            </td>
-                                            <td class="text-end">
-                                                <a href="#" class="btn btn-light btn-sm">View</a>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <!--begin::User-->
-                                                <div class="d-flex align-items-center">
-                                                    <!--begin::Wrapper-->
-                                                    <div class="me-5 position-relative">
-                                                        <!--begin::Avatar-->
-                                                        <div class="symbol symbol-35px symbol-circle">
-                                                            <img alt="Pic" src="assets/media/avatars/150-17.jpg" />
-                                                        </div>
-                                                        <!--end::Avatar-->
-                                                    </div>
-                                                    <!--end::Wrapper-->
-                                                    <!--begin::Info-->
-                                                    <div class="d-flex flex-column justify-content-center">
-                                                        <a href="" class="fs-6 text-gray-800 text-hover-primary">John Miller</a>
-                                                        <div class="fw-bold text-gray-400">miller@mapple.com</div>
-                                                    </div>
-                                                    <!--end::Info-->
-                                                </div>
-                                                <!--end::User-->
-                                            </td>
-                                            <td>Oct 25, 2021</td>
-                                            <td>$679.00</td>
-                                            <td>
-                                                <span class="badge badge-light-warning fw-bolder px-4 py-3">Pending</span>
-                                            </td>
-                                            <td class="text-end">
-                                                <a href="#" class="btn btn-light btn-sm">View</a>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <!--begin::User-->
-                                                <div class="d-flex align-items-center">
-                                                    <!--begin::Wrapper-->
-                                                    <div class="me-5 position-relative">
-                                                        <!--begin::Avatar-->
-                                                        <div class="symbol symbol-35px symbol-circle">
-                                                            <img alt="Pic" src="assets/media/avatars/150-8.jpg" />
-                                                        </div>
-                                                        <!--end::Avatar-->
-                                                    </div>
-                                                    <!--end::Wrapper-->
-                                                    <!--begin::Info-->
-                                                    <div class="d-flex flex-column justify-content-center">
-                                                        <a href="" class="fs-6 text-gray-800 text-hover-primary">Francis Mitcham</a>
-                                                        <div class="fw-bold text-gray-400">f.mitcham@kpmg.com.au</div>
-                                                    </div>
-                                                    <!--end::Info-->
-                                                </div>
-                                                <!--end::User-->
-                                            </td>
-                                            <td>Jun 20, 2021</td>
-                                            <td>$447.00</td>
-                                            <td>
-                                                <span class="badge badge-light-danger fw-bolder px-4 py-3">Rejected</span>
-                                            </td>
-                                            <td class="text-end">
-                                                <a href="#" class="btn btn-light btn-sm">View</a>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <!--begin::User-->
-                                                <div class="d-flex align-items-center">
-                                                    <!--begin::Wrapper-->
-                                                    <div class="me-5 position-relative">
-                                                        <!--begin::Avatar-->
-                                                        <div class="symbol symbol-35px symbol-circle">
-                                                            <span class="symbol-label bg-light-danger text-danger fw-bold">O</span>
-                                                        </div>
-                                                        <!--end::Avatar-->
-                                                        <!--begin::Online-->
-                                                        <div class="bg-success position-absolute h-8px w-8px rounded-circle translate-middle start-100 top-100 ms-n1 mt-n1"></div>
-                                                        <!--end::Online-->
-                                                    </div>
-                                                    <!--end::Wrapper-->
-                                                    <!--begin::Info-->
-                                                    <div class="d-flex flex-column justify-content-center">
-                                                        <a href="" class="fs-6 text-gray-800 text-hover-primary">Olivia Wild</a>
-                                                        <div class="fw-bold text-gray-400">olivia@corpmail.com</div>
-                                                    </div>
-                                                    <!--end::Info-->
-                                                </div>
-                                                <!--end::User-->
-                                            </td>
-                                            <td>Mar 10, 2021</td>
-                                            <td>$563.00</td>
-                                            <td>
-                                                <span class="badge badge-light-warning fw-bolder px-4 py-3">Pending</span>
-                                            </td>
-                                            <td class="text-end">
-                                                <a href="#" class="btn btn-light btn-sm">View</a>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <!--begin::User-->
-                                                <div class="d-flex align-items-center">
-                                                    <!--begin::Wrapper-->
-                                                    <div class="me-5 position-relative">
-                                                        <!--begin::Avatar-->
-                                                        <div class="symbol symbol-35px symbol-circle">
-                                                            <span class="symbol-label bg-light-danger text-danger fw-bold">M</span>
-                                                        </div>
-                                                        <!--end::Avatar-->
-                                                        <!--begin::Online-->
-                                                        <div class="bg-success position-absolute h-8px w-8px rounded-circle translate-middle start-100 top-100 ms-n1 mt-n1"></div>
-                                                        <!--end::Online-->
-                                                    </div>
-                                                    <!--end::Wrapper-->
-                                                    <!--begin::Info-->
-                                                    <div class="d-flex flex-column justify-content-center">
-                                                        <a href="" class="fs-6 text-gray-800 text-hover-primary">Melody Macy</a>
-                                                        <div class="fw-bold text-gray-400">melody@altbox.com</div>
-                                                    </div>
-                                                    <!--end::Info-->
-                                                </div>
-                                                <!--end::User-->
-                                            </td>
-                                            <td>Jun 24, 2021</td>
-                                            <td>$534.00</td>
-                                            <td>
-                                                <span class="badge badge-light-info fw-bolder px-4 py-3">In progress</span>
-                                            </td>
-                                            <td class="text-end">
-                                                <a href="#" class="btn btn-light btn-sm">View</a>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <!--begin::User-->
-                                                <div class="d-flex align-items-center">
-                                                    <!--begin::Wrapper-->
-                                                    <div class="me-5 position-relative">
-                                                        <!--begin::Avatar-->
-                                                        <div class="symbol symbol-35px symbol-circle">
-                                                            <span class="symbol-label bg-light-danger text-danger fw-bold">M</span>
-                                                        </div>
-                                                        <!--end::Avatar-->
-                                                        <!--begin::Online-->
-                                                        <div class="bg-success position-absolute h-8px w-8px rounded-circle translate-middle start-100 top-100 ms-n1 mt-n1"></div>
-                                                        <!--end::Online-->
-                                                    </div>
-                                                    <!--end::Wrapper-->
-                                                    <!--begin::Info-->
-                                                    <div class="d-flex flex-column justify-content-center">
-                                                        <a href="" class="fs-6 text-gray-800 text-hover-primary">Melody Macy</a>
-                                                        <div class="fw-bold text-gray-400">melody@altbox.com</div>
-                                                    </div>
-                                                    <!--end::Info-->
-                                                </div>
-                                                <!--end::User-->
-                                            </td>
-                                            <td>Feb 21, 2021</td>
-                                            <td>$546.00</td>
-                                            <td>
-                                                <span class="badge badge-light-danger fw-bolder px-4 py-3">Rejected</span>
-                                            </td>
-                                            <td class="text-end">
-                                                <a href="#" class="btn btn-light btn-sm">View</a>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <!--begin::User-->
-                                                <div class="d-flex align-items-center">
-                                                    <!--begin::Wrapper-->
-                                                    <div class="me-5 position-relative">
-                                                        <!--begin::Avatar-->
-                                                        <div class="symbol symbol-35px symbol-circle">
-                                                            <span class="symbol-label bg-light-info text-info fw-bold">A</span>
-                                                        </div>
-                                                        <!--end::Avatar-->
-                                                        <!--begin::Online-->
-                                                        <div class="bg-success position-absolute h-8px w-8px rounded-circle translate-middle start-100 top-100 ms-n1 mt-n1"></div>
-                                                        <!--end::Online-->
-                                                    </div>
-                                                    <!--end::Wrapper-->
-                                                    <!--begin::Info-->
-                                                    <div class="d-flex flex-column justify-content-center">
-                                                        <a href="" class="fs-6 text-gray-800 text-hover-primary">Robert Doe</a>
-                                                        <div class="fw-bold text-gray-400">robert@benko.com</div>
-                                                    </div>
-                                                    <!--end::Info-->
-                                                </div>
-                                                <!--end::User-->
-                                            </td>
-                                            <td>Sep 22, 2021</td>
-                                            <td>$481.00</td>
-                                            <td>
-                                                <span class="badge badge-light-warning fw-bolder px-4 py-3">Pending</span>
-                                            </td>
-                                            <td class="text-end">
-                                                <a href="#" class="btn btn-light btn-sm">View</a>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <!--begin::User-->
-                                                <div class="d-flex align-items-center">
-                                                    <!--begin::Wrapper-->
-                                                    <div class="me-5 position-relative">
-                                                        <!--begin::Avatar-->
-                                                        <div class="symbol symbol-35px symbol-circle">
-                                                            <img alt="Pic" src="assets/media/avatars/150-15.jpg" />
-                                                        </div>
-                                                        <!--end::Avatar-->
-                                                    </div>
-                                                    <!--end::Wrapper-->
-                                                    <!--begin::Info-->
-                                                    <div class="d-flex flex-column justify-content-center">
-                                                        <a href="" class="fs-6 text-gray-800 text-hover-primary">Brian Cox</a>
-                                                        <div class="fw-bold text-gray-400">brian@exchange.com</div>
-                                                    </div>
-                                                    <!--end::Info-->
-                                                </div>
-                                                <!--end::User-->
-                                            </td>
-                                            <td>Aug 19, 2021</td>
-                                            <td>$874.00</td>
-                                            <td>
-                                                <span class="badge badge-light-success fw-bolder px-4 py-3">Approved</span>
-                                            </td>
-                                            <td class="text-end">
-                                                <a href="#" class="btn btn-light btn-sm">View</a>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <!--begin::User-->
-                                                <div class="d-flex align-items-center">
-                                                    <!--begin::Wrapper-->
-                                                    <div class="me-5 position-relative">
-                                                        <!--begin::Avatar-->
-                                                        <div class="symbol symbol-35px symbol-circle">
-                                                            <img alt="Pic" src="assets/media/avatars/150-17.jpg" />
-                                                        </div>
-                                                        <!--end::Avatar-->
-                                                    </div>
-                                                    <!--end::Wrapper-->
-                                                    <!--begin::Info-->
-                                                    <div class="d-flex flex-column justify-content-center">
-                                                        <a href="" class="fs-6 text-gray-800 text-hover-primary">John Miller</a>
-                                                        <div class="fw-bold text-gray-400">miller@mapple.com</div>
-                                                    </div>
-                                                    <!--end::Info-->
-                                                </div>
-                                                <!--end::User-->
-                                            </td>
-                                            <td>Apr 15, 2021</td>
-                                            <td>$880.00</td>
-                                            <td>
-                                                <span class="badge badge-light-success fw-bolder px-4 py-3">Approved</span>
-                                            </td>
-                                            <td class="text-end">
-                                                <a href="#" class="btn btn-light btn-sm">View</a>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <!--begin::User-->
-                                                <div class="d-flex align-items-center">
-                                                    <!--begin::Wrapper-->
-                                                    <div class="me-5 position-relative">
-                                                        <!--begin::Avatar-->
-                                                        <div class="symbol symbol-35px symbol-circle">
-                                                            <span class="symbol-label bg-light-danger text-danger fw-bold">M</span>
-                                                        </div>
-                                                        <!--end::Avatar-->
-                                                        <!--begin::Online-->
-                                                        <div class="bg-success position-absolute h-8px w-8px rounded-circle translate-middle start-100 top-100 ms-n1 mt-n1"></div>
-                                                        <!--end::Online-->
-                                                    </div>
-                                                    <!--end::Wrapper-->
-                                                    <!--begin::Info-->
-                                                    <div class="d-flex flex-column justify-content-center">
-                                                        <a href="" class="fs-6 text-gray-800 text-hover-primary">Melody Macy</a>
-                                                        <div class="fw-bold text-gray-400">melody@altbox.com</div>
-                                                    </div>
-                                                    <!--end::Info-->
-                                                </div>
-                                                <!--end::User-->
-                                            </td>
-                                            <td>Sep 22, 2021</td>
-                                            <td>$673.00</td>
-                                            <td>
-                                                <span class="badge badge-light-success fw-bolder px-4 py-3">Approved</span>
-                                            </td>
-                                            <td class="text-end">
-                                                <a href="#" class="btn btn-light btn-sm">View</a>
-                                            </td>
-                                        </tr>
+                                                    <!--end::User-->
+                                                </td>
+                                                <td>{{new \Akaunting\Money\Money($topPool['total_liquidity_quote'], new \Akaunting\Money\Currency('USD'), true)}}</td>
+                                                <td>{{new \Akaunting\Money\Money($topPool['volume_24h_quote'], new \Akaunting\Money\Currency('USD'), true)}}</td>
+                                                <td>{{new \Akaunting\Money\Money($topPool['fee_24h_quote'], new \Akaunting\Money\Currency('USD'), true)}}</td>
+                                                <td>{{$topPool['swap_count_24h']}}</td>
+                                                <td class="text-end">
+                                                    <a href="{{route('pool_detail', [strtolower($general_data['name']), $topPool['exchange']])}}" class="btn btn-light btn-sm">View</a>
+                                                </td>
+                                            </tr>
+                                        @endforeach
                                         </tbody>
                                         <!--end::Body-->
                                     </table>
@@ -12891,7 +9649,320 @@ License: For each use you must have a valid license purchased only from above li
 <script src="assets/plugins/custom/datatables/datatables.bundle.js"></script>
 <!--end::Page Vendors Javascript-->
 <!--begin::Page Custom Javascript(used by this page)-->
-<script src="assets/js/custom/pages/projects/project/project.js"></script>
+<!--<script src="assets/js/custom/pages/projects/project/project.js"></script>-->
+<script>
+    // Class definition
+    var KTProjectOverview = function () {
+        // Colors
+        var primary = KTUtil.getCssVariableValue('--bs-primary');
+        var lightPrimary = KTUtil.getCssVariableValue('--bs-light-primary');
+        var success = KTUtil.getCssVariableValue('--bs-success');
+        var lightSuccess = KTUtil.getCssVariableValue('--bs-light-success');
+        var gray200 = KTUtil.getCssVariableValue('--bs-gray-200');
+        var gray500 = KTUtil.getCssVariableValue('--bs-gray-500');
+
+        // Private functions
+        var initChart = function () {
+            // init chart
+            var element = document.getElementById("project_overview_chart");
+
+            if (!element) {
+                return;
+            }
+
+            var config = {
+                type: 'doughnut',
+                data: {
+                    datasets: [{
+                        data: [{{$general_data['totalActivePool']}}, {{$general_data['totalEmptyPool']}}],
+                        backgroundColor: ['#50CD89', '#F1416C']
+                    }],
+                    labels: ['Active', 'Empty']
+                },
+                options: {
+                    chart: {
+                        fontFamily: 'inherit'
+                    },
+                    cutoutPercentage: 75,
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    legend: {
+                        display: false
+                    },
+                    title: {
+                        display: false
+                    },
+                    animation: {
+                        animateScale: true,
+                        animateRotate: true
+                    },
+                    tooltips: {
+                        enabled: true,
+                        intersect: false,
+                        mode: 'nearest',
+                        bodySpacing: 5,
+                        yPadding: 10,
+                        xPadding: 10,
+                        caretPadding: 0,
+                        displayColors: false,
+                        backgroundColor: '#20D489',
+                        titleFontColor: '#ffffff',
+                        cornerRadius: 4,
+                        footerSpacing: 0,
+                        titleSpacing: 0
+                    }
+                }
+            };
+
+            var ctx = element.getContext('2d');
+            var myDoughnut = new Chart(ctx, config);
+        }
+
+        var initGraph = function () {
+            var element = document.getElementById("kt_project_overview_graph");
+            var height = parseInt(KTUtil.css(element, 'height'));
+
+            if (!element) {
+                return;
+            }
+
+            var options = {
+                series: [{
+                    name: 'Liquidity',
+                    data: [70, 70, 80, 80, 75, 75, 75]
+                }, {
+                    name: 'Volume',
+                    data: [55, 55, 60, 60, 55, 55, 60]
+                }],
+                chart: {
+                    type: 'area',
+                    height: height,
+                    toolbar: {
+                        show: false
+                    }
+                },
+                plotOptions: {
+
+                },
+                legend: {
+                    show: false
+                },
+                dataLabels: {
+                    enabled: false
+                },
+                fill: {
+                    type: 'solid',
+                    opacity: 1
+                },
+                stroke: {
+                    curve: 'smooth',
+                    show: true,
+                    width: 3,
+                    colors: [primary, success]
+                },
+                xaxis: {
+                    categories: ['Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug'],
+                    axisBorder: {
+                        show: false,
+                    },
+                    axisTicks: {
+                        show: false
+                    },
+                    labels: {
+                        style: {
+                            colors: gray500,
+                            fontSize: '12px'
+                        }
+                    },
+                    crosshairs: {
+                        position: 'front',
+                        stroke: {
+                            color: primary,
+                            width: 1,
+                            dashArray: 3
+                        }
+                    },
+                    tooltip: {
+                        enabled: true,
+                        formatter: undefined,
+                        offsetY: 0,
+                        style: {
+                            fontSize: '12px'
+                        }
+                    }
+                },
+                yaxis: {
+                    labels: {
+                        style: {
+                            colors: gray500,
+                            fontSize: '12px',
+                        }
+                    }
+                },
+                states: {
+                    normal: {
+                        filter: {
+                            type: 'none',
+                            value: 0
+                        }
+                    },
+                    hover: {
+                        filter: {
+                            type: 'none',
+                            value: 0
+                        }
+                    },
+                    active: {
+                        allowMultipleDataPointsSelection: false,
+                        filter: {
+                            type: 'none',
+                            value: 0
+                        }
+                    }
+                },
+                tooltip: {
+                    style: {
+                        fontSize: '12px',
+                    },
+                    y: {
+                        formatter: function (val) {
+                            return val + " $"
+                        }
+                    }
+                },
+                colors: [lightPrimary, lightSuccess],
+                grid: {
+                    borderColor: gray200,
+                    strokeDashArray: 4,
+                    yaxis: {
+                        lines: {
+                            show: true
+                        }
+                    }
+                },
+                markers: {
+                    //size: 5,
+                    colors: [lightPrimary, lightSuccess],
+                    strokeColor: [primary, success],
+                    strokeWidth: 3
+                }
+            };
+
+            var chart = new ApexCharts(element, options);
+            chart.render();
+        }
+
+        var initTable = function () {
+            var table = document.querySelector('#kt_profile_overview_table');
+
+            if (!table) {
+                return;
+            }
+
+            // Set date data order
+            const tableRows = table.querySelectorAll('tbody tr');
+
+            tableRows.forEach(row => {
+                const dateRow = row.querySelectorAll('td');
+                const realDate = moment(dateRow[1].innerHTML, "MMM D, YYYY").format();
+                dateRow[1].setAttribute('data-order', realDate);
+            });
+
+            // Init datatable --- more info on datatables: https://datatables.net/manual/
+            const datatable = $(table).DataTable({
+                "info": false,
+                'order': []
+            });
+
+            // Filter dropdown elements
+            const filterOrders = document.getElementById('kt_filter_orders');
+            const filterYear = document.getElementById('kt_filter_year');
+
+            // Filter by order status --- official docs reference: https://datatables.net/reference/api/search()
+            filterOrders.addEventListener('change', function (e) {
+                datatable.column(3).search(e.target.value).draw();
+            });
+
+            // Filter by date --- official docs reference: https://momentjs.com/docs/
+            var minDate;
+            var maxDate;
+
+            filterYear.addEventListener('change', function (e) {
+                const value = e.target.value;
+                switch (value) {
+                    case 'thisyear': {
+                        minDate = moment().startOf('year').format();
+                        maxDate = moment().endOf('year').format();
+                        datatable.draw();
+                        break;
+                    }
+                    case 'thismonth': {
+                        minDate = moment().startOf('month').format();
+                        maxDate = moment().endOf('month').format();
+                        datatable.draw();
+                        break;
+                    }
+                    case 'lastmonth': {
+                        minDate = moment().subtract(1, 'months').startOf('month').format();
+                        maxDate = moment().subtract(1, 'months').endOf('month').format();
+                        datatable.draw();
+                        break;
+                    }
+                    case 'last90days': {
+                        minDate = moment().subtract(30, 'days').format();
+                        maxDate = moment().format();
+                        datatable.draw();
+                        break;
+                    }
+                    default: {
+                        minDate = moment().subtract(100, 'years').startOf('month').format();
+                        maxDate = moment().add(1, 'months').endOf('month').format();
+                        datatable.draw();
+                        break;
+                    }
+                }
+            });
+
+            // Date range filter --- offical docs reference: https://datatables.net/examples/plug-ins/range_filtering.html
+            $.fn.dataTable.ext.search.push(
+                function (settings, data, dataIndex) {
+                    var min = minDate;
+                    var max = maxDate;
+                    var date = parseFloat(moment(data[1]).format()) || 0; // use data for the age column
+
+                    if ((isNaN(min) && isNaN(max)) ||
+                        (isNaN(min) && date <= max) ||
+                        (min <= date && isNaN(max)) ||
+                        (min <= date && date <= max)) {
+                        return true;
+                    }
+                    return false;
+                }
+            );
+
+            // Search --- official docs reference: https://datatables.net/reference/api/search()
+            var filterSearch = document.getElementById('kt_filter_search');
+            filterSearch.addEventListener('keyup', function (e) {
+                datatable.search(e.target.value).draw();
+            });
+        }
+
+        // Public methods
+        return {
+            init: function () {
+                initChart();
+                initGraph();
+                initTable();
+            }
+        }
+    }();
+
+
+    // On document ready
+    KTUtil.onDOMContentLoaded(function() {
+        KTProjectOverview.init();
+    });
+</script>
 <script src="assets/js/custom/modals/users-search.js"></script>
 <script src="assets/js/custom/modals/new-target.js"></script>
 <script src="assets/js/custom/widgets.js"></script>

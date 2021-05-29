@@ -2,6 +2,9 @@
 
 namespace App\Console;
 
+use App\Console\Commands\searchPools;
+use App\Console\Commands\searchTokens;
+use App\Console\Commands\updatePoolsData;
 use Illuminate\Console\Scheduling\Schedule;
 use Illuminate\Foundation\Console\Kernel as ConsoleKernel;
 
@@ -13,7 +16,9 @@ class Kernel extends ConsoleKernel
      * @var array
      */
     protected $commands = [
-        //
+        searchPools::class,
+        searchTokens::class,
+        updatePoolsData::class
     ];
 
     /**
