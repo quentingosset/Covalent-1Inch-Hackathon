@@ -30,7 +30,7 @@
 <div class="d-flex flex-column flex-root">
     <!--begin::Page-->
     <div class="page d-flex flex-row flex-column-fluid">
-         <!--begin::Wrapper-->
+        <!--begin::Wrapper-->
         <div class="wrapper d-flex flex-column flex-row-fluid" id="kt_wrapper">
             <!--begin::Content-->
             <div class="content d-flex flex-column flex-column-fluid" id="kt_content">
@@ -38,19 +38,6 @@
                 <div class="post d-flex flex-column-fluid " id="kt_post">
                     <!--begin::Container-->
                     <div id="kt_content_container" class="container">
-                        @if(key_exists($general_data['network'],$general_data['warning']))
-                            <div class="notice d-flex bg-light-warning rounded border-warning border border-dashed p-6 mb-6">
-                                <!--begin::Wrapper-->
-                                <div class="d-flex flex-stack flex-grow-1">
-                                    <!--begin::Content-->
-                                    <div class="fw-bold">
-                                        <div class="fs-6 text-gray-600">{{$general_data['warning'][$general_data['network']]}}</div>
-                                    </div>
-                                    <!--end::Content-->
-                                </div>
-                                <!--end::Wrapper-->
-                            </div>
-                       @endif
                         <!--begin::Navbar-->
                         <div class="card mb-6 mb-xl-9">
                             <div class="card-body pt-9 pb-0">
@@ -58,7 +45,7 @@
                                 <div class="d-flex flex-wrap flex-sm-nowrap mb-6">
                                     <!--begin::Image-->
                                     <div class="d-flex flex-center flex-shrink-0 bg-light rounded w-100px h-100px w-lg-150px h-lg-150px me-7 mb-4">
-                                        <img class="mw-50px mw-lg-75px" src="{{$general_data['icon']}}" alt="image" />
+                                        <img class="mw-50px mw-lg-75px" src="{{$general_data['all_network'][$general_data['network']]['logo_url']}}"/>
                                     </div>
                                     <!--end::Image-->
                                     <!--begin::Wrapper-->
@@ -69,66 +56,15 @@
                                             <div class="d-flex flex-column">
                                                 <!--begin::Status-->
                                                 <div class="d-flex align-items-center mb-1">
-                                                    <a href="#" class="text-gray-800 text-hover-primary fs-2 fw-bolder me-3">{{$general_data['name']}}</a>
+                                                    <a href="#" class="text-gray-800 text-hover-primary fs-2 fw-bolder me-3">{{$general_data['address']}}</a>
                                                     <!--<span class="badge badge-light-success me-auto">In Progress</span>-->
                                                 </div>
                                                 <!--end::Status-->
                                                 <!--begin::Description-->
-                                                <div class="d-flex flex-wrap fw-bold mb-4 fs-5 text-gray-400">{{$general_data['description']}}</div>
+                                                <div class="d-flex flex-wrap fw-bold mb-4 fs-5 text-gray-400"></div>
                                                 <!--end::Description-->
                                             </div>
                                             <!--end::Details-->
-                                            <!--begin::Actions-->
-                                            <div class="d-flex my-4">
-                                                <a href="#" class="btn btn-sm btn-light me-2" id="kt_user_follow_button">
-                                                    <span class="svg-icon svg-icon-5">
-                                                        <svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
-                                                            <path d="M10.9,2 C11.4522847,2 11.9,2.44771525 11.9,3 C11.9,3.55228475 11.4522847,4 10.9,4 L6,4 C4.8954305,4 4,4.8954305 4,6 L4,18 C4,19.1045695 4.8954305,20 6,20 L18,20 C19.1045695,20 20,19.1045695 20,18 L20,16 C20,15.4477153 20.4477153,15 21,15 C21.5522847,15 22,15.4477153 22,16 L22,18 C22,20.209139 20.209139,22 18,22 L6,22 C3.790861,22 2,20.209139 2,18 L2,6 C2,3.790861 3.790861,2 6,2 L10.9,2 Z" fill="#000000" fill-rule="nonzero" opacity="0.3"/>
-                                                            <path d="M24.0690576,13.8973499 C24.0690576,13.1346331 24.2324969,10.1246259 21.8580869,7.73659596 C20.2600137,6.12944276 17.8683518,5.85068794 15.0081639,5.72356847 L15.0081639,1.83791555 C15.0081639,1.42370199 14.6723775,1.08791555 14.2581639,1.08791555 C14.0718537,1.08791555 13.892213,1.15726043 13.7542266,1.28244533 L7.24606818,7.18681951 C6.93929045,7.46513642 6.9162184,7.93944934 7.1945353,8.24622707 C7.20914339,8.26232899 7.22444472,8.27778811 7.24039592,8.29256062 L13.7485543,14.3198102 C14.0524605,14.6012598 14.5269852,14.5830551 14.8084348,14.2791489 C14.9368329,14.140506 15.0081639,13.9585047 15.0081639,13.7695393 L15.0081639,9.90761477 C16.8241562,9.95755456 18.1177196,10.0730665 19.2929978,10.4469645 C20.9778605,10.9829796 22.2816185,12.4994368 23.2042718,14.996336 L23.2043032,14.9963244 C23.313119,15.2908036 23.5938372,15.4863432 23.9077781,15.4863432 L24.0735976,15.4863432 C24.0735976,15.0278051 24.0690576,14.3014082 24.0690576,13.8973499 Z" fill="#000000" fill-rule="nonzero" transform="translate(15.536799, 8.287129) scale(-1, 1) translate(-15.536799, -8.287129) "/>
-                                                        </svg>
-                                                    </span>
-                                                    Open #{{$general_data['name']}}
-                                                </a>
-                                                <!--begin::Menu-->
-                                                <div class="me-0">
-                                                    <button class="btn btn-sm btn-icon btn-bg-light btn-active-color-primary" data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end" data-kt-menu-flip="top-end">
-                                                        <span class="symbol symbol-20px symbol-md-20px">
-                                                            <img class="symbol symbol-20px" src="{{$general_data['all_network'][$general_data['network']]['logo_url']}}"/>
-                                                        </span>
-                                                    </button>
-                                                    <!--begin::Menu 3-->
-                                                    <div class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-800 menu-state-bg-light-primary fw-bold w-250px py-3 m-1" data-kt-menu="true">
-                                                        <!--begin::Heading-->
-                                                        <div class="menu-item px-3">
-                                                            <div class="menu-content text-muted pb-2 px-3 fs-7 text-uppercase">Network</div>
-                                                        </div>
-                                                        <!--end::Heading-->
-                                                        <!--begin::Menu item-->
-                                                        <div class="menu-item px-3">
-                                                            <a href="{{route('dex', [56,strtolower($general_data['name'])])}}" class="menu-link flex-stack px-3">
-                                                                <span class="symbol symbol-20px symbol-md-20px">
-                                                                    <img class="symbol symbol-20px" src="https://etherscan.io/images/brands/bscscan-logo.png"/>
-                                                                </span>
-                                                                Binance Smart Chain
-                                                                <i class="fas fa-exclamation-circle ms-2 fs-7" data-bs-toggle="tooltip" title="" data-bs-original-title="Specify a target name for future usage and reference" aria-label="Specify a target name for future usage and reference"></i></a>
-                                                        </div>
-                                                        <!--end::Menu item-->
-                                                        <!--begin::Menu item-->
-                                                        <div class="menu-item px-3">
-                                                            <a href="{{route('dex', [1,strtolower($general_data['name'])])}}" class="menu-link flex-stack px-3">
-                                                                <span class="symbol symbol-20px symbol-md-20px">
-                                                                    <img class="symbol symbol-20px" src="https://etherscan.io/images/ethereum-icon.png"/>
-                                                                </span>
-                                                                Ethereum
-                                                                <i class="fas fa-exclamation-circle ms-2 fs-7" data-bs-toggle="tooltip" title="" data-bs-original-title="Specify a target name for future usage and reference" aria-label="Specify a target name for future usage and reference"></i></a>
-                                                        </div>
-                                                        <!--end::Menu item-->
-                                                    </div>
-                                                    <!--end::Menu 3-->
-                                                </div>
-                                                <!--end::Menu-->
-                                            </div>
-                                            <!--end::Actions-->
                                         </div>
                                         <!--end::Head-->
                                         <!--begin::Info-->
@@ -150,58 +86,11 @@
 																	</svg>
 																</span>-->
                                                         <!--end::Svg Icon-->
-                                                        <div class="fs-4 fw-bolder" data-kt-countup="true" data-kt-countup-decimal-places="2" data-kt-countup-value="0" data-kt-countup-prefix="$">0</div>
+                                                        <div class="fs-4 fw-bolder" data-kt-countup="true" data-kt-countup-decimal-places="2" data-kt-countup-value="{{$value_balance}}" data-kt-countup-prefix="$">0</div>
                                                     </div>
                                                     <!--end::Number-->
                                                     <!--begin::Label-->
-                                                    <div class="fw-bold fs-6 text-gray-400">Total Liquidity</div>
-                                                    <!--end::Label-->
-                                                </div>
-                                                <!--end::Stat-->
-                                                <!--begin::Stat-->
-                                                <div class="border border-gray-300 border-dashed rounded min-w-125px py-3 px-4 me-6 mb-3">
-                                                    <!--begin::Number-->
-                                                    <div class="d-flex align-items-center">
-                                                        <!--begin::Svg Icon | path: icons/stockholm/Navigation/Arrow-up.svg-->
-                                                        <!--<span class="svg-icon svg-icon-3 svg-icon-success me-2">
-																	<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
-																		<g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-																			<polygon points="0 0 24 0 24 24 0 24" />
-																			<rect fill="#000000" opacity="0.5" x="11" y="5" width="2" height="14" rx="1" />
-																			<path d="M6.70710678,12.7071068 C6.31658249,13.0976311 5.68341751,13.0976311 5.29289322,12.7071068 C4.90236893,12.3165825 4.90236893,11.6834175 5.29289322,11.2928932 L11.2928932,5.29289322 C11.6714722,4.91431428 12.2810586,4.90106866 12.6757246,5.26284586 L18.6757246,10.7628459 C19.0828436,11.1360383 19.1103465,11.7686056 18.7371541,12.1757246 C18.3639617,12.5828436 17.7313944,12.6103465 17.3242754,12.2371541 L12.0300757,7.38413782 L6.70710678,12.7071068 Z" fill="#000000" fill-rule="nonzero" />
-																		</g>
-																	</svg>
-																</span>-->
-                                                        <!--end::Svg Icon-->
-                                                        <div class="fs-4 fw-bolder" data-kt-countup="true" data-kt-countup-decimal-places="2" data-kt-countup-value="0" data-kt-countup-prefix="$">0</div>
-                                                    </div>
-                                                    <!--end::Number-->
-                                                    <!--begin::Label-->
-                                                    <div class="fw-bold fs-6 text-gray-400">Volume (24h)</div>
-                                                    <!--end::Label-->
-                                                </div>
-                                                <!--end::Stat-->
-                                                <!--begin::Stat-->
-                                                <div class="border border-gray-300 border-dashed rounded min-w-125px py-3 px-4 me-6 mb-3">
-                                                    <!--begin::Number-->
-                                                    <div class="d-flex align-items-center">
-                                                        <div class="fs-4 fw-bolder" data-kt-countup="true" data-kt-countup-decimal-places="2" data-kt-countup-value="0" data-kt-countup-prefix="$"data-kt-countup-prefix="$">0</div>
-                                                    </div>
-                                                    <!--end::Number-->
-                                                    <!--begin::Label-->
-                                                    <div class="fw-bold fs-6 text-gray-400">Fee (24h)</div>
-                                                    <!--end::Label-->
-                                                </div>
-                                                <!--end::Stat-->
-                                                <!--begin::Stat-->
-                                                <div class="border border-gray-300 border-dashed rounded min-w-125px py-3 px-4 me-6 mb-3">
-                                                    <!--begin::Number-->
-                                                    <div class="d-flex align-items-center">
-                                                        <div class="fs-4 fw-bolder" data-kt-countup="true" data-kt-countup-value="0">0</div>
-                                                    </div>
-                                                    <!--end::Number-->
-                                                    <!--begin::Label-->
-                                                    <div class="fw-bold fs-6 text-gray-400">Total Transaction (24h)</div>
+                                                    <div class="fw-bold fs-6 text-gray-400">Total Value</div>
                                                     <!--end::Label-->
                                                 </div>
                                                 <!--end::Stat-->
@@ -222,11 +111,6 @@
                                         <!--begin::Nav item-->
                                         <li class="nav-item">
                                             <a class="nav-link text-active-primary me-6 active" href="#">Overview</a>
-                                        </li>
-                                        <!--end::Nav item-->
-                                        <!--begin::Nav item-->
-                                        <li class="nav-item">
-                                            <a class="nav-link text-active-primary me-6" href="{{route('dex_stats', [$general_data['network'], strtolower($general_data['name'])])}}">Stats</a>
                                         </li>
                                         <!--end::Nav item-->
                                     </ul>
@@ -1740,13 +1624,117 @@
                         </div>
                         <!--end::Modal - New Target-->
                         <!--end::Modals-->
+                        <!--begin::Row-->
+                        <div id="app" class="row g-6 g-xl-9">
+                            <!--begin::Col-->
+                            <div class="col-lg-6">
+                                <!--begin::Summary-->
+                                <div class="card card-flush h-lg-100">
+                                    <!--begin::Card header-->
+                                    <div class="card-header mt-6">
+                                        <!--begin::Card title-->
+                                        <div class="card-title flex-column">
+                                            <h3 class="fw-bolder mb-1">Top 5 balance</h3>
+                                            <div class="fs-6 fw-bold text-gray-400"></div>
+                                        </div>
+                                        <!--end::Card title-->
+                                    </div>
+                                    <!--end::Card header-->
+                                    <!--begin::Card body-->
+                                    <div class="card-body p-9 pt-5">
+                                        <!--begin::Wrapper-->
+                                        <div class="d-flex flex-wrap">
+                                            <!--begin::Chart-->
+                                            <div class="position-relative d-flex flex-center h-175px w-175px me-15 mb-7">
+                                                <div class="position-absolute translate-middle start-50 top-50 d-flex flex-column flex-center">
+                                                    <span class="fs-2qx fw-bolder"></span>
+                                                    <span class="fs-6 fw-bold text-gray-400"></span>
+                                                </div>
+                                                <canvas id="project_overview_chart"></canvas>
+                                            </div>
+                                            <!--end::Chart-->
+                                            <!--begin::Labels-->
+                                            <div class="d-flex flex-column justify-content-center flex-row-fluid pe-11 mb-5">
+                                                @foreach($top_5_balance as $key => $top_balance )
+                                                    <!--begin::Label-->
+                                                        <div class="d-flex fs-6 fw-bold align-items-center mb-3">
+                                                            <div class="bullet bg-success me-3" style="background-color:{{$top_5_color->get($key)}} !important"></div>
+                                                            <div class="text-gray-400">{{$top_balance}}</div>
+                                                            <div class="ms-auto fw-bolder text-gray-700">{{$top_5_balance_value->get($key)}}%</div>
+                                                        </div>
+                                                        <!--end::Label-->
+                                                @endforeach
+                                            </div>
+                                            <!--end::Labels-->
+                                        </div>
+                                        <!--end::Wrapper-->
+                                    </div>
+                                    <!--end::Card body-->
+                                </div>
+                                <!--end::Summary-->
+                            </div>
+                            <!--end::Col-->
+                            <!--begin::Col-->
+                            <div class="col-lg-6">
+                                <!--begin::Graph-->
+                                <div class="card card-flush h-lg-100">
+                                    <!--begin::Card header-->
+                                    <div class="card-header mt-6">
+                                        <!--begin::Card title-->
+                                        <div class="card-title flex-column">
+                                            <h3 class="fw-bolder mb-1">History</h3>
+                                            <!--begin::Labels-->
+                                            <div class="fs-6 d-flex text-gray-400 fs-6 fw-bold">
+                                                <!--begin::Label-->
+                                                <div class="d-flex align-items-center me-6">
+														<span class="menu-bullet d-flex align-items-center me-2">
+															<span class="bullet bg-primary"></span>
+														</span>Liquidity</div>
+                                                <!--end::Label-->
+                                                <!--begin::Label-->
+                                                <div class="d-flex align-items-center">
+														<span class="menu-bullet d-flex align-items-center me-2">
+															<span class="bullet bg-success"></span>
+														</span>Volume</div>
+                                                <!--end::Label-->
+                                            </div>
+                                            <!--end::Labels-->
+                                        </div>
+                                        <!--end::Card title-->
+                                        <!--begin::Card toolbar-->
+                                        <div class="card-toolbar">
+                                            <!--begin::Select-->
+                                            <select name="status" data-control="select2" data-hide-search="true" class="form-select form-select-solid form-select-sm fw-bolder w-100px">
+                                                <option value="1">2020 Q1</option>
+                                                <option value="2">2020 Q2</option>
+                                                <option value="3" selected="selected">2020 Q3</option>
+                                                <option value="4">2020 Q4</option>
+                                            </select>
+                                            <!--end::Select-->
+                                        </div>
+                                        <!--end::Card toolbar-->
+                                    </div>
+                                    <!--end::Card header-->
+                                    <!--begin::Card body-->
+                                    <div class="card-body pt-10 pb-0 px-5">
+                                        <!--begin::Chart-->
+                                        <div id="kt_project_overview_graph" class="card-rounded-bottom" style="height: 300px"></div>
+                                        <!--end::Chart-->
+                                    </div>
+                                    <!--end::Card body-->
+                                </div>
+                                <!--end::Graph-->
+                            </div>
+                            <!--end::Col-->
+                        </div>
+                        <!--end::Row-->
                         <!--begin::Table-->
                         <div class="card card-flush mt-6 mt-xl-9">
                             <!--begin::Card header-->
                             <div class="card-header mt-5">
                                 <!--begin::Card title-->
                                 <div class="card-title flex-column">
-                                    <h3 class="fw-bolder mb-1">Top 5 Pools</h3>
+                                    <h3 class="fw-bolder mb-1">Balance Assets</h3>
                                 </div>
                                 <!--begin::Card title-->
                             </div>
@@ -1761,17 +1749,15 @@
                                         <thead class="fs-7 text-gray-400 text-uppercase">
                                         <tr>
                                             <th class="min-w-250px">Name</th>
-                                            <th class="min-w-150px">Liquidity</th>
-                                            <th class="min-w-90px">Unique LP</th>
-                                            <th class="min-w-90px">Gas quote</th>
-                                            <th class="min-w-50px">APY</th>
-                                            <th class="min-w-50px text-end">Top trader</th>
+                                            <th class="min-w-150px">Balance</th>
+                                            <th class="min-w-90px">Quote Rate</th>
+                                            <th class="min-w-90px">Value</th>
                                         </tr>
                                         </thead>
                                         <!--end::Head-->
                                         <!--begin::Body-->
                                         <tbody class="fs-6">
-                                        @foreach ($hackthon_data->pools as $key => $pool)
+                                        @foreach ($balance_data as $asset)
                                             <tr>
                                                 <td>
                                                     <!--begin::User-->
@@ -1780,13 +1766,8 @@
                                                         <div class="me-5 position-relative">
                                                             <div class="symbol-group symbol-hover">
                                                                 <!--begin::User-->
-                                                                <div class="symbol symbol-35px symbol-circle" data-bs-toggle="tooltip" title="" :data-bs-original-title="{{$pool->token0->symbol?? "-"}}">
-                                                                    <img alt="Pic" src="https://tokens.1inch.exchange/{{$pool->token0->address?? "-"}}.png">
-                                                                </div>
-                                                                <!--begin::User-->
-                                                                <!--begin::User-->
-                                                                <div class="symbol symbol-35px symbol-circle" data-bs-toggle="tooltip" title="" :data-bs-original-title="{{$pool->token1->symbol?? "-"}}">
-                                                                    <img alt="Pic" src="https://tokens.1inch.exchange/{{$pool->token1->address?? "-"}}.png">
+                                                                <div class="symbol symbol-35px symbol-circle" data-bs-toggle="tooltip" title="" :data-bs-original-title="{{$asset['contract_ticker_symbol']}}">
+                                                                    <img alt="Pic" src="{{$asset['logo_url']}}">
                                                                 </div>
                                                                 <!--begin::User-->
                                                             </div>
@@ -1794,20 +1775,16 @@
                                                         <!--end::Wrapper-->
                                                         <!--begin::Info-->
                                                         <div class="d-flex flex-column justify-content-center">
-                                                            <a href="" class="fs-6 text-gray-800 text-hover-primary">{{$pool->token0->symbol?? "-"}} - {{$pool->token1->symbol?? "-"}}</a>
-                                                            <div class="fw-bold text-gray-400">{{$pool->token0->symbol?? "-"}} - {{$pool->token1->symbol?? "-"}}</div>
+                                                            <a href="" class="fs-6 text-gray-800 text-hover-primary">{{$asset['contract_ticker_symbol']}}</a>
+                                                            <div class="fw-bold text-gray-400">{{$asset['contract_name']}}</div>
                                                         </div>
                                                         <!--end::Info-->
                                                     </div>
                                                     <!--end::User-->
                                                 </td>
-                                                <td>{{new \Akaunting\Money\Money($pool->volumeUSD?? 0, new \Akaunting\Money\Currency('USD'), true)}}</td>
-                                                <td>{{$hackthon_data->usersByPools[$key]->uniqueLP}}</td>
-                                                <td>{{new \Akaunting\Money\Money($hackthon_data->usersByPools[$key]->gas_quote?? 0, new \Akaunting\Money\Currency('USD'), true)}}</td>
-                                                <td>{{$pool->apy}} %</td>
-                                                <td class="text-end">
-                                                    <a href="" class="btn btn-light btn-sm" data-bs-toggle="modal" data-bs-target="#kt_modal_top_volume_app_{{$pool->pair}}">View</a>
-                                                </td>
+                                                <td>{{number_format(($asset['balance'] * pow(10, -$asset['contract_decimals'])),2)}}</td>
+                                                <td>{{new \Akaunting\Money\Money(number_format($asset['quote_rate'],5), new \Akaunting\Money\Currency('USD'), true)}}</td>
+                                                <td>{{new \Akaunting\Money\Money(number_format($asset['quote'],5), new \Akaunting\Money\Currency('USD'), true)}}</td>
                                             </tr>
                                         @endforeach
                                         </tbody>
@@ -1825,117 +1802,6 @@
                 </div>
                 <!--end::Post-->
             </div>
-            <!--end::Content-->
-        @foreach ($hackthon_data->pools as $key => $pool)
-            <!--begin::Modal - Top Volume App-->
-                <div class="modal fade" id="kt_modal_top_volume_app_{{$pool->pair}}" tabindex="-1" aria-hidden="true">
-                    <!--begin::Modal dialog-->
-                    <div class="modal-dialog modal-dialog-centered mw-900px">
-                        <!--begin::Modal content-->
-                        <div class="modal-content">
-                            <!--begin::Modal header-->
-                            <div class="modal-header">
-                                <!--begin::Modal title-->
-                                <h2>Top trader {{$pool->token0->symbol}} - {{$pool->token1->symbol}}</h2>
-                                <!--end::Modal title-->
-                                <!--begin::Close-->
-                                <div class="btn btn-sm btn-icon btn-active-color-primary" data-bs-dismiss="modal">
-                                    <!--begin::Svg Icon | path: icons/stockholm/Navigation/Close.svg-->
-                                    <span class="svg-icon svg-icon-1">
-								<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
-									<g transform="translate(12.000000, 12.000000) rotate(-45.000000) translate(-12.000000, -12.000000) translate(4.000000, 4.000000)" fill="#000000">
-										<rect fill="#000000" x="0" y="7" width="16" height="2" rx="1" />
-										<rect fill="#000000" opacity="0.5" transform="translate(8.000000, 8.000000) rotate(-270.000000) translate(-8.000000, -8.000000)" x="0" y="7" width="16" height="2" rx="1" />
-									</g>
-								</svg>
-							</span>
-                                    <!--end::Svg Icon-->
-                                </div>
-                                <!--end::Close-->
-                            </div>
-                            <!--end::Modal header-->
-                            <!--begin::Modal body-->
-                            <div class="modal-body py-lg-10 px-lg-10">
-                                <div class="" id="kt_modal_create_app_stepper">
-                                    <!--begin::Aside-->
-                                    <!--begin::Content-->
-                                    <div class="card card-xxl-stretch mb-5 mb-xxl-8">
-                                        <!--begin::Body-->
-                                        <div class="card-body py-3">
-                                            <div class="tab-content">
-                                                <!--begin::Tap pane-->
-                                                <div class="tab-pane fade show active" id="kt_table_widget_5_tab_1">
-                                                    <!--begin::Table container-->
-                                                    <div class="table-responsive">
-                                                        <!--begin::Table-->
-                                                        <table class="table table-row-dashed table-row-gray-200 align-middle gs-0 gy-4">
-                                                            <!--begin::Table head-->
-                                                            <thead>
-                                                            <tr class="border-0">
-                                                                <th class="p-0 w-50px"></th>
-                                                                <th class="p-0 min-w-100px"></th>
-                                                                <th class="p-0 min-w-110px"></th>
-                                                                <th class="p-0 min-w-50px"></th>
-                                                            </tr>
-                                                            </thead>
-                                                            <!--end::Table head-->
-                                                            <!--begin::Table body-->
-                                                            <tbody>
-
-                                                            @foreach($hackthon_data->usersByPools[$key]->user as $key => $user)
-                                                                <tr>
-                                                                    <td>
-                                                                        <div class="symbol symbol-45px me-2">
-																				<span class="symbol-label">
-																					{{$key+1}}
-																				</span>
-                                                                        </div>
-                                                                    </td>
-                                                                    <td>
-                                                                        <a href="#" class="text-dark fw-bolder text-hover-primary mb-1 fs-6">{{$user->address}}</a>
-                                                                    </td>
-                                                                    <td class="">
-                                                                        <span class="badge badge-light-success">{{new \Akaunting\Money\Money($user->price?? 0, new \Akaunting\Money\Currency('USD'), true)}}</span>
-                                                                    </td>
-                                                                    <td class="text-end">
-                                                                        <a href="{{route('profile', [$general_data['network'],$user->address])}}" target="_blank" class="btn btn-sm btn-icon btn-bg-light btn-active-color-primary">
-                                                                            <!--begin::Svg Icon | path: icons/duotone/Navigation/Arrow-right.svg-->
-                                                                            <span class="svg-icon svg-icon-2">
-																					<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
-																						<g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-																							<polygon points="0 0 24 0 24 24 0 24"></polygon>
-																							<rect fill="#000000" opacity="0.5" transform="translate(12.000000, 12.000000) rotate(-90.000000) translate(-12.000000, -12.000000)" x="11" y="5" width="2" height="14" rx="1"></rect>
-																							<path d="M9.70710318,15.7071045 C9.31657888,16.0976288 8.68341391,16.0976288 8.29288961,15.7071045 C7.90236532,15.3165802 7.90236532,14.6834152 8.29288961,14.2928909 L14.2928896,8.29289093 C14.6714686,7.914312 15.281055,7.90106637 15.675721,8.26284357 L21.675721,13.7628436 C22.08284,14.136036 22.1103429,14.7686034 21.7371505,15.1757223 C21.3639581,15.5828413 20.7313908,15.6103443 20.3242718,15.2371519 L15.0300721,10.3841355 L9.70710318,15.7071045 Z" fill="#000000" fill-rule="nonzero" transform="translate(14.999999, 11.999997) scale(1, -1) rotate(90.000000) translate(-14.999999, -11.999997)"></path>
-																						</g>
-																					</svg>
-																				</span>
-                                                                            <!--end::Svg Icon-->
-                                                                        </a>
-                                                                    </td>
-                                                                </tr>
-                                                            @endforeach
-                                                            </tbody>
-                                                            <!--end::Table body-->
-                                                        </table>
-                                                    </div>
-                                                    <!--end::Table-->
-                                                </div>
-                                                <!--end::Tap pane-->
-                                            </div>
-                                        </div>
-                                        <!--end::Body-->
-                                    </div>
-                                    <!--end::Content-->
-                                </div>
-                            </div>
-                            <!--end::Modal body-->
-                        </div>
-                        <!--end::Modal content-->
-                    </div>
-                    <!--end::Modal dialog-->
-                </div>
-                <!--end::Modal - Top Volume App-->
-            @endforeach
         </div>
         <!--end::Wrapper-->
     </div>
@@ -5066,15 +4932,14 @@
             if (!element) {
                 return;
             }
-
             var config = {
                 type: 'doughnut',
                 data: {
                     datasets: [{
-                        data: [0, 0],
-                        backgroundColor: ['#50CD89', '#F1416C']
+                        data: @json($top_5_balance_value),
+                        backgroundColor: @json($top_5_color)
                     }],
-                    labels: ['Active', 'Empty']
+                    labels: @json($top_5_balance)
                 },
                 options: {
                     chart: {

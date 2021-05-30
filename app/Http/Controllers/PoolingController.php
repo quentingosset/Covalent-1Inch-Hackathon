@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+use Akaunting\Money\Money;
 use App\Models\Hackhaton;
 use App\Models\Pool;
 use App\Models\PoolContract;
@@ -317,13 +318,30 @@ dd($pools);
     public function hackathon(Request $request, $network, $dex){
         $general_data = ["all_network" => [1 => ["network" => 1, "name" => "Ethereum", "logo_url" => "https://etherscan.io/images/ethereum-icon.png"],56 => ["network" => 56, "name" => "Binance Smart Chain", "logo_url" => "https://etherscan.io/images/brands/bscscan-logo.png"]]];
         $general_data = array_merge($general_data, ["name" => "1Inch", "description" => "DeFi / DEX aggregator on Ethereum & Binance Smart Chain","icon" => "https://www.crypto-nation.io/cn-files/uploads/2021/01/1inch-Logo.png", "network" => $network]);
-        return view('hackathon/general', ['general_data' => $general_data]);
+        $general_data = array_merge($general_data, ["warning" => [56 => "The 5 pool addresses analyzed are taken from https://governance.1inch.exchange/v1.2/56/protocol/pairs.On the BSC the data returned by the endpoint seems not to be up to date"]]);
+        $hackthon_data = Hackhaton::whereDate('created_at', '=', Carbon::today()->toDateTimeString())->get()->where('network', '==', $network)->where('challenge', '==', 2)->last()->toArray();
+        return view('hackathon/general', ['general_data' => $general_data, 'hackthon_data' => json_decode($hackthon_data['data'])]);
+    }
+
+    public function hackathon_profile(Request $request, $network, $address){
+        $balance = collect(Http::withOptions(['verify' => false])->get('https://api.covalenthq.com/v1/'.$network.'/address/'.$address.'/balances_v2/?no-nft-fetch=true')['data']['items']);
+
+        $general_data = ["all_network" => [1 => ["network" => 1, "name" => "Ethereum", "logo_url" => "https://etherscan.io/images/ethereum-icon.png"],56 => ["network" => 56, "name" => "Binance Smart Chain", "logo_url" => "https://etherscan.io/images/brands/bscscan-logo.png"]]];
+        //$general_data = array_merge($general_data, ["name" => "1Inch", "description" => "DeFi / DEX aggregator on Ethereum & Binance Smart Chain","icon" => "https://www.crypto-nation.io/cn-files/uploads/2021/01/1inch-Logo.png", "network" => $network]);
+        $value_balance=0;
+        foreach ($balance->toArray() as $asset){
+            $value_balance += $asset['quote'];
+        }
+        //dd($balance->map(function($asset) use ($value_balance) {return ($asset['quote']/$value_balance)*100;}));
+        //dd($balance->map(function($asset){return sprintf('#%06X', mt_rand(0, 0xFFFFFF));})->slice(0,5));
+        $general_data = array_merge($general_data, ["address" => $address, "network" => $network]);
+        return view('hackathon/profile', ['general_data' => $general_data, 'balance_data' => $balance, 'value_balance' => $value_balance, 'top_5_balance' => $balance->map(function($asset){return $asset['contract_name'];})->slice(0,5),'top_5_balance_value' => $balance->map(function($asset) use ($value_balance) {return (($asset['quote']/$value_balance)*100 > 1 )? ($asset['quote']/$value_balance)*100 : 1;})->slice(0,5),'top_5_color' => $balance->map(function($asset){return sprintf('#%06X', mt_rand(0, 0xFFFFFF));})->slice(0,5)]);
     }
 
     public function hackathon_stats(Request $request, $network, $dex){
         $general_data = ["all_network" => [1 => ["network" => 1, "name" => "Ethereum", "logo_url" => "https://etherscan.io/images/ethereum-icon.png"],56 => ["network" => 56, "name" => "Binance Smart Chain", "logo_url" => "https://etherscan.io/images/brands/bscscan-logo.png"]]];
         $general_data = array_merge($general_data, ["name" => "1Inch", "description" => "DeFi / DEX aggregator on Ethereum & Binance Smart Chain","icon" => "https://www.crypto-nation.io/cn-files/uploads/2021/01/1inch-Logo.png", "network" => $network]);
-        $hackthon_data = Hackhaton::whereDate('created_at', '=', Carbon::today()->toDateTimeString())->get()->where('network', '==', $network)->last()->toArray();
+        $hackthon_data = Hackhaton::whereDate('created_at', '=', Carbon::today()->toDateTimeString())->get()->where('network', '==', $network)->where('challenge', '==', 1)->last()->toArray();
         $hackhaton_data_yesterday = Hackhaton::whereDate('created_at', '=', Carbon::yesterday()->toDateTimeString())->get()->where('network', '==', $network)->last()->toArray();
         //dd($hackthon_data,$hackhaton_data_yesterday);
         //dd($hackhaton_data_yesterday);

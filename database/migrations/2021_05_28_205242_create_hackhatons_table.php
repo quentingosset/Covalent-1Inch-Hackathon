@@ -15,6 +15,7 @@ class CreateHackhatonsTable extends Migration
     {
         Schema::create('hackhatons', function (Blueprint $table) {
             $table->id();
+            $table->integer('challenge');
             $table->json('data');
             $table->integer('network');
             $table->timestamps();

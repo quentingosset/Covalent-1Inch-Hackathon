@@ -27,4 +27,5 @@ Route::get('{dex}/pools', [PoolingController::class, 'dex_pools'])->name('dex_po
 
 
 Route::get('/{network}/{dex}', [PoolingController::class, 'hackathon'])->name('dex');
+Route::get('/{network}/profile/{address}', [PoolingController::class, 'hackathon_profile'])->name('profile');
 Route::get('/{network}/{dex}/stats', [PoolingController::class, 'hackathon_stats'])->name('dex_stats');
