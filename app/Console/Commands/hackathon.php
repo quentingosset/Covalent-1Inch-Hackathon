@@ -43,25 +43,25 @@ class hackathon extends Command
      */
     public function handle()
     {
-        $contents = Storage::get('DnD1INCHAPI/challenge1_eth_data.json');
+        $contents = Storage::get('public/DnD1INCHAPI/challenge1_eth_data.json');
         Hackhaton::create([
             'challenge' => 1,
             'data' => $contents,
             'network' => 1
         ]);
-        $contents = Storage::get('DnD1INCHAPI/challenge1_bsc_data.json');
+        $contents = Storage::get('public/DnD1INCHAPI/challenge1_bsc_data.json');
         Hackhaton::create([
             'challenge' => 1,
             'data' => $contents,
             'network' => 56
         ]);
-        $contents = Storage::get('DnD1INCHAPI/challenge2_eth_data.json');
+        $contents = Storage::get('public/DnD1INCHAPI/challenge2_eth_data.json');
         Hackhaton::create([
             'challenge' => 2,
             'data' => $contents,
             'network' => 1
         ]);
-        $contents = Storage::get('DnD1INCHAPI/challenge2_eth_data.json');
+        $contents = Storage::get('public/DnD1INCHAPI/challenge2_eth_data.json');
         Hackhaton::create([
             'challenge' => 2,
             'data' => $contents,
