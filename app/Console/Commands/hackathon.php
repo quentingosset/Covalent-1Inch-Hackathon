@@ -61,7 +61,7 @@ class hackathon extends Command
             'data' => $contents,
             'network' => 1
         ]);
-        $contents = Storage::get('public/DnD1INCHAPI/challenge2_eth_data.json');
+        $contents = Storage::get('public/DnD1INCHAPI/challenge2_bsc_data.json');
         Hackhaton::create([
             'challenge' => 2,
             'data' => $contents,
