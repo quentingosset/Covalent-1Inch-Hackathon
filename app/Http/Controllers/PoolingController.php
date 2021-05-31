@@ -317,7 +317,7 @@ dd($pools);
 
     public function hackathon(Request $request, $network, $dex){
         $general_data = ["all_network" => [1 => ["network" => 1, "name" => "Ethereum", "logo_url" => "https://etherscan.io/images/ethereum-icon.png"],56 => ["network" => 56, "name" => "Binance Smart Chain", "logo_url" => "https://etherscan.io/images/brands/bscscan-logo.png"]]];
-        $general_data = array_merge($general_data, ["name" => "1Inch", "description" => "DeFi / DEX aggregator on Ethereum & Binance Smart Chain","icon" => "https://www.crypto-nation.io/cn-files/uploads/2021/01/1inch-Logo.png", "network" => $network]);
+        $general_data = array_merge($general_data, ["dex" => $dex, "name" => "1Inch", "description" => "DeFi / DEX aggregator on Ethereum & Binance Smart Chain","icon" => "https://www.crypto-nation.io/cn-files/uploads/2021/01/1inch-Logo.png", "network" => $network]);
         $general_data = array_merge($general_data, ["warning" => [56 => "The 5 pool addresses analyzed are taken from https://governance.1inch.exchange/v1.2/56/protocol/pairs.On the BSC the data returned by the endpoint seems not to be up to date"]]);
         $hackthon_data = Hackhaton::whereDate('created_at', '=', Carbon::today()->toDateTimeString())->get()->where('network', '==', $network)->where('challenge', '==', 2)->last()->toArray();
         return view('hackathon/general', ['general_data' => $general_data, 'hackthon_data' => json_decode($hackthon_data['data'])]);

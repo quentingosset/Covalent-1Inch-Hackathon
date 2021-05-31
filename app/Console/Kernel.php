@@ -2,6 +2,7 @@
 
 namespace App\Console;
 
+use App\Console\Commands\hackathon;
 use App\Console\Commands\searchPools;
 use App\Console\Commands\searchTokens;
 use App\Console\Commands\updatePoolsData;
@@ -18,7 +19,8 @@ class Kernel extends ConsoleKernel
     protected $commands = [
         searchPools::class,
         searchTokens::class,
-        updatePoolsData::class
+        updatePoolsData::class,
+        hackathon::class,
     ];
 
     /**
