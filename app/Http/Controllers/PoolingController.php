@@ -342,7 +342,7 @@ dd($pools);
         $general_data = ["all_network" => [1 => ["network" => 1, "name" => "Ethereum", "logo_url" => "https://etherscan.io/images/ethereum-icon.png"],56 => ["network" => 56, "name" => "Binance Smart Chain", "logo_url" => "https://etherscan.io/images/brands/bscscan-logo.png"]]];
         $general_data = array_merge($general_data, ["name" => "1Inch", "description" => "DeFi / DEX aggregator on Ethereum & Binance Smart Chain","icon" => "https://www.crypto-nation.io/cn-files/uploads/2021/01/1inch-Logo.png", "network" => $network]);
         $hackthon_data = Hackhaton::whereDate('created_at', '=', Carbon::today()->toDateTimeString())->get()->where('network', '==', $network)->where('challenge', '==', 1)->last()->toArray();
-        $hackhaton_data_yesterday = Hackhaton::whereDate('created_at', '=', Carbon::yesterday()->toDateTimeString())->get()->where('network', '==', $network)->last()->toArray();
+        $hackhaton_data_yesterday = Hackhaton::whereDate('created_at', '=', Carbon::yesterday()->toDateTimeString())->get()->where('network', '==', $network)->where('challenge', '==', 1)->last()->toArray();
         //dd($hackthon_data,$hackhaton_data_yesterday);
         //dd($hackhaton_data_yesterday);
         return view('hackathon/stats', ['general_data' => $general_data, 'hackthon_data' => json_decode($hackthon_data['data']), 'hackthon_data_yesterday' => json_decode($hackhaton_data_yesterday['data'])]);
