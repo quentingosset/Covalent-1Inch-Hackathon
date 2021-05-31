@@ -18,11 +18,11 @@ Route::get('/', function (){
     return view('welcome');
 });
 
-Route::get('/', [PoolingController::class, 'assetsAllPools']);
+//Route::get('/', [PoolingController::class, 'assetsAllPools']);
 //Route::get('/{network}/{dex}', [PoolingController::class, 'dex'])->name('dex');
 //Route::get('/{network}/{dex}/stats', [PoolingController::class, 'dex'])->name('dex_stats');
-Route::get('{dex}/pool/{pool_contract}', [PoolingController::class, 'poolDetails'])->name('pool_detail');
-Route::get('{dex}/pools', [PoolingController::class, 'dex_pools'])->name('dex_pools');
+//Route::get('{dex}/pool/{pool_contract}', [PoolingController::class, 'poolDetails'])->name('pool_detail');
+//Route::get('{dex}/pools', [PoolingController::class, 'dex_pools'])->name('dex_pools');
 
 
 
