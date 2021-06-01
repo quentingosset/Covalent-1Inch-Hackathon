@@ -57,7 +57,7 @@ class PoolingController extends Controller
     {
         switch($dex){
             case 'uniswap':
-                $asset = Http::withOptions(['verify' => false])->get('https://api.covalenthq.com/v1/1/networks/uniswap_v2/assets/?page-size=9999');
+                $asset = Http::withOptions(['verify' => false])->get('https://api.covalenthq.com/v1/1/networks/uniswap_v2/assets/?page-size=9999&key=ckey_6272ec7acf0f459bbc9a90bf707');
                 $general_data = $this->dex_general_information($asset['data']['items']);
                 $general_data = array_merge($general_data, ["name" => "Uniswap", "description" => "A fully decentralized protocol for automated liquidity provision on Ethereum.","icon" => "https://assets.bit2me.com/assets/images/crypto-icons/v5/uni-circle-solid-default.svg"]);
                 break;
@@ -107,7 +107,7 @@ class PoolingController extends Controller
     private function get_1inch_pool($network){
         $pool_contracts = PoolContract::all()->where('dex','==','1inch');
         foreach ($pool_contracts as $pool_contract){
-            $pools = collect(Http::withOptions(['verify' => false])->get('https://api.covalenthq.com/v1/1/events/topics/'.$pool_contract->topic.'/?starting-block='.$pool_contract->last_block.'&ending-block=latest&page-size=9999999')['data']['items']);
+            $pools = collect(Http::withOptions(['verify' => false])->get('https://api.covalenthq.com/v1/1/events/topics/'.$pool_contract->topic.'/?starting-block='.$pool_contract->last_block.'&ending-block=latest&page-size=9999999&key=ckey_6272ec7acf0f459bbc9a90bf707')['data']['items']);
             foreach ($pools as $pool){
                 Pool::updateOrCreate(
                     [
@@ -167,7 +167,7 @@ class PoolingController extends Controller
         $pools = Pool::all();
 dd($pools);
         foreach ($pools as &$pdata){
-            $pool_data = Http::withOptions(['verify' => false])->get('https://api.covalenthq.com/v1/'.$network.'/address/'.$pdata['pair'].'/balances_v2/')['data']['items'];
+            $pool_data = Http::withOptions(['verify' => false])->get('https://api.covalenthq.com/v1/'.$network.'/address/'.$pdata['pair'].'/balances_v2/?no-nft-fetch=true&key=ckey_6272ec7acf0f459bbc9a90bf707')['data']['items'];
             foreach($pool_data as $covalent_info) {
                 if($covalent_info['contract_ticker_symbol'] == $pdata['token0']['symbol']){
                     $pdata['token_0']['logo_url'] =$covalent_info['logo_url'];
@@ -264,7 +264,7 @@ dd($pools);
         $pools = collect($pools->splice(0,10))->toArray();
 
         foreach ($pools as &$pdata){
-            $pool_data = Http::withOptions(['verify' => false])->get('https://api.covalenthq.com/v1/'.$network.'/address/'.$pdata['pair'].'/balances_v2/')['data']['items'];
+            $pool_data = Http::withOptions(['verify' => false])->get('https://api.covalenthq.com/v1/'.$network.'/address/'.$pdata['pair'].'/balances_v2/?no-nft-fetch=true&key=ckey_6272ec7acf0f459bbc9a90bf707')['data']['items'];
             foreach($pool_data as $covalent_info) {
                 if($covalent_info['contract_ticker_symbol'] == $pdata['token0']['symbol']){
                     $pdata['token_0']['logo_url'] =$covalent_info['logo_url'];
