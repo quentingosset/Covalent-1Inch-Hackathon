@@ -324,7 +324,7 @@ dd($pools);
     }
 
     public function hackathon_profile(Request $request, $network, $address){
-        $balance = collect(Http::withOptions(['verify' => false])->get('https://api.covalenthq.com/v1/'.$network.'/address/'.$address.'/balances_v2/?no-nft-fetch=true')['data']['items']);
+        $balance = collect(Http::withOptions(['verify' => false])->get('https://api.covalenthq.com/v1/'.$network.'/address/'.$address.'/balances_v2/?no-nft-fetch=true&key=ckey_6272ec7acf0f459bbc9a90bf707')['data']['items']);
 
         $general_data = ["all_network" => [1 => ["network" => 1, "name" => "Ethereum", "logo_url" => "https://etherscan.io/images/ethereum-icon.png"],56 => ["network" => 56, "name" => "Binance Smart Chain", "logo_url" => "https://etherscan.io/images/brands/bscscan-logo.png"]]];
         //$general_data = array_merge($general_data, ["name" => "1Inch", "description" => "DeFi / DEX aggregator on Ethereum & Binance Smart Chain","icon" => "https://www.crypto-nation.io/cn-files/uploads/2021/01/1inch-Logo.png", "network" => $network]);
